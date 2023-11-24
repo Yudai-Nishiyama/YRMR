@@ -7,7 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+<<<<<<< HEAD
+    <title>{{ config('app.name', 'Laravel') }}</title>
+=======
     <title>{{ config('app.name') }}| @yield('title')</title>
+>>>>>>> 5839bfd9a9168ca357b40cb65765c31d80c33eee
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -15,6 +19,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+<<<<<<< HEAD
+=======
 
     {{-- font awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -91,13 +97,25 @@
 
 
     </style>
+>>>>>>> 5839bfd9a9168ca357b40cb65765c31d80c33eee
 </head>
 <body>
     <div id="app">
+<<<<<<< HEAD
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <img src="/images/logo.jpeg" alt="Logo">
+=======
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+<<<<<<< HEAD
+                    {{ config('app.name', 'Laravel') }}
+=======
+                    {{ config('app.name', 'MRYR') }}
+>>>>>>> 5839bfd9a9168ca357b40cb65765c31d80c33eee
+>>>>>>> 7fd716e6aba726d4cc782f85ef29119adc136b62
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
