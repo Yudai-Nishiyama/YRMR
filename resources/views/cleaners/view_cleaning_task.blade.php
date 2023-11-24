@@ -5,8 +5,8 @@
 @section('content')
 
 <div class="container">
-    <div class="card">
-        <div class="card-header" style="background-color: #2C462B">
+    <div class="card" style="border:none;">
+        <div class="card-header" style="background-color: #2C462B; border-radius:25px 25px 0px 0px;">
             <div class="row">
                 <div class="col">
                     <h2 style="color:#F4BB4B" class="fw-bold">Cleaner View Task</h2>
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="cleaner-view-task card-body justify-content-center">
+        <div class="cleaner-view-task card-body justify-content-center border">
             <div class="row mt-5">
                 {{-- first row left --}}
                 <div class="col">
@@ -146,7 +146,7 @@
             </div>
         </div>
 
-        <div class="card-footer" style="background-color: #2C462B">
+        <div class="card-footer" style="background-color: #2C462B; border-radius:0px 0px 25px 25px;">
             <br>
         </div>
     </div>

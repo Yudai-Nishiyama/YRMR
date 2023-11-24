@@ -46,6 +46,28 @@
         p.cleaning-task-list{
             font-weight: bold
         }
+
+        /* .cleaner-page{
+            width: 25rem
+        } */
+
+        .cleaner-page p{
+            font-size: 32px;
+        }
+
+        .cleaner-page-button{
+            border: 12px solid #2C462B;
+            background-color: #448A47;
+            height: 25rem;
+            border-radius: 25px;
+            width:25rem;
+        }
+
+        .img-md{
+            height: 258px;
+            width: 237px;
+        }
+
     </style>
 </head>
 <body>

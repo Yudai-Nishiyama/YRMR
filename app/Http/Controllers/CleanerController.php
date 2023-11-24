@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class CleanerController extends Controller
 {
 
-    public function showTask()
+    public function showCleaningTask()
     {
         return view('cleaners.view_cleaning_task');
     }

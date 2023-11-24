@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CleanerController;
+use App\Http\Controllers\Admin\CleanersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,6 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/cleaner/cleaning_task', [CleanerController::class, 'showTask'])->name('showTask');
+Route::get('/cleaner/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');
+
+Route::get('/admin/cleaner/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');
