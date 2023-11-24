@@ -7,7 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+<<<<<<< HEAD
     <title>{{ config('app.name', 'Laravel') }}</title>
+=======
+    <title>{{ config('app.name') }}| @yield('title')</title>
+>>>>>>> 5839bfd9a9168ca357b40cb65765c31d80c33eee
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -15,13 +19,74 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+<<<<<<< HEAD
+=======
+
+    {{-- font awesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    {{-- font Bona Nova and Raleway --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+    <style>
+        /* *{
+            border:1px solid blue;
+        } */
+        h1,h2,h3,h4,h5,h6{
+            font-family: 'Bona Nova', serif;
+            font-weight: bold
+        }
+
+        p,form{
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .cleaner-view-task p{
+            font-size: 32px;
+        }
+
+        p.cleaning-task-list{
+            font-weight: bold
+        }
+
+        /* .cleaner-page{
+            width: 25rem
+        } */
+
+        .cleaner-page p{
+            font-size: 32px;
+        }
+
+        .cleaner-page-button{
+            border: 12px solid #2C462B;
+            background-color: #448A47;
+            height: 25rem;
+            border-radius: 25px;
+            width:25rem;
+        }
+
+        .img-md{
+            height: 258px;
+            width: 237px;
+        }
+
+    </style>
+>>>>>>> 5839bfd9a9168ca357b40cb65765c31d80c33eee
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+<<<<<<< HEAD
                     {{ config('app.name', 'Laravel') }}
+=======
+                    {{ config('app.name', 'MRYR') }}
+>>>>>>> 5839bfd9a9168ca357b40cb65765c31d80c33eee
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
