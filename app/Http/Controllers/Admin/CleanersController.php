@@ -11,4 +11,11 @@ class CleanersController extends Controller
     {
         return view('admins.cleaners.cleaners_page');
     }
+
+    public function showCleaningProgressPage()
+    {
+        return view('admins.cleaners.cleaning_progress_page');
+    }
+
 }
+

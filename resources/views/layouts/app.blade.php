@@ -30,6 +30,7 @@
         /* *{
             border:1px solid blue;
         } */
+
         h1,h2,h3,h4,h5,h6{
             font-family: 'Bona Nova', serif;
             font-weight: bold
@@ -68,14 +69,35 @@
             width: 237px;
         }
 
+        .progress_bar_table .col{
+            height: 1rem;
+            width: 1rem;
+            border:1px solid black;
+        }
+
+        select.classic {
+            background-image:
+                linear-gradient(to right, transparent 50%, skyblue 50%),
+                linear-gradient(to right, transparent 50%, skyblue 50%);
+            background-position:
+                calc(100% - 0px) calc(100% - 10px),  /* 右端からの位置を調整 */
+                calc(100% - 0px) calc(100% - 10px); /* 右端からの位置を調整 */
+            background-size:
+                30px 10px,
+                20px 20px;
+            background-repeat: no-repeat;
+        }
+
+
+
     </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'MRYR') }}
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                    <img src="/images/logo.jpeg" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -103,22 +125,22 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
+                            </li>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </li>
                         @endguest
                     </ul>
