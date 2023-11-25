@@ -31,15 +31,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <form action="#" method="POST">
-                                @csrf
-                                <select class="classic" name="" onchange="this.form.submit()"> {{-- submit form without submit button --}}
-                                    <option selected value="id_of_non_selected">Choose a cleaner</option>
-                                    <option value="id_of_cleaner">cleaner A</option>
-                                    <option value="id">B</option>
-                                    <option value="id">C</option>
-                                  </select>
-                            </form>
+                            Cleaner A
                         </td>
                         <td>101</td>
                         <td>Double bed</td>
@@ -60,7 +52,7 @@
                         <td style="color: #F4BB4B">Cleaning</td>
                         <td>10:00</td>
                         <td>
-                            <a href="#" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Check Progress</a>
+                            <a href="#" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">View Task</a>
                         </td>
                     </tr>
                 </tbody>
