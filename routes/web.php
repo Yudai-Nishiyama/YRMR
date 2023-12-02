@@ -19,7 +19,8 @@ use App\Http\Controllers\Admin\CleanersController;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/guest/guest_reservation_management_page', [App\Http\Controllers\HomeController::class, 'GuestReservationManagementPage'])->name('GuestReservationManagementPage');
+Route::get('/guest/guest_reservation_management_page', [App\Http\Controllers\HomeController::class, 'GuestReservationManagementPage'])->name('GuestReservationManagement');
+Route::get('/guest/guest_profile_page', [App\Http\Controllers\HomeController::class, 'GuestProfilePage'])->name('GuestProfilePage');
 
 
 Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'showCalendar'])->name('showCalendar');

@@ -33,4 +33,9 @@ class HomeController extends Controller
         return view('admins.guests.guest_reservation_management');
     }
 
+    public function GuestProfilePage()
+    {
+        return view('admins.guests.guest_profile');
+    }
+
 }
