@@ -12,7 +12,7 @@
                     <h2 style="color:#F4BB4B" class="fw-bold">Cleaner View Task</h2>
                 </div>
                 <div class="col d-flex align-items-center justify-content-end">
-                    <a href="#" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Back to Cleaning Progress</a>
+                    <a href="{{ route('showCleaningProgressPage') }}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Back to Cleaning Progress</a>
                 </div>
             </div>
         </div>

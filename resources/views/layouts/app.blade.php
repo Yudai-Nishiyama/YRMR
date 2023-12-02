@@ -127,25 +127,61 @@
         .table td{
             padding: 15px;
         }
+        /* navbar*/
+        .navbar {
+          background-color: #2C462B;
+          font-family: 'Bona Nova', sans-serif;
+        }
+    
+        .navbar-brand img {
+          height: 94px;
+          width: auto; 
+        }
+    
+        .admin-panel {
+          color: #F6C464;
+          font-weight: bold;
+          font-size: 48px
+        }
+    
+        .username {
+          color: #fff;
+          font-size: 27px;
+          font-weight: bolder;
+          font-family: 'Raleway', sans-serif;
+        }
+
+        .logout {
+          color: #F4924B;
+          font-size: 24px;
+      }
+        /* navbar end*/
 
     </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        {{-- <nav class="navbar navbar-expand-md navbar-light shadow-sm"> --}}
+            <nav class="navbar navbar-expand-md shadow-sm navbar-dark">
+            {{-- <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'MRYR') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> --}}
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center me-5" href="{{ url('/') }}">
+                        <img src="/images/logo.jpeg" alt="Logo">
+                    </a>
+        
+                      <span class="admin-panel me-auto h2 mb-0">Admin Panel</span>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="myNavbar">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    {{-- <ul class="navbar-nav me-auto">
 
-                    </ul>
+                    </ul> --}}
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -164,13 +200,15 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{-- <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
-                                </a>
+                                </a> --}}
+                                <span class="username d-block mt-2 me-5">{{"Hi ". Auth::user()->name."!" }}</span>
+
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}"
+                                <a class="nav-link logout ms-4 me-4" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
