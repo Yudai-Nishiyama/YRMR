@@ -3,35 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-<<<<<<< HEAD
-    <title>{{ config('app.name', 'Laravel') }}</title>
-=======
     <title>{{ config('app.name') }}| @yield('title')</title>
->>>>>>> 5839bfd9a9168ca357b40cb65765c31d80c33eee
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    {{-- custom --}}
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-<<<<<<< HEAD
-=======
-
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     {{-- font awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
     {{-- font Bona Nova and Raleway --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-
-
-
     <style>
         /* *{
             border:1px solid blue;
@@ -40,27 +29,21 @@
             font-family: 'Bona Nova', serif;
             font-weight: bold
         }
-
         p,form{
             font-family: 'Raleway', sans-serif;
         }
-
         .cleaner-view-task p{
             font-size: 32px;
         }
-
         p.cleaning-task-list{
             font-weight: bold
         }
-
         /* .cleaner-page{
             width: 25rem
         } */
-
         .cleaner-page p{
             font-size: 32px;
         }
-
         .cleaner-page-button{
             border: 12px solid #2C462B;
             background-color: #448A47;
@@ -68,36 +51,78 @@
             border-radius: 25px;
             width:25rem;
         }
-
         .img-md{
             height: 258px;
             width: 237px;
         }
-
+        .progress_bar_table .col{
+            height: 1rem;
+            width: 1rem;
+            border:1px solid black;
+        }
+        select.classic {
+            background-image:
+                /* linear-gradient(to top, transparent 50%, skyblue 50%), */
+                linear-gradient(to right, transparent 50%, #448A47 50%);
+            background-position:
+                105px,
+                105px;
+            background-size:
+                35px;
+            background-repeat: no-repeat;
+            border:1px solid #448A47;
+            border-radius: 5px;
+        }
+        .modal-dialog{
+            background-color: #FFFFFF
+        }
+        .modal-dialog p{
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .modal-body img{
+            width:50px;
+            height:50px;
+        }
+        .navbar {
+          background-color: #2C462B;
+          font-family: 'Bona Nova', sans-serif;
+        }
+        .navbar-brand img {
+          height: 94px;
+          width: auto;
+        }
+        .admin-panel {
+          color: #F6C464;
+          font-weight: bold;
+          font-size: 48px
+        }
+        .username {
+          color: #fff;
+          font-size: 27px;
+          font-weight: bolder;
+          font-family: 'Raleway', sans-serif;
+        }
+        .logout {
+          color: #F4924B;
+          font-size: 24px;
+      }
     </style>
->>>>>>> 5839bfd9a9168ca357b40cb65765c31d80c33eee
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-<<<<<<< HEAD
-                    {{ config('app.name', 'Laravel') }}
-=======
                     {{ config('app.name', 'MRYR') }}
->>>>>>> 5839bfd9a9168ca357b40cb65765c31d80c33eee
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -107,36 +132,51 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </li>
                         @endguest
                     </ul>
                 </div>
             </div>
+        </nav> --}}
+        <nav class="navbar navbar-expand-md shadow-sm navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center me-5" href="{{ url('/') }}">
+                    <img src="/images/logo.jpeg" alt="Logo">
+                </a>
+                  <span class="admin-panel me-auto h2 mb-0">Admin Panel</span>
+                  <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="navbar-nav ms-auto">
+                          <li class="nav-item">
+                              <span class="username d-block mt-2 me-5">Hi username!</span>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link logout ms-4 me-4" href="#">Log Out</a>
+                          </li>
+                      </ul>
+                  </div>
+                </div>
+            </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>
