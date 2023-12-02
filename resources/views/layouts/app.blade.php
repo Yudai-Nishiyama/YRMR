@@ -102,6 +102,27 @@
             height:50px;
         }
 
+        /* calendar */
+        .calendar a {
+            text-decoration: none;
+        }
+        .calendar th {
+            height: 30px;
+            text-align: center;
+        }
+        .calendar td {
+            height: 100px;
+        }
+        .calendar .today {
+            background: orange !important;
+        }
+        .calendar th:nth-of-type(1), td:nth-of-type(1) {
+            color: red;
+        }
+        .calendar th:nth-of-type(7), td:nth-of-type(7) {
+            color: blue;
+        }
+        /* calendar end */
     </style>
 </head>
 <body>
