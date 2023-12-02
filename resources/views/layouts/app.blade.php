@@ -16,6 +16,10 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
+    {{-- css --}}
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+
     {{-- font awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -89,6 +93,7 @@
             border-radius: 5px;
         }
 
+        /* style */
         .modal-dialog{
             background-color: #FFFFFF
         }
@@ -102,27 +107,6 @@
             height:50px;
         }
 
-        /* calendar */
-        .calendar a {
-            text-decoration: none;
-        }
-        .calendar th {
-            height: 30px;
-            text-align: center;
-        }
-        .calendar td {
-            height: 100px;
-        }
-        .calendar .today {
-            background: orange !important;
-        }
-        .calendar th:nth-of-type(1), td:nth-of-type(1) {
-            color: red;
-        }
-        .calendar th:nth-of-type(7), td:nth-of-type(7) {
-            color: blue;
-        }
-        /* calendar end */
     </style>
 </head>
 <body>
@@ -180,10 +164,10 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>
+
     </div>
 </body>
 </html>

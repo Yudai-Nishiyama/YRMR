@@ -26,7 +26,7 @@ class CalendarController extends Controller
             ->with('next', $this->getNextMonth($ym));
     }
 
-    public function calendar($ym = null)
+    public function calendar($ym)
     {
         // タイムゾーンを設定
         date_default_timezone_set('Asia/Tokyo');
@@ -46,8 +46,8 @@ class CalendarController extends Controller
         // 今日の日付 フォーマット　例）2021-06-3
         $today = now()->format('Y-m-d');
 
-        // カレンダーのタイトルを作成　例）2021年6月
-        $html_title = date('Y年n月', $timestamp); //date()関数が、＄timestampの日付を読む、YとｎはDate()関数にデフォルトで用意された関数の引数、日付の年(Y)と月(n)を読みだすことができる機能。
+        // カレンダーのタイトルを作成　例）December 2023
+        $html_title = date('F Y', $timestamp); //date()関数が、＄timestampの日付を読む、YとｎはDate()関数にデフォルトで用意された関数の引数、日付の年(Y)と月(n)を読みだすことができる機能。
 
         // 前月・次月の年月を取得
         $prev = date('Y-m', strtotime('-1 month', $timestamp)); 
@@ -69,13 +69,13 @@ class CalendarController extends Controller
                                                 //.= は、文字列を連結するための演算子です。例：$example = 'Hello';$example .= ' World';echo $example;　結果：”Hello world”
         for ($day = 1; $day <= $day_count; $day++, $youbi++) {
 
-            $date = $ym . '-' . $day; //例：// 2021-06-3
+            $date = $ym . '-' . str_pad($day, 2, '0', STR_PAD_LEFT); //例：2021-06-03 str_pad()で日に０を追加した。
 
             if ($today == $date) {
             // 今日の日付の場合は、class="today"をつける
-                $week .= '<td class="today">' . $day;
+                $week .= '<td class="today text-center">' . '<p>'.$day.'</p>';
             } else {
-                $week .= '<td>' . $day;
+                $week .= '<td class="text-center">' . '<p>'.$day.'</p>';
             }
             $week .= '</td>';
 
