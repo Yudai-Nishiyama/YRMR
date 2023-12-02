@@ -116,13 +116,18 @@
         .calendar .today {
             background: orange !important;
         }
-        .calendar th:nth-of-type(1), td:nth-of-type(1) {
+        .calendar th:nth-of-type(1), .calendar td:nth-of-type(1) {
             color: red;
         }
-        .calendar th:nth-of-type(7), td:nth-of-type(7) {
+        .calendar th:nth-of-type(7), .calendar td:nth-of-type(7) {
             color: blue;
         }
         /* calendar end */
+
+        .table td{
+            padding: 15px;
+        }
+
     </style>
 </head>
 <body>

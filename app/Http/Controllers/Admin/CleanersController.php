@@ -22,6 +22,11 @@ class CleanersController extends Controller
         return view('admins.cleaners.check_cleaning_progress_report');
     }
 
+    public function showCleanerManagementPage()
+    {
+        return view('admins.cleaners.cleaners_management');
+    }
+
     public function showModalDelete()
     {
         return view('admins.cleaners.modal.cleaner_delete_modal');
