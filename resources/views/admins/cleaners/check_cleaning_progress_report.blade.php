@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'View Cleaning Task')
+@section('title', 'Check Cleaning Progress')
 
 @section('content')
 
@@ -74,75 +74,77 @@
                         <p class="fw-bold ">Cleaning Task List</p>
                     </div>
                 </div>
-                {{-- checkbox --}}
-                {{-- need to search how to submit value without submit button --}}
-                {{-- how to change colors of the progress bar hint video: https://www.youtube.com/watch?v=lvlTL3Fovdg --}}
-                <form action="#" method="POST">
-                    <div class="row text-center ">
+
+                <div class="row text-center ">
+                    <div class="col">
                         <div class="col">
-                            <div class="col">
-                                <p class="mb-0 cleaning-task-list" style="color: #2C462B;border-bottom:3px solid #2C462B;"><i class="fa-solid fa-bed"></i> Bedrooms</p>
-                            </div>
-                            <div class="row mt-0">
-                                <div class="col form-check d-flex align-items-center justify-content-center">
-                                    <input class="form-check-input me-1" type="checkbox" value="task_id" id="change_sheets">
-                                    <label class="form-check-label " for="change_sheets">
-                                    <p class="my-auto" style="color: #2C462B;">Changing Sheets</p>
-                                    </label>
-                                </div>
+                            <p class="mb-0 cleaning-task-list" style="color: #2C462B;border-bottom:3px solid #2C462B;"><i class="fa-solid fa-bed"></i> Bedrooms</p>
+                        </div>
+                        <div class="row mt-0">
+                            <div class="col form-check d-flex align-items-center justify-content-center">
+                                <p class="my-auto me-1"><i class="fa-regular fa-square-check"></i></p>
+                                <p class="my-auto text-decoration-line-through" style="color: #2C462B;">Changing Sheets</p>
                             </div>
                         </div>
+                    </div>
 
+                    <div class="col">
                         <div class="col">
-                            <div class="col">
-                                <p class="mb-0 cleaning-task-list" style="color: #2C462B; border-bottom:3px solid #2C462B;"><i class="fa-solid fa-bath"></i> Bathrooms</p>
-                                <div class="row mt-0">
-                                    <div class="col form-check d-flex align-items-center justify-content-center">
-                                        <input class="form-check-input me-1" type="checkbox" value="task_id" id="refill_amenities">
-                                        <label class="form-check-label" for="refill_amenities">
-                                        <p class="my-auto" style="color: #2C462B;">Refill Amenities</p>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="col">
-                                <p class="mb-0 cleaning-task-list" style="color: #2C462B; border-bottom:3px solid #2C462B;"><i class="fa-solid fa-hand-sparkles"></i> Floors</p>
-                            </div>
+                            <p class="mb-0 cleaning-task-list" style="color: #2C462B; border-bottom:3px solid #2C462B;"><i class="fa-solid fa-bath"></i> Bathrooms</p>
                             <div class="row mt-0">
                                 <div class="col form-check d-flex align-items-center justify-content-center">
-                                    <input class="form-check-input me-1" type="checkbox" value="task_id" id="cleaning_the_floor">
-                                    <label class="form-check-label" for="cleaning_the_floor">
-                                    <p class="my-auto" style="color: #2C462B;">Cleaning the Floor</p>
-                                    </label>
+                                    <p class="my-auto me-1"><i class="fa-regular fa-square"></i></p>
+                                    <p class="my-auto" style="color: #2C462B;">Refill Amenities</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
+
+                    <div class="col">
+                        <div class="col">
+                            <p class="mb-0 cleaning-task-list" style="color: #2C462B; border-bottom:3px solid #2C462B;"><i class="fa-solid fa-hand-sparkles"></i> Floors</p>
+                        </div>
+                        <div class="row mt-0">
+                            <div class="col form-check d-flex align-items-center justify-content-center">
+                                <p class="my-auto me-1"><i class="fa-regular fa-square"></i></p>
+                                <p class="my-auto" style="color: #2C462B;">Refill Amenities</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="row mt-3">
                     <div class="col">
                         <p class="fw-bold">Cleaning Progress</p>
                     </div>
                     <div class="col text-end">
-                        <p class="fw-bold" style="color: #981E1E;">0%</p>
+                        <p class="fw-bold" style="color: #F4BB4B;">33%</p>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col">
-                        <div style="border: 2px solid #981E1E; border-radius: 16px;">
-                            {{-- function --}}<br>
-                        </div>
+                <div class="row ">
+
+                    {{-- 33% --}}
+                    <div class="col" style="border: 2px solid #F4BB4B; border-right:none; border-radius: 16px 0px 0px 16px;
+                    background-color:#F4BB4B; background-size:100px; background-repeat: no-repeat;">
+                        <br>
+                    </div>
+
+                    {{-- 66% --}}
+                    <div class="col" style="border: 2px solid #F4BB4B; border-right: none; border-left:none;
+                    background-color:#FFFFFF; background-size:100px; background-repeat: no-repeat;">
+                    </div>
+
+                    {{-- 100% --}}
+                    <div class="col" style="border: 2px solid #F4BB4B; border-left: none; border-radius: 0px 16px 16px 0px;
+                    background-color:#FFFFFF; background-size:100px; background-repeat: no-repeat;">
+
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col text-center">
-                        <p class="fw-bold" style="color: #981E1E">Not Cleaned</p>
+                        <p class="fw-bold" style="color: #F4BB4B;">Cleaning</p>
                     </div>
                 </div>
             </div>

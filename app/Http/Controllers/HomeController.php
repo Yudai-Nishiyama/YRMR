@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class HomeController extends Controller
 {
@@ -14,7 +16,7 @@ class HomeController extends Controller
     public function __construct()
     {
         // $this->middleware('auth');
-        $this->middleware('auth');
+
     }
 
     /**
@@ -32,9 +34,14 @@ class HomeController extends Controller
         return view('admins.navbar');
     }
 
-    public function showTest()
+    public function GuestReservationManagementPage()
     {
-        return view('admins.navbar');
+        return view('admins.guests.guest_reservation_management');
+    }
+
+    public function GuestProfilePage()
+    {
+        return view('admins.guests.guest_profile');
     }
 
 }

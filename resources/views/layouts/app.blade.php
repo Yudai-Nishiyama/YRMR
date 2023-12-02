@@ -6,6 +6,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }}| @yield('title')</title>
+
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -15,6 +17,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
     {{-- font awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- font Bona Nova and Raleway --}}
@@ -25,6 +28,7 @@
         /* *{
             border:1px solid blue;
         } */
+
         h1,h2,h3,h4,h5,h6{
             font-family: 'Bona Nova', serif;
             font-weight: bold
@@ -55,11 +59,13 @@
             height: 258px;
             width: 237px;
         }
+
         .progress_bar_table .col{
             height: 1rem;
             width: 1rem;
             border:1px solid black;
         }
+
         select.classic {
             background-image:
                 /* linear-gradient(to top, transparent 50%, skyblue 50%), */
@@ -73,6 +79,7 @@
             border:1px solid #448A47;
             border-radius: 5px;
         }
+
         .modal-dialog{
             background-color: #FFFFFF
         }
@@ -80,6 +87,7 @@
             font-size: 30px;
             font-weight: bold;
         }
+
         .modal-body img{
             width:50px;
             height:50px;
@@ -107,6 +115,33 @@
           color: #F4924B;
           font-size: 24px;
       }
+
+        /* calendar */
+        .calendar a {
+            text-decoration: none;
+        }
+        .calendar th {
+            height: 30px;
+            text-align: center;
+        }
+        .calendar td {
+            height: 100px;
+        }
+        .calendar .today {
+            background: orange !important;
+        }
+        .calendar th:nth-of-type(1), .calendar td:nth-of-type(1) {
+            color: red;
+        }
+        .calendar th:nth-of-type(7), .calendar td:nth-of-type(7) {
+            color: blue;
+        }
+        /* calendar end */
+
+        .table td{
+            padding: 15px;
+        }
+
     </style>
 </head>
 <body>
@@ -143,12 +178,20 @@
                                     {{ Auth::user()->name }}
                                 </a>
                             </li>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/guest_profile
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                                 </a>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/guest_profile
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
