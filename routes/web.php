@@ -38,6 +38,7 @@ Route::get('/admins/cleaners/cleaning_progress_page', [CleanersController::class
 Route::get('/admins/cleaners/check_cleaning_progress_report', [CleanersController::class, 'showCheckCleaningProgressReport'])->name('showCheckCleaningProgressReport');
 Route::get('/admins/cleaners/cleaner_management_page', [CleanersController::class, 'showCleanerManagementPage'])->name('showCleanerManagementPage');
 Route::get('/admins/cleaners/modal/cleaner_delete_modal', [CleanersController::class, 'showModalDelete'])->name('showModalDelete');
+Route::get('/admins/cleaners/create_cleaner', [CleanersController::class, 'showCreateCleanerPage'])->name('showCreateCleanerPage');
 
 Route::get('/cleaner/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');
 

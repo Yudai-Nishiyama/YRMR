@@ -178,20 +178,12 @@
                                     {{ Auth::user()->name }}
                                 </a>
                             </li>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/guest_profile
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                                 </a>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/guest_profile
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -220,9 +212,15 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @if (route('showCreateCleanerPage'))
+            <main class="py-0">
+                @yield('content')
+            </main>
+        @else
+            <main class="py-4">
+                @yield('content')
+            </main>
+        @endif
     </div>
 </body>
 </html>
