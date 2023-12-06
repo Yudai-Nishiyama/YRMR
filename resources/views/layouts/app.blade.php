@@ -24,6 +24,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    {{-- CSS --}}
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <style>
         /* *{
             border:1px solid blue;
@@ -178,20 +180,14 @@
                                     {{ Auth::user()->name }}
                                 </a>
                             </li>
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/guest_profile
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                                 </a>
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/guest_profile
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -220,9 +216,17 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4">
+        @if (route('guestHome'))
+            <main class="py-0">
             @yield('content')
-        </main>
+
+        @else
+            <main class="py-4">
+            @yield('content')
+
+            </main>
+        @endif
+
     </div>
 </body>
 </html>
