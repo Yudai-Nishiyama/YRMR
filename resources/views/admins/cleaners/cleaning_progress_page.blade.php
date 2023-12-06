@@ -17,7 +17,7 @@
         <div class="card-body justify-content-center border">
             <table class="table">
                 <thead>
-                    <tr>
+                    <tr style="border-bottom: 1px solid black;">
                         <th>Name</th>
                         <th>Room No.</th>
                         <th>Room Type</th>
@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr style="border-bottom: 1px solid black;">
                         <td>
                             <form action="#" method="POST">
                                 @csrf
