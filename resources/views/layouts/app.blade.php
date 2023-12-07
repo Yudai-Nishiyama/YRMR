@@ -25,9 +25,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* *{
+        *{
             border:1px solid blue;
-        } */
+        }
 
         h1,h2,h3,h4,h5,h6{
             font-family: 'Bona Nova', serif;
