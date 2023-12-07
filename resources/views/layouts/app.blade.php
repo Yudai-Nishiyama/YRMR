@@ -60,88 +60,6 @@
             width: 237px;
         }
 
-        .progress_bar_table .col{
-            height: 1rem;
-            width: 1rem;
-            border:1px solid black;
-        }
-
-        select.classic {
-            background-image:
-                /* linear-gradient(to top, transparent 50%, skyblue 50%), */
-                linear-gradient(to right, transparent 50%, #448A47 50%);
-            background-position:
-                105px,
-                105px;
-            background-size:
-                35px;
-            background-repeat: no-repeat;
-            border:1px solid #448A47;
-            border-radius: 5px;
-        }
-
-        .modal-dialog{
-            background-color: #FFFFFF
-        }
-        .modal-dialog p{
-            font-size: 30px;
-            font-weight: bold;
-        }
-
-        .modal-body img{
-            width:50px;
-            height:50px;
-        }
-        .navbar {
-          background-color: #2C462B;
-          font-family: 'Bona Nova', sans-serif;
-        }
-        .navbar-brand img {
-          height: 94px;
-          width: auto;
-        }
-        .admin-panel {
-          color: #F6C464;
-          font-weight: bold;
-          font-size: 48px
-        }
-        .username {
-          color: #fff;
-          font-size: 27px;
-          font-weight: bolder;
-          font-family: 'Raleway', sans-serif;
-        }
-        .logout {
-          color: #F4924B;
-          font-size: 24px;
-      }
-
-        /* calendar */
-        .calendar a {
-            text-decoration: none;
-        }
-        .calendar th {
-            height: 30px;
-            text-align: center;
-        }
-        .calendar td {
-            height: 100px;
-        }
-        .calendar .today {
-            background: orange !important;
-        }
-        .calendar th:nth-of-type(1), .calendar td:nth-of-type(1) {
-            color: red;
-        }
-        .calendar th:nth-of-type(7), .calendar td:nth-of-type(7) {
-            color: blue;
-        }
-        /* calendar end */
-
-        .table td{
-            padding: 15px;
-        }
-
     </style>
 </head>
 <body>
@@ -177,24 +95,18 @@
                                 <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-                            </li>
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/guest_profile
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                                </a>
-<<<<<<< HEAD
-=======
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
->>>>>>> origin/guest_profile
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
                             </li>
                         @endguest
                     </ul>
