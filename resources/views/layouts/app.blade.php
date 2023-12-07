@@ -6,11 +6,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<<<<<<< HEAD
-    <title>{{ config('app.name', 'Laravel') }}</title>
-=======
     <title>{{ config('app.name') }}| @yield('title')</title>
->>>>>>> 5839bfd9a9168ca357b40cb65765c31d80c33eee
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
