@@ -11,4 +11,9 @@ class CleanerController extends Controller
     {
         return view('cleaners.view_cleaning_task');
     }
+
+    public function showCleanerPage()
+    {
+        return view('cleaners.cleaning_page');
+    }
 }

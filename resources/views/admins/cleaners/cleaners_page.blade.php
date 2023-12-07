@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'View Cleaning Task')
+@section('title', 'Admin Cleaning Page')
 
 @section('content')
 
