@@ -25,9 +25,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* *{
+        *{
             border:1px solid blue;
-        } */
+        }
 
         h1,h2,h3,h4,h5,h6{
             font-family: 'Bona Nova', serif;
@@ -233,9 +233,15 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @if (route('showCreateCleanerPage'))
+            <main class="py-0">
+                @yield('content')
+            </main>
+        @else
+            <main class="py-4">
+                @yield('content')
+            </main>
+        @endif
     </div>
 </body>
 </html>
