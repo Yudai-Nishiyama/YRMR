@@ -44,18 +44,22 @@
         }
 
         /* Content */
-        body {
-            background-image: url('{{ asset('images/brick_building9 1.png') }}');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        .container {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .content-title {
+            font-size: 64px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            font-family: 'Bona Nova', sans-serif;
+            font-weight: bold;
         }
 
         .logo {
             width: 100px;
             height: 100px;
             margin-top: 50px;
-            margin-left: 100px;
+            text-align: center;
         }
 
         .search-container {
@@ -78,28 +82,30 @@
 
         .search-buttons {
             margin-top: 30px;
-            margin-left: 70px;
+            text-align: center;
         }
 
-        .input-container label {
-            font-family: Raleway;
+        .input-container {
             text-align: left;
             font-weight: bold;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        select,input,button {
-            font-family: Raleway;
+        select, input, button {
             font-weight: bold;
             padding: 5px;
+            width: 300px;
             margin-top: 5px;
             margin-bottom: 10px;
-            width: 300px;
             border-radius: 5px;
             border: 1px solid #448a47;
             cursor: pointer;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
             transition: box-shadow 0.4s ease;
+        }
+
+        select {    
+            height: 35px;
         }
 
         input:hover {
@@ -117,7 +123,6 @@
         .card {
             height: 240px;
             width: 280px;
-            font-family: 'Raleway', sans-serif;
             border-radius: 25px;
             border: 0;
             font-weight: bold;
@@ -139,6 +144,7 @@
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
             transition: box-shadow 0.4s ease;
         }
+
         .homepage_button {
             background-color:#F4BB4B;
             color: #981E1E;
@@ -158,83 +164,73 @@
         </div>
 
         {{-- Content --}}
-        <div class="container col margin:50px;">  
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h1 style="font-size: 64px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Search</h1>
-                    <div  style="border-top: 3px solid #448A47; width: 600px; margin: 5px auto;"></div>
-                </div>
+        <div class="container col mx-5">  
+            <div class="mt-4 text-center">
+                <div class="content-title">Room Search</h1>
+                <div style="border-top: 3px solid #448A47; width: 600px; margin: 1px auto;"></div>
             </div>
         
             <div class="search-container">
                 <div class="search-menu">
-                <img class="logo" src="{{asset('images/My Room Your Room-logos 2.png')}}" alt="ホテルのロゴ">
+                    <img class="logo text-center" src="{{asset('images/MRYR-logo.png')}}" alt="logo">
         
-                <form action="#">
-                    <div class="search-inputs">
-                        <div class="input-container">
-                            <label for="email">Room Type</label>
-                            <select name="roomtype" id="roomtype">
-                            <option value="1" selected>Single</option>
-                            <option value="2">Double</option>
-                            <option value="3">triple</option>
-                            </select>
+                    <form action="#">
+                        <div class="search-inputs">
+                            <div class="input-container mb-3">
+                                <label for="room_type">Room Type</label>
+                                <select name="roomtype" id="roomtype">
+                                    <option value="1" selected>Single</option>
+                                    <option value="2">Double</option>
+                                    <option value="3">triple</option>
+                                </select>
+                            </div>
+                            <div class="input-container mb-3">
+                                <label for="chechIn">Reservation Date(check in)</label>
+                                <input type="date" id="check" name="dateInput">
+                            </div>
+                            <div class="input-container">
+                                <label for="checkOut">Reservation Date(check out)</label>
+                                <input type="date" id="checkOut" name="dateInput">
+                            </div>
                         </div>
         
-                        <div class="input-container">
-                            <label for="chechIn">Reservation Date(check in)</label>
-                            <input type="date" id="check" name="dateInput">
+                        <div class="search-buttons">
+                            <div class="search-button">
+                                <input class="button search_button" type="submit" value="Search">
+                            </div>
+                            <div class="hp-button">
+                            {{-- <a href=""><input class="button homepage_button" type="submit" value="Home page"></a> --}}
+                            <a href="#"><button class="button homepage_button">Home page</button></a>
+                            </div>
                         </div>
-        
-                        <div class="input-container">
-                        <label for="checkOut">Reservation Date(check out)</label>
-                        <input type="date" id="checkOut" name="dateInput">
-                        </div>
-        
-                    </div>
-        
-        
-                    <div class="search-buttons">
-        
-                        <div class="search-button">
-                            <input class="button search_button" type="submit" value="Search">
-                        </div>
-        
-                        <div class="search-button">
-                        {{-- <a href=""><input class="button homepage_button" type="submit" value="Home page"></a> --}}
-                        <a href="#"><button class="button homepage_button">Home page</button></a>
-                        </div>
-        
-                    </div>
-        
-                </form>
-        
+                    </form> 
                 </div>
         
                 <div class="search-rooms">
                     <div class="rooms">
                         <div class="card checkedin" style="padding: 10px;">
-                        <h2 class="room-number p-1 ms-3 mb-0" style="font-family: 'Raleway', sans-serif;">Room 101</h2>
+                            <h2 class="room-number p-1 ms-3 mb-0" style="font-family: 'Raleway', sans-serif;">Room 101</h2>
                             <div class="d-flex justify-content-center align-items-center" style="width: 95%; height:80%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden; margin: auto;">
                                 <table style="width: 90%; font-family: 'Bona Nova', sans-serif;">
-                                <tbody>
-                                    <tr>
-                                        <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                        <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                        <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
-                                        <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">11/1~11/2</td>
-                                    </tr>
-                                </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
+                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
+                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
+                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">11/1~11/2</td>
+                                        </tr>
+                                    </tbody>    
                                 </table>
-                        </div>
+                            </div>
                         </div>
                     </div>
+                    
                     <div class="rooms">
                     <div class="card checkedin" style="padding: 10px;">
                         <h2 class="room-number p-1 ms-3 mb-0" style="font-family: 'Raleway', sans-serif;">Room 102</h2>
