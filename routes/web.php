@@ -35,6 +35,7 @@ Route::get('/cleaners/cleaner_page', [CleanerController::class, 'showCleanerPage
 
 Route::get('/admin/index', [App\Http\Controllers\AdminController::class, 'showAllRooms'])->name('showAllRooms');
 Route::get('/admin/create_room', [App\Http\Controllers\AdminController::class, 'showCreateRoom'])->name('showCreateRoom');
+Route::get('/admin/room_search', [App\Http\Controllers\AdminController::class, 'showRoomSearch'])->name('showRoomSearch');
 
 Route::get('/admins/cleaners/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');
 Route::get('/admins/cleaners/cleaning_progress_page', [CleanersController::class, 'showCleaningProgressPage'])->name('showCleaningProgressPage');
