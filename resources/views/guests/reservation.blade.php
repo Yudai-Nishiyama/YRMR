@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container mt-4">
     <div class="row">
         <div class="col-md-12 text-center">
             <h1 style="font-size: 64px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="underline">Reservation</h1>

@@ -21,9 +21,13 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-    {{-- font awesome --}}
+    {{-- FontAwesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Link to Raleway font -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to Bona Nova font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bona Nova:wght@400;700&display=swap" rel="stylesheet">
     {{-- font Bona Nova and Raleway --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,6 +65,21 @@
             font-size: 32px;
         }
 
+        p,form{
+            font-family: 'Raleway', sans-serif;
+        }
+        .cleaner-view-task p{
+            font-size: 32px;
+        }
+        p.cleaning-task-list{
+            font-weight: bold
+        }
+        /* .cleaner-page{
+            width: 25rem
+        } */
+        .cleaner-page p{
+            font-size: 32px;
+        }
         .cleaner-page-button{
             border: 12px solid #2C462B;
             background-color: #448A47;
@@ -134,6 +153,80 @@
           color: #F4924B;
           font-size: 24px;
       }
+        /* Navbar */
+        .navbar {
+            background-color: #2C462B;
+            font-family: 'Bona Nova', sans-serif;
+        }
+
+        .navbar-brand img {
+            height: 80px;
+            width: auto;
+        }
+
+        .admin-panel {
+            color: #F4BB4B;
+            font-weight: bold;
+            font-size: 48px
+        }
+
+        .hi-username {
+            color: #fff;
+            font-size: 27px;
+            font-weight: bolder;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .logout {
+            color: #F4924B;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logout:hover {
+            color: #F4BB4B;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Admin Controls */
+        .admin-control.row {
+            display: flex;
+            flex-wrap: wrap; /* 画面が狭い場合に要素を折り返す */
+        }
+
+        .list-group {
+            font-family: 'Bona Nova', sans-serif;
+            font-weight: bolder;
+            font-size: 32px;
+            border-radius: 0;
+            background-color: #F4924B;
+            margin-bottom: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: none;
+            border: 0;
+        }
+
+        .list-group-item {
+            background-color: #F4924B;
+            color: #2C462B;
+            border: none;
+            border-bottom: 1px solid #2C462B;
+        }
+
+        .list-group-item:hover { /* カーソルが重なったとき */
+            background-color: #f4914b58;
+            color: #2C462B;
+        }
+
+        .list-group-item.active {
+            background-color: #F4BB4B;
+            color: #2C462B;
+            border: none;
+            border-bottom: 1px solid #2C462B;
+        }
 
     </style>
 </head>
@@ -154,6 +247,10 @@
 
                     </ul>
 
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+                    </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -215,9 +312,15 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @if (route('showCreateCleanerPage'))
+            <main class="py-0">
+                @yield('content')
+            </main>
+        @else
+            <main class="py-4">
+                @yield('content')
+            </main>
+        @endif
     </div>
 </body>
 </html>

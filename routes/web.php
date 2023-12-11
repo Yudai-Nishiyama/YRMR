@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CleanerController;
 use App\Http\Controllers\Admin\CleanersController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
 
 Route::get('/guests/room_availability_search', [App\Http\Controllers\HomeController::class, 'searchRoom'])->name('searchRoom');
 Route::get('/guests/check_reservation', [App\Http\Controllers\HomeController::class, 'checkReservation'])->name('checkReservation');
@@ -38,6 +40,10 @@ Route::get('/guests/cancel_reservation_completion', [App\Http\Controllers\HomeCo
 
 
 Route::get('/admin/navbar', [App\Http\Controllers\HomeController::class, 'navbar'])->name('navbar');
+Route::get('/guest/guest_reservation_management_page', [App\Http\Controllers\HomeController::class, 'GuestReservationManagementPage'])->name('GuestReservationManagement');
+Route::get('/guest/guest_profile_page', [App\Http\Controllers\HomeController::class, 'GuestProfilePage'])->name('GuestProfilePage');
+
+Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'showCalendar'])->name('showCalendar');
 
 Route::get('/cleaners/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');
 Route::get('/cleaners/cleaner_page', [CleanerController::class, 'showCleanerPage'])->name('showCleanerPage');
@@ -46,5 +52,22 @@ Route::get('/admins/cleaners/cleaning_task', [CleanersController::class, 'showCl
 Route::get('/admins/cleaners/cleaning_progress_page', [CleanersController::class, 'showCleaningProgressPage'])->name('showCleaningProgressPage');
 Route::get('/admins/cleaners/check_cleaning_progress_report', [CleanersController::class, 'showCheckCleaningProgressReport'])->name('showCheckCleaningProgressReport');
 Route::get('/admins/cleaners/modal/cleaner_delete_modal', [CleanersController::class, 'showModalDelete'])->name('showModalDelete');
+Route::get('/admin/index', [App\Http\Controllers\AdminController::class, 'showAllRooms'])->name('showAllRooms');
+Route::get('/admin/create_room', [App\Http\Controllers\AdminController::class, 'showCreateRoom'])->name('showCreateRoom');
+Route::get('/admin/room_search', [App\Http\Controllers\AdminController::class, 'showRoomSearch'])->name('showRoomSearch');
+
+
+
+Route::get('/admins/cleaners/cleaner_management_page', [CleanersController::class, 'showCleanerManagementPage'])->name('showCleanerManagementPage');
+Route::get('/admins/cleaners/modal/cleaner_delete_modal', [CleanersController::class, 'showModalDelete'])->name('showModalDelete');
+Route::get('/admins/cleaners/create_cleaner', [CleanersController::class, 'showCreateCleanerPage'])->name('showCreateCleanerPage');
+
+Route::get('/cleaner/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');
+Route::get('/admin/cleaner/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');
+
+
+Route::get('/guest/room', [GuestController::class, 'guestroom'])->name('guestRoom');
+
+
 
 
