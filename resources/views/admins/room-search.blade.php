@@ -3,7 +3,6 @@
 @section('title', 'Room Search')
 
 @section('content')
-
     <style>
         /* Admin Controls */
         .admin-control.row {
@@ -55,34 +54,24 @@
             font-weight: bold;
         }
 
-        .logo {
-            width: 100px;
-            height: 100px;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .search-container {
+        .roomSearch-container {
             display: flex;
             justify-content: space-between;
             margin-top: 50px;
         }
 
-        .search-rooms {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-left: 50px;
+        .MRYR-logo {
+            width: 100px;
+            height: 100px;
+            margin-top: 50px;
+            margin-left: 100px;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        .search-inputs {
+        .roomSearch-inputs {
             width: 300px;
             margin-top: 30px;
-        }
-
-        .search-buttons {
-            margin-top: 30px;
-            text-align: center;
         }
 
         .input-container {
@@ -91,9 +80,10 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        select, input, button {
+        .roomSearch-menu select, input, button {
             font-weight: bold;
             padding: 5px;
+            height: 35px;
             width: 300px;
             margin-top: 5px;
             margin-bottom: 10px;
@@ -104,55 +94,83 @@
             transition: box-shadow 0.4s ease;
         }
 
-        select {    
-            height: 35px;
-        }
-
-        input:hover {
+        .roomSearch-menu input:hover, select:hover, button:hover {
             box-shadow: none;
         }
 
-        select:hover {
-            box-shadow: none;
-        }
-
-        .button {
+        .roomSearch-buttons .button {
+            margin-top: 30px;
+            text-align: center;
             width: 150px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            border: none;
         }
 
-        .card {
+        .roomSearch-buttons {
+            text-align: center;
+        }
+
+        .search-btn {
+            background-color:#448A47;
+            color: #fff;
+        }
+
+        .homepage_btn {
+            background-color:#F4BB4B;
+            color: #981E1E;
+        }      
+
+        .search-rooms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-left: 50px;
+        }
+
+        .search-room-card {
+            padding-bottom: 10px;
             height: 240px;
             width: 280px;
             border-radius: 25px;
             border: 0;
-            font-weight: bold;
             color: #fff;
-        }
-
-        .card.checkedin {
             background-color: #448A47;
         }
 
-        .underline {
-            border-bottom: 1px solid #448a47;
+        .search-room-card .room-number {
+            font-size: 32px;
+            text-align: left;
         }
 
-        .search_button {
-            background-color:#448A47;
-            color: #fff;
-            border: 1px solid #448a47;
+        .search-room-card-body{
+            font-weight: bold;
+            width: 95%;
+            height: 75%;
+            background-color: rgba(255, 255, 255, 0.3); 
+            border-radius: 20px;
+            overflow: hidden; 
+            margin: auto;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-            transition: box-shadow 0.4s ease;
         }
 
-        .homepage_button {
-            background-color:#F4BB4B;
-            color: #981E1E;
-            border: 1px solid #F4BB4B;
-        }      
+        .search-room-card-body table {
+            border-collapse: separate;
+            border-spacing: 8px; /* 適切な間隔に調整 */
+            width: 95%;
+        }
+
+        .search-room-card-body td {
+            text-align: left;
+            font-size: 18px; 
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-room-card-body .td-right {
+            color: #F4BB4B;
+            font-size: 24px; 
+        }
     </style>
-</head>
-<body>
+
     {{-- Admin Controls --}}
     <div class="admin-control row g-0">
         <div class="col-1" style="width: 264px;">
@@ -166,16 +184,15 @@
         {{-- Content --}}
         <div class="container col mx-5">  
             <div class="mt-4 text-center">
-                <div class="content-title">Room Search</h1>
+                <div class="content-title">Room Search</div>
                 <div style="border-top: 3px solid #448A47; width: 600px; margin: 1px auto;"></div>
             </div>
         
-            <div class="search-container">
-                <div class="search-menu">
-                    <img class="logo text-center" src="{{asset('images/MRYR-logo.png')}}" alt="logo">
-        
+            <div class="roomSearch-container">
+                <div class="roomSearch-menu">
+                    <img class="MRYR-logo" src="{{asset('images/MRYR-logo.png')}}" alt="logo">
                     <form action="#">
-                        <div class="search-inputs">
+                        <div class="roomSearch-inputs">
                             <div class="input-container mb-3">
                                 <label for="room_type">Room Type</label>
                                 <select name="roomtype" id="roomtype">
@@ -188,192 +205,175 @@
                                 <label for="chechIn">Reservation Date(check in)</label>
                                 <input type="date" id="check" name="dateInput">
                             </div>
-                            <div class="input-container">
+                            <div class="input-container mb-2">
                                 <label for="checkOut">Reservation Date(check out)</label>
                                 <input type="date" id="checkOut" name="dateInput">
                             </div>
                         </div>
-        
-                        <div class="search-buttons">
-                            <div class="search-button">
-                                <input class="button search_button" type="submit" value="Search">
-                            </div>
-                            <div class="hp-button">
+                        <div class="roomSearch-buttons">                      
+                            <input class="button search-btn mt-4" type="submit" value="Search">
                             {{-- <a href=""><input class="button homepage_button" type="submit" value="Home page"></a> --}}
-                            <a href="#"><button class="button homepage_button">Home page</button></a>
-                            </div>
+                            <a href="#"><button class="button homepage_btn mt-3">Home page</button></a>
                         </div>
                     </form> 
                 </div>
         
                 <div class="search-rooms">
-                    <div class="rooms">
-                        <div class="card checkedin" style="padding: 10px;">
-                            <h2 class="room-number p-1 ms-3 mb-0" style="font-family: 'Raleway', sans-serif;">Room 101</h2>
-                            <div class="d-flex justify-content-center align-items-center" style="width: 95%; height:80%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden; margin: auto;">
-                                <table style="width: 90%; font-family: 'Bona Nova', sans-serif;">
-                                    <tbody>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">11/1~11/2</td>
-                                        </tr>
-                                    </tbody>    
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="rooms">
-                    <div class="card checkedin" style="padding: 10px;">
-                        <h2 class="room-number p-1 ms-3 mb-0" style="font-family: 'Raleway', sans-serif;">Room 102</h2>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 95%; height:80%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden; margin: auto;">
-                            <table style="width: 90%; font-family: 'Bona Nova', sans-serif;">
+                    <div class="search-room-card">
+                        <div class="room-number p-1 ms-3 mb-0">Room 101</div>
+                        <div class="search-room-card-body d-flex justify-content-center align-items-center">
+                            <table>
                                 <tbody>
                                     <tr>
-                                        <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                        <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
+                                        <td>Room Type</td>
+                                        <td class="td-right td-spacing">Single bed</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                        <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
+                                        <td>Price</td>
+                                        <td class="td-right td-spacing">$300</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
-                                        <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">11/1~11/2</td>
+                                        <td>Date</td>
+                                        <td class="td-right td-spacing">11/1~11/2</td>
                                     </tr>
-                                </tbody>
+                                </tbody>    
                             </table>
                         </div>
                     </div>
-                    </div>
-                    <div class="rooms">
-                        <div class="card checkedin" style="padding: 10px;">
-                            <h2 class="room-number p-1 ms-3 mb-0" style="font-family: 'Raleway', sans-serif;">Room 103</h2>
-                            <div class="d-flex justify-content-center align-items-center" style="width: 95%; height:80%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden; margin: auto;">
-                                <table style="width: 90%; font-family: 'Bona Nova', sans-serif;">
+
+                    <div class="search-room-card">
+                        <div class="room-number p-1 ms-3 mb-0">Room 102</div>
+                        <div class="search-room-card-body d-flex justify-content-center align-items-center">
+                            <table>
                                 <tbody>
                                     <tr>
-                                        <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                        <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
+                                        <td>Room Type</td>
+                                        <td class="td-right td-spacing">Single bed</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                        <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
+                                        <td>Price</td>
+                                        <td class="td-right td-spacing">$300</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
-                                        <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">11/1~11/2</td>
+                                        <td>Date</td>
+                                        <td class="td-right td-spacing">11/1~11/2</td>
                                     </tr>
-                                </tbody>
-                                </table>
-                            </div>
+                                </tbody>    
+                            </table>
                         </div>
                     </div>
-                    <div class="rooms">
-                        <div class="card checkedin" style="padding: 10px;">
-                            <h2 class="room-number p-1 ms-3 mb-0" style="font-family: 'Raleway', sans-serif;">Room 104</h2>
-                            <div class="d-flex justify-content-center align-items-center" style="width: 95%; height:80%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden; margin: auto;">
-                                <table style="width: 90%; font-family: 'Bona Nova', sans-serif;">
-                                    <tbody>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">11/1~11/2</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-        
+
+                    <div class="search-room-card">
+                        <div class="room-number p-1 ms-3 mb-0">Room 103</div>
+                        <div class="search-room-card-body d-flex justify-content-center align-items-center">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Room Type</td>
+                                        <td class="td-right td-spacing">Single bed</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Price</td>
+                                        <td class="td-right td-spacing">$300</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date</td>
+                                        <td class="td-right td-spacing">11/1~11/2</td>
+                                    </tr>
+                                </tbody>    
+                            </table>
                         </div>
+                    </div>
+
+                    <div class="search-room-card">
+                        <div class="room-number p-1 ms-3 mb-0">Room 104</div>
+                        <div class="search-room-card-body d-flex justify-content-center align-items-center">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Room Type</td>
+                                        <td class="td-right td-spacing">Single bed</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Price</td>
+                                        <td class="td-right td-spacing">$300</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date</td>
+                                        <td class="td-right td-spacing">11/1~11/2</td>
+                                    </tr>
+                                </tbody>    
+                            </table>
                         </div>
-                        <div class="rooms">
-                            <div class="card checkedin" style="padding: 10px;">
-                            <h2 class="room-number p-1 ms-3 mb-0" style="font-family: 'Raleway', sans-serif;">Room 105</h2>
-                                <div class="d-flex justify-content-center align-items-center" style="width: 95%; height:80%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden; margin: auto;">
-                                    <table style="width: 90%; font-family: 'Bona Nova', sans-serif;">
-                                    <tbody>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">11/1~11/2</td>
-                                        </tr>
-                                    </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                    </div>
+
+                    <div class="search-room-card">
+                        <div class="room-number p-1 ms-3 mb-0">Room 106</div>
+                        <div class="search-room-card-body d-flex justify-content-center align-items-center">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Room Type</td>
+                                        <td class="td-right td-spacing">Single bed</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Price</td>
+                                        <td class="td-right td-spacing">$300</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date</td>
+                                        <td class="td-right td-spacing">11/1~11/2</td>
+                                    </tr>
+                                </tbody>    
+                            </table>
                         </div>
-                        <div class="rooms">
-                            <div class="card checkedin" style="padding: 10px;">
-                            <h2 class="room-number p-1 ms-3 mb-0" style="font-family: 'Raleway', sans-serif;">Room 106</h2>
-                                <div class="d-flex justify-content-center align-items-center" style="width: 95%; height:80%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden; margin: auto;">
-                                <table>
-                                    <table style="width: 90%; font-family: 'Bona Nova', sans-serif;">
-                                    <tbody>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
-                                            <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">11/1~11/2</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                </table>
-                            </div>
-        
-                            </div>
+                    </div>
+
+                    <div class="search-room-card">
+                        <div class="room-number p-1 ms-3 mb-0">Room 107</div>
+                        <div class="search-room-card-body d-flex justify-content-center align-items-center">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Room Type</td>
+                                        <td class="td-right td-spacing">Single bed</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Price</td>
+                                        <td class="td-right td-spacing">$300</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date</td>
+                                        <td class="td-right td-spacing">11/1~11/2</td>
+                                    </tr>
+                                </tbody>    
+                            </table>
                         </div>
-                        <div class="rooms">
-                            <div class="card checkedin" style="padding: 10px;">
-                                <h2 class="room-number p-1 ms-3 mb-0" style="font-family: 'Raleway', sans-serif;">Room 107</h2>
-                                <div class="d-flex justify-content-center align-items-center" style="width: 95%; height:80%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden; margin: auto;">
-                                    <table style="width: 90%; font-family: 'Bona Nova', sans-serif;">
-                                        <tbody>
-                                            <tr>
-                                                <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                                <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                                <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: left; font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
-                                                <td style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">11/1~11/2</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    </div>
-                            </div>
+                    </div>
+
+                    <div class="search-room-card">
+                        <div class="room-number p-1 ms-3 mb-0">Room 108</div>
+                        <div class="search-room-card-body d-flex justify-content-center align-items-center">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Room Type</td>
+                                        <td class="td-right td-spacing">Single bed</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Price</td>
+                                        <td class="td-right td-spacing">$300</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date</td>
+                                        <td class="td-right td-spacing">11/1~11/2</td>
+                                    </tr>
+                                </tbody>    
+                            </table>
                         </div>
+                    </div>
                 </div>
             </div>        
         </div>
+    </div>
 @endsection
