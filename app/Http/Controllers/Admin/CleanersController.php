@@ -32,5 +32,10 @@ class CleanersController extends Controller
         return view('admins.cleaners.modal.cleaner_delete_modal');
     }
 
+    public function showCreateCleanerPage()
+    {
+        return view('admins.cleaners.create_cleaner');
+    }
+
 }
 
