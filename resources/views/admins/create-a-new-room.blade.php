@@ -3,106 +3,6 @@
 @section('title', 'Create a New Room')
 
 @section('content')
-
-    <style>
-        /* Admin Controls */
-        .admin-control.row {
-            display: flex;
-            flex-wrap: wrap; /* 画面が狭い場合に要素を折り返す */
-        }
-        .list-group {
-            font-family: 'Bona Nova', sans-serif;
-            font-weight: bolder;
-            font-size: 32px;
-            border-radius: 0;
-            background-color: #F4924B;
-            margin-bottom: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: none;
-            border: 0;
-        }
-
-        .list-group-item {
-            background-color: #F4924B;
-            color: #2C462B;
-            border: none;
-            border-bottom: 1px solid #2C462B;
-        }
-
-        .list-group-item:hover { /* カーソルが重なったとき */
-            background-color: #f4914b58;
-            color: #2C462B; 
-        }
-
-        .list-group-item.active { 
-            background-color: #F4BB4B;
-            color: #2C462B; 
-            border: none;
-            border-bottom: 1px solid #2C462B;   
-        }
-
-        /* Content */
-        .content.col {
-            background-image: url('../images/create_room_background.png');
-            background-size: cover;
-        }
-
-        .create-room.card {
-            text-align: center;
-            padding: 50px;
-            padding-bottom: 40px;
-            margin-top: 50px;
-            border-radius: 25px;
-            font-family: 'Raleway', sans-serif;
-            font-weight: bold;
-            background-color: rgba(255, 255, 255, 0.51);
-        }
-
-        .create-room img{
-            height: 133px;
-            width: 133px;
-        }
-
-        .title {
-            font-family: 'Bona Nova', sans-serif;
-            font-weight: bold;
-            font-size: 32px;
-        }
-
-        .input-group-text.btn{
-            background-color: #448A47;
-            color: #fff;
-            font-weight: bold;
-        } 
-
-        .create-btn {
-            background-color: #2C462B;
-            color: #fff;
-            font-weight: bold;
-        }
-
-        .create-btn:hover {
-            color:  #F4924B;
-            background-color: #2C462B;
-            }
-
-        .cancel-btn {
-            background-color: #F4BB4B;
-            color: #981E1E;
-            font-weight: bold;
-        }
-
-        .cancel-btn:hover {
-            background-color: #F4924B;
-            color: #981E1E;
-            font-weight: bold;
-        }
-
-    </style>
-</head>
-<body>   
     {{-- Admin Controls --}}
     <div class="admin-control row g-0">
         <div class="col-1" style="width: 264px;">
@@ -114,7 +14,8 @@
         </div>
 
         {{-- Content --}}
-        <div class="content col">
+        <div class="content col" style="background-image: url('../images/create_room_background.png');
+        background-size: cover;">
             <div class="container d-flex justify-content-center">
                 <div class="create-room card" style="width: 875px; margin-bottom: 100px;">
                     <div class="mt-2">
@@ -129,11 +30,11 @@
                             <div class="col d-flex flex-column" style="padding-right:1em;">
                                 <div class="mb-3 flex-grow-1">
                                     <label for="roomName" class="form-label">Room Name</label>
-                                    <input type="text" class="form-control" id="roomName" placeholder="Room 101" style="border: 1px solid #448A47;">
+                                    <input type="text" class="form-control" id="roomName" placeholder="Room 101" style="border: 1px solid #448A47; height: 40px; box-shadow: none;">
                                 </div>
                                 <div class="mb-3 flex-grow-1">
                                     <label for="roomType" class="form-label">Room Type</label>
-                                    <select class="form-select" id="roomType" aria-label="Select a Room Type" style="border: 1px solid #448A47;">
+                                    <select class="form-select" id="roomType" aria-label="Select a Room Type" style="border: 1px solid #448A47; height: 40px;">
                                         <option selected>Select a Room Type</option>
                                         <option value="single">Single Bed</option>
                                         <option value="double">Double Beds</option>
@@ -142,9 +43,8 @@
                                 </div>
                                 <div class="mb-3 flex-grow-1">
                                     <label for="price" class="form-label">Price</label>
-                                    <div class="input-group" style="border: 1px solid #448A47; border-radius: 5px 0px 0px 5px;">
-                                        <span class="input-group-text"style="border: none; border-radius: 5px 0px 0px 5px;">$</span>
-                                        <input type="text" class="form-control" id="price" placeholder="Enter Price" style="border: none; border-radius: 0px 5px 5px 0px;">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="price" placeholder="Enter Price" style="border: 1px solid #448A47; border-radius: 5px; height: 40px; box-shadow: none;">
                                     </div>
                                 </div>
                             </div>
@@ -170,11 +70,11 @@
                                 </div>
                             </div>
                             <div class="row mb-0">
-                                <div class="col text-end">
-                                    <a href="#" class="cancel-btn btn px-5">Cancel</a>
+                                <div class="col text-end" style="justify-content: flex-end;">
+                                    <a href="#" class="cancel-btn btn px-5" style="height: 40px; width: 170px; line-height: 26px; margin-top: 5px;">Cancel</a>
                                 </div>
                                 <div class="col text-start ms-5" style="padding-left: 5em;">
-                                    <button type="submit" class="create-btn btn px-5">Create</button>
+                                    <button type="submit" class="create-btn btn px-5" style="height: 40px; width: 170px; box-shadow:none;">Create</button>
                                 </div>
                             </div>
                         </div>
