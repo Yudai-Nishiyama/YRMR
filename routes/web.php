@@ -46,6 +46,7 @@ Route::get('/admin/navbar', [App\Http\Controllers\HomeController::class, 'navbar
 
 Route::get('/guest/home', [GuestController::class, 'guesthome'])->name('guestHome');
 Route::get('/guest/room', [GuestController::class, 'guestroom'])->name('guestRoom');
+Route::get('/guest/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
 
 
 

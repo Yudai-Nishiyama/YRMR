@@ -4,88 +4,81 @@
 
 @section('content')
 
-<style>
 
-body {
-    background-image: url('../images/guest_home_1.png');
-    background-size:cover;
-    position:relative;
-
-}
-body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.3);
-            z-index: -1;
-            background-size:cover;
-        }
-
-.card{
-        position: relative;
-        z-index: -1;
-}
-
-.detail {
-        content: '';
-        position: absolute;
-        top: 70%;
-        left: 5%;
-        right: 5%;
-        bottom: 8%;
-        background-color: rgba(235, 230, 230, 0.64);
-        border-radius: 5%;
-        }
-
-.custom-card{
-        height:500px;
-}
-
-</style>
-
-
-<div class="container ">
-    <div class="card mt-5 col-6 custom-card" >
-        <div class="card-header" style="border:none; background-color: #fbfbfb; border-radius:25px 25px 0px 0px;">
-            <div class="d-flex justify-content-between align-items-center">
-                <h2 style="color:#F4BB4B" class="fw-bold">Room1</h2>
-                <p>
-                    <i class="fa-solid fa-heart" style="font-size:40px; color:rgb(142, 8, 8);"></i>
-                </p>
-                 {{-- if we have 'favoraite'colum in db --}}
-                {{-- @if ($item->is_favorite)
-                    <p class="color"><i class="fa-solid fa-heart"></i></p>
-                @else
-                    <i class="fa-thin fa-heart"></i>
-                @endif
-
-                // データベースのマイグレーション
-                Schema::table('favorites', function (Blueprint $table) {
-                    $table->boolean('is_favorite')->default(false);
-                }); --}}
-            </div>
+    <div class="row">
+        <div class="col-3">
         </div>
-        <div class="card-body">
-             <img src="{{ asset('images/room_details_bath.jpg') }}" class="img-fluid text-center" alt="TEST">
-             {{-- <img src="{{ $post->image }}" alt="#" class="w-100"> --}}
+        <div class="col-5">
+            <div class="card mt-5 custom-card" style="height:700px; border-radius:25px 25px 25px 25px;" >
+                <div class="card-header" style="border:1px solid black; border-bottom:none; background-color: #fbfbfb; border-radius:25px 25px 0px 0px;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 style="color:#F4BB4B" class="fw-bold">Room1</h1>
+                        <p>
+                            <i class="fa-solid fa-heart" style="font-size:60px; color:rgb(142, 8, 8);"></i>
+                        </p>
+                        {{-- if we have 'favoraite'colum in db --}}
+                        {{-- @if ($item->is_favorite)
+                            <p class="color"><i class="fa-solid fa-heart"></i></p>
+                        @else
+                            <i class="fa-thin fa-heart"></i>
+                        @endif
 
-             {{-- details --}}
-             <div class="detail" >
-                <div class="ms-3">
-                    <p>Adult</p>
-                    <div class="row align-items-center">
-                        <h3>Sum $#(tax)</h3>
-                        <a href="#" style="text"><i class="fa-solid fa-chevron-right"></i></a>
+                        // データベースのマイグレーション
+                        Schema::table('favorites', function (Blueprint $table) {
+                            $table->boolean('is_favorite')->default(false);
+                        }); --}}
                     </div>
                 </div>
-             </div>
+                <div class="card-body"  style="border:1px solid black; border-top:none; border-radius:0px 0px 25px 25px;">
+                    <div class="row "  >
+                        <div class="col imagebox"><img src="{{ asset('images/guest_roompage.png') }}"  alt="TEST"></div>
+                    </div>
+                    {{-- <img src="{{ $post->image }}" alt="#" class="w-100"> --}}
+                    {{-- details --}}
+                    <div class="row detail mx-auto" >
+                        <div class="col">
+                        <a href="#" style="text-decoration:none;" >
+                            <div class=" row col">
+                                <div class="adult ms-3 col text-dark" ><h3 style="font-family: 'Raleway', sans-serif; font-size:25px;">Adult</h3></div>
+                                <div class="col" style="font-size:25px;"><p class="badge bg-light bg-opacity-50 text-dark"
+                                    style="border-radius:25px;border:1px solid black; border-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);">1bed</p></div>
+                            </div>
+                            <div class="row align-items-center" >
+                                <div class="col ms-3">
+                                    <h1 style="color:#981E1E;">Sum $(tax)</h1>
+                                </div>
+                                <div class="col text-end text-secondary me-3"
+                                    style="font-size:30px; "><i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
 
+                    {{-- Reservation --}}
+                    <div class="row">
+                        <a href="#">
+                            <div class="col btn btn-custom-color text-light float-end mt-2 "
+                            style="border-radius: 25px; font-weight: bold; min-width: 200px;"><h4 style="font-family: 'Raleway', sans-serif;">Reservation<i class="fa-solid fa-caret-right"></i></h4>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
         </div>
+
+        <div class="col-3">
+            <div class="mt-5"  >
+                <div class="justify-content-center d-flex "><h3 class="btn btn-custom-color1 text-light d-flex justify-content-center align-items-center fw-bold" style="font-family: 'Raleway', sans-serif; font-size:25px;">HOME</h3></div>
+                <div class="justify-content-center d-flex "><h3 class="btn btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold" style="font-family: 'Raleway', sans-serif; font-size:25px;" ><i
+                     class="fa-regular fa-square-check d-flex" style="font-size:40px;"></i> <span class="d-flex me-4 p-0">Check Confirmation</span></h3></div>
+                <div class="justify-content-center d-flex "><h3 class="btn btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold" style="font-family: 'Raleway', sans-serif; font-size:25px;" ><i
+                     class="fa-solid fa-magnifying-glass d-flex" style="font-size:40px; margin-right:55px;"></i><span class="d-flex" style="margin-right:95px;">Search</span></div>
+                </div>
+        </div>
+
     </div>
-</div>
 
 
 @endsection
