@@ -16,8 +16,4 @@ class CleanerController extends Controller
     {
         return view('cleaners.cleaning_page');
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 344b6fa7bb010f01e6c8894fdf3cf081f9e3f9a1
 }

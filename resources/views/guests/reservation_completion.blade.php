@@ -7,7 +7,7 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-12 text-center">
-            <h1 style="font-size: 64px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="underline">Reservation Completion</h1>
+            <h1 style="font-size: 64px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="line underline">Reservation Completion</h1>
         </div>
     </div>
 
@@ -31,36 +31,10 @@
             <h2 style="font-size: 48px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="mt-3">for the reservation!!</h2>
             <p style="font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="mt-5">Reservation Number</p>
             <p style="font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="mt-2">2#426740671012</p>
-            <a href="#"><button class="mt-5 reservation_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Check the reservation</button></a>
+            <a href="#"><button class="mt-5 check_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Check the reservation</button></a>
         </div>
     </div>
 </div>
 
-<style>
-    /* カスタムのスタイルを追加 */
-    .underline {
-        border-bottom: 1px solid #448a47;
-    }
-
-    .back_button {
-        border: 1px solid #F4BB4B;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        transition: box-shadow 0.4s ease;
-    }
-
-    .reservation_button {
-        border: 1px solid #448a47;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        transition: box-shadow 0.4s ease;
-    }
-
-    .back_button:hover {
-        box-shadow: none;
-    }
-
-    .reservation_button:hover {
-        box-shadow: none;
-    }
-</style>
 
 @endsection

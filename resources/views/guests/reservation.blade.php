@@ -65,10 +65,10 @@
                 <tbody>
                     <tr>
                         <td style="text-align: center;">
-                            <a href="#"><button class="back_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #F4BB4B; color: #981E1E; font-family: 'Raleway', sans-serif; font-weight: bold;">Back to the page</button></a>
+                            <a href="#"><button class="yellow_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #F4BB4B; color: #981E1E; font-family: 'Raleway', sans-serif; font-weight: bold;">Back to the page</button></a>
                         </td>
                         <td style="text-align: center;">
-                            <a href="#"><button class="reservation_button" data-bs-toggle="modal" data-bs-target="#reservation-completion-id" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Reservation</button></a>
+                            <a href="#"><button class="green_button" data-bs-toggle="modal" data-bs-target="#reservation-completion-id" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Reservation</button></a>
                         </td>
                     </tr>
                 </tbody>
@@ -78,35 +78,9 @@
     </div>
 </div>
 
-
-<style>
-    /* カスタムのスタイルを追加 */
-    .underline {
-        border-bottom: 1px solid #448a47;
-    }
-
-    .back_button {
-        border: 1px solid #F4BB4B;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        transition: box-shadow 0.4s ease;
-    }
-
-    .reservation_button {
-        border: 1px solid #448a47;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        transition: box-shadow 0.4s ease;
-    }
-
-    .back_button:hover {
-        box-shadow: none;
-    }
-
-    .reservation_button:hover {
-        box-shadow: none;
-    }
-</style>
-
 @endsection
+
+
 
 
 

@@ -14,7 +14,16 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     {{-- custom --}}
+    <link rel="stylesheet" href="{{asset('css/guest/check_reservation.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/guest/resservation.css')}}">
+    <link rel="stylesheet" href="{{asset('css/guest/reservation_completion.css')}}">
+    <link rel="stylesheet" href="{{asset('css/guest/cancel_resservation.css')}}">
+    <link rel="stylesheet" href="{{asset('css/guest/cancel_reservation_completion.css')}}">
+    <link rel="stylesheet" href="{{asset('css/guest/room_availability_search.css')}}">
+
+
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -317,7 +326,7 @@
                 @yield('content')
             </main>
         @else
-            <main class="py-4">
+            <main class="py-0">
                 @yield('content')
             </main>
         @endif

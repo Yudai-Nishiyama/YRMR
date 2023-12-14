@@ -7,7 +7,7 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-12 text-center">
-            <h1 style="font-size: 64px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="underline">Cancel Reservation</h1>
+            <h1 style="font-size: 64px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="line">Cancel Reservation</h1>
         </div>
     </div>
 
@@ -77,33 +77,5 @@
         @include('guests.modal.cancel_reservation_completion_modal')
     </div>
 </div>
-
-
-<style>
-    /* カスタムのスタイルを追加 */
-    .underline {
-        border-bottom: 1px solid #448a47;
-    }
-
-    .back_button {
-        border: 1px solid #448a47;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        transition: box-shadow 0.4s ease;
-    }
-
-    .reservation_button {
-        border: 1px solid #F4BB4B;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        transition: box-shadow 0.4s ease;
-    }
-
-    .back_button:hover {
-        box-shadow: none;
-    }
-
-    .reservation_button:hover {
-        box-shadow: none;
-    }
-</style>
 
 @endsection
