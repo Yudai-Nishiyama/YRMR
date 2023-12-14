@@ -30,6 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 
+    {{-- CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/admins/all-rooms.css') }}">
+
     <style>
         /* *{
             border:1px solid blue;
