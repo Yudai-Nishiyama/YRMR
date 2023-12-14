@@ -7,14 +7,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }}| @yield('title')</title>
 
+    {{-- css --}}
+    <link rel="stylesheet" href={{ asset('css/admins/view_cleaning_task.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admins/cleaners_page.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admins/style.css') }}>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     {{-- custom --}}
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
@@ -25,40 +27,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        *{
-            border:1px solid blue;
-        }
 
-        h1,h2,h3,h4,h5,h6{
-            font-family: 'Bona Nova', serif;
-            font-weight: bold
-        }
-        p,form{
-            font-family: 'Raleway', sans-serif;
-        }
-        .cleaner-view-task p{
-            font-size: 32px;
-        }
-        p.cleaning-task-list{
-            font-weight: bold
-        }
-        /* .cleaner-page{
-            width: 25rem
-        } */
-        .cleaner-page p{
-            font-size: 32px;
-        }
-        .cleaner-page-button{
-            border: 12px solid #2C462B;
-            background-color: #448A47;
-            height: 25rem;
-            border-radius: 25px;
-            width:25rem;
-        }
-        .img-md{
-            height: 258px;
-            width: 237px;
-        }
+
+
+
+
 
     </style>
 </head>
