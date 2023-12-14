@@ -3,6 +3,7 @@
     display: flex;
     flex-wrap: wrap; /* 画面が狭い場合に要素を折り返す */
 }
+
 .list-group {
     font-family: 'Bona Nova', sans-serif;
     font-weight: bolder;
