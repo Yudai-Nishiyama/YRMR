@@ -38,11 +38,11 @@
 }
 
 /* Content */
-.container {
+.AdminRoomSearch-container {
     font-family: 'Raleway', sans-serif;
 }
 
-.content-title {
+.AdminRoomSearch-container .content-title {
     font-size: 64px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     font-family: 'Bona Nova', sans-serif;
@@ -69,13 +69,13 @@
     margin-top: 30px;
 }
 
-.input-container {
+.roomSearch-inputs .input-container {
     text-align: left;
     font-weight: bold;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.roomSearch-menu select, input, button {
+.roomSearch-menu select, .roomSearch-menu input, .roomSearch-menu button {
     font-weight: bold;
     padding: 5px;
     height: 35px;
@@ -89,7 +89,7 @@
     transition: box-shadow 0.4s ease;
 }
 
-.roomSearch-menu input:hover, select:hover, button:hover {
+.roomSearch-menu input:hover, .roomSearch-menu select:hover, .roomSearch-menu button:hover {
     box-shadow: none;
 }
 
@@ -105,12 +105,12 @@
     text-align: center;
 }
 
-.search-btn {
+.roomSearch-buttons .search-btn {
     background-color:#448A47;
     color: #fff;
 }
 
-.homepage_btn {
+.roomSearch-buttons .homepage_btn {
     background-color:#F4BB4B;
     color: #981E1E;
 }      
