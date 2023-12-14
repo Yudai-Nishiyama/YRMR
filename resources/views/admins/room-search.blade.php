@@ -14,7 +14,7 @@
         </div>
 
         {{-- Content --}}
-        <div class="container col mx-5">  
+        <div class="AdminRoomSearch-container col mx-5">  
             <div class="mt-4 text-center">
                 <div class="content-title">Room Search</div>
                 <div style="border-top: 3px solid #448A47; width: 600px; margin: 1px auto;"></div>

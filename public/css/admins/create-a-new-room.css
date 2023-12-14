@@ -54,7 +54,7 @@
     width: 133px;
 }
 
-.title {
+.create-room.title {
     font-family: 'Bona Nova', sans-serif;
     font-weight: bold;
     font-size: 32px;
@@ -66,24 +66,24 @@
     font-weight: bold;
 } 
 
-.create-btn {
+.create-room .create-btn {
     background-color: #2C462B;
     color: #fff;
     font-weight: bold;
 }
 
-.create-btn:hover {
+.create-room .create-btn:hover {
     color:  #F4924B;
     background-color: #2C462B;
     }
 
-.cancel-btn {
+.create-room .cancel-btn {
     background-color: #F4BB4B;
     color: #981E1E;
     font-weight: bold;
 }
 
-.cancel-btn:hover {
+.create-room .cancel-btn:hover {
     background-color: #F4924B;
     color: #981E1E;
     font-weight: bold;

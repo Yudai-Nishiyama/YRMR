@@ -13,15 +13,15 @@
             </div>
         </div>
 
-        {{-- Content --}}
-        <div class="content col" style="background-image: url('../images/create_room_background.png');
-        background-size: cover;">
+         {{-- Content --}}
+         <div class="content col" style="background-image: url('../images/create_room_background.png');
+         background-size: cover;">
             <div class="container d-flex justify-content-center">
-                <div class="create-room card" style="width: 875px; margin-bottom: 100px;">
+                <div class="create-room card" style="width: 875px; margin-top: 70px; margin-bottom: 100px;">
                     <div class="mt-2">
                         <img src="/images/MRYR-logo.png" class="float-center" alt="Logo">
                     </div>
-                    <div class="title mt-5">
+                    <div class="create-room title mt-5">
                         Create a New Room
                     </div>
                     <div  style="border-top: 3px solid #448A47; width: 55%; margin: 5px auto;"></div>
@@ -30,11 +30,11 @@
                             <div class="col d-flex flex-column" style="padding-right:1em;">
                                 <div class="mb-3 flex-grow-1">
                                     <label for="roomName" class="form-label">Room Name</label>
-                                    <input type="text" class="form-control" id="roomName" placeholder="Room 101" style="border: 1px solid #448A47; height: 40px; box-shadow: none;">
+                                    <input type="text" class="form-control" id="roomName" placeholder="Room 101" style="border: 1px solid #448A47;">
                                 </div>
                                 <div class="mb-3 flex-grow-1">
                                     <label for="roomType" class="form-label">Room Type</label>
-                                    <select class="form-select" id="roomType" aria-label="Select a Room Type" style="border: 1px solid #448A47; height: 40px;">
+                                    <select class="form-select" id="roomType" aria-label="Select a Room Type" style="border: 1px solid #448A47;">
                                         <option selected>Select a Room Type</option>
                                         <option value="single">Single Bed</option>
                                         <option value="double">Double Beds</option>
@@ -43,8 +43,9 @@
                                 </div>
                                 <div class="mb-3 flex-grow-1">
                                     <label for="price" class="form-label">Price</label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" id="price" placeholder="Enter Price" style="border: 1px solid #448A47; border-radius: 5px; height: 40px; box-shadow: none;">
+                                    <div class="input-group" style="border: 1px solid #448A47; border-radius: 5px 0px 0px 5px;">
+                                        <span class="input-group-text"style="border: none; border-radius: 5px 0px 0px 5px;">$</span>
+                                        <input type="number" class="form-control" id="price" placeholder="Enter Price" style="border: none; border-radius: 0px 5px 5px 0px;">
                                     </div>
                                 </div>
                             </div>
@@ -70,11 +71,11 @@
                                 </div>
                             </div>
                             <div class="row mb-0">
-                                <div class="col text-end" style="justify-content: flex-end;">
-                                    <a href="#" class="cancel-btn btn px-5" style="height: 40px; width: 170px; line-height: 26px; margin-top: 5px;">Cancel</a>
+                                <div class="col text-end">
+                                    <a href="#" class="cancel-btn btn px-5">Cancel</a>
                                 </div>
                                 <div class="col text-start ms-5" style="padding-left: 5em;">
-                                    <button type="submit" class="create-btn btn px-5" style="height: 40px; width: 170px; box-shadow:none;">Create</button>
+                                    <button type="submit" class="create-btn btn px-5">Create</button>
                                 </div>
                             </div>
                         </div>
