@@ -20,7 +20,9 @@
 
     {{-- css --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/admins/cleaners/modal/cleaner_delete_modal.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admins/cleaners/cleaning_progress_page.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/guests/calendar.css') }}" rel="stylesheet">
 
 
     {{-- FontAwesome --}}
