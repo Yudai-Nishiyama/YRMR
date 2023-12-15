@@ -32,9 +32,9 @@
             </div>
         </div>
 
-        <div class="col-7">
+        <div class="col-7 d-flex justify-content-center">
             <div class=" calendar mt-2">
-                <div class="px-4 py-3 text-center" style="background-color: #F4BB4B; border-radius: 10px 10px 0px 0px">
+                <div class="calender-head px-4 py-3 text-center">
                     <div class="row">
                         <div class="col-2 text-start">
                             <a class="btn fw-bold" href="{{ route('showCalendar', ['ym' => $prev]) }}" style="background-color: #2C462B; color: #ffffff;"><i class="fa-solid fa-caret-left"></i> Last Month</a>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 
-                <table class="table table-bordered" style="border:1px solid black; border-radius:0px 0px 10px 10px;">
+                <table class="table">
                     <thead>
                     <tr>
                         <th>Sun</th>
