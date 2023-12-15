@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     {{-- css --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -38,9 +37,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* *{
+        *{
             border:1px solid blue;
-        } */
+        }
 
        
 
@@ -115,15 +114,9 @@
                 </div>
             </div>
         </nav>
-        @if (route('showCreateCleanerPage'))
             <main class="py-0">
                 @yield('content')
             </main>
-        @else
-            <main class="py-4">
-                @yield('content')
-            </main>
-        @endif
     </div>
 </body>
 </html>

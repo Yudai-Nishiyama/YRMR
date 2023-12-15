@@ -55,6 +55,7 @@ class CalendarController extends Controller
 
         // 該当月の日数を取得
         $day_count = date('t', $timestamp); //date(t)は、月 指定した月の日数　例：	28～31
+        
         // １日が何曜日か　0:日 1:月 2:火 ... 6:土
         $youbi = date('w', $timestamp); //date(w)は、数字　0(日曜) から 6(土曜)を取得する　例：	0～6
 
