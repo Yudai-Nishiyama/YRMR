@@ -13,3 +13,46 @@
     height: 258px;
     width: 237px;
 }
+
+/* Create Cleaner Account */
+.create_cleaner .title h2 {
+    font-weight: bold;
+}
+
+.create_cleaner .title-underline {
+    border-top: 3px solid #448A47;
+    width: 428px;
+    margin: 0 auto;
+}
+
+.title-underline {
+    border-top: 3px solid #448A47;
+    width: 428px;
+    margin: 0 auto;
+}
+
+.create_cleaner .create-btn {
+    background-color: #448A47;
+    color: #ffffff;
+    font-weight: bold;
+    }
+
+.create_cleaner .create-btn:hover {
+    color: #ffffff;
+    background-color: #2C462B;
+}
+
+.create_cleaner .cancel-btn {
+    background-color:#F4BB4B;
+    color:#981E1E;
+}
+
+.create_cleaner .cancel-btn:hover {
+    background-color: #F4924B;
+    color: #981E1E;
+    font-weight: bold;
+}
+
+.createCleanerAccount input {
+    border:1px solid #448A47;
+}
