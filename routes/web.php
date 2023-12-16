@@ -21,10 +21,6 @@ use App\Http\Controllers\AdminController;
 */
 
 // Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/', function () {
 //     return redirect()->route('login');
 // });
 
