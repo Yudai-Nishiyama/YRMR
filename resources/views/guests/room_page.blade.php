@@ -4,6 +4,7 @@
 
 @section('content')
 
+<div class="roombody " >
 
     <div class="row">
         <div class="col-3">
@@ -23,7 +24,7 @@
                             <i class="fa-thin fa-heart"></i>
                         @endif
 
-                        // データベースのマイグレーション
+                        // DB migration
                         Schema::table('favorites', function (Blueprint $table) {
                             $table->boolean('is_favorite')->default(false);
                         }); --}}
@@ -31,11 +32,12 @@
                 </div>
                 <div class="card-body"  style="border:1px solid black; border-top:none; border-radius:0px 0px 25px 25px;">
                     <div class="row "  >
-                        <div class="col imagebox"><img src="{{ asset('images/guest_roompage.png') }}"  alt="TEST"></div>
+                        <div class="col rp_imagebox" style="height: 330px; width: 732px;">
+                            <img src="{{ asset('images/guest_roompage.png') }}"  alt="TEST" style="max-width: 100%; height: auto; display: block;"></div>
                     </div>
                     {{-- <img src="{{ $post->image }}" alt="#" class="w-100"> --}}
                     {{-- details --}}
-                    <div class="row detail mx-auto" >
+                    <div class="row mx-auto rp_detail" >
                         <div class="col">
                         <a href="#" style="text-decoration:none;" >
                             <div class=" row col">
@@ -58,8 +60,8 @@
                     {{-- Reservation --}}
                     <div class="row">
                         <a href="#">
-                            <div class="col btn btn-custom-color text-light float-end mt-2 "
-                            style="border-radius: 25px; font-weight: bold; min-width: 200px;"><h4 style="font-family: 'Raleway', sans-serif;">Reservation<i class="fa-solid fa-caret-right"></i></h4>
+                            <div class="col btn  text-light float-end mt-2 "
+                            style="border-radius: 25px; font-weight: bold; min-width: 200px;background-color:#448A47;"><h4 style="font-family: 'Raleway', sans-serif;">Reservation<i class="fa-solid fa-caret-right"></i></h4>
                             </div>
                         </a>
                     </div>
@@ -68,17 +70,22 @@
             </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-3 roommenu">
             <div class="mt-5"  >
-                <div class="justify-content-center d-flex "><h3 class="btn btn-custom-color1 text-light d-flex justify-content-center align-items-center fw-bold" style="font-family: 'Raleway', sans-serif; font-size:25px;">HOME</h3></div>
-                <div class="justify-content-center d-flex "><h3 class="btn btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold" style="font-family: 'Raleway', sans-serif; font-size:25px;" ><i
-                     class="fa-regular fa-square-check d-flex" style="font-size:40px;"></i> <span class="d-flex me-4 p-0">Check Confirmation</span></h3></div>
-                <div class="justify-content-center d-flex "><h3 class="btn btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold" style="font-family: 'Raleway', sans-serif; font-size:25px;" ><i
-                     class="fa-solid fa-magnifying-glass d-flex" style="font-size:40px; margin-right:55px;"></i><span class="d-flex" style="margin-right:95px;">Search</span></div>
+                <div class="justify-content-center d-flex ">
+                    <h3 class="btn rp_btn-custom-color1 text-light d-flex justify-content-center align-items-center fw-bold">HOME</h3>
+                </div>
+                <div class="justify-content-center d-flex ">
+                    <h3 class="btn rp_btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold"><i
+                     class="fa-regular fa-square-check d-flex" style="font-size:40px;"></i> <span class="d-flex me-4 p-0">Check Confirmation</span></h3>
+                </div>
+                <div class="justify-content-center d-flex ">
+                    <h3 class="btn rp_btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold"><i
+                     class="fa-solid fa-magnifying-glass d-flex" style="font-size:40px; margin-right:55px;"></i><span class="d-flex" style="margin-right:85px;">Search</span></div>
                 </div>
         </div>
 
     </div>
 
-
+</div>
 @endsection

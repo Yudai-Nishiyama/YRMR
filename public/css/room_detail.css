@@ -1,26 +1,32 @@
 
-.bottons{
+.roomdetail_bottons{
     margin-left:100px;
     margin-top:100px;
 }
 
-.btn-custom-color{
+.rd_btn-custom-color{
     background-color:#F4BB4B;
     width:180px;
     height: 40px;
-
+    border-radius:25px;
+    color:#981E1E;
 }
-.btn-custom-color2{
+.rd_btn-custom-color2{
     background-color:#2C462B;
     width:180px;
     height:40px;
-
+    border-radius:25px;
+    font-family:'Raleway';
 }
-img{
+
+.roomdetail img{
     max-width: 70%; height: auto; display: block;
 }
-.img3{
+.roomdetail_img3{
     max-width: 120%; height: auto; display: block;
+}
+.rd_detail p{
+    font-family: 'Bona Nova';
 }
 
 

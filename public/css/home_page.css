@@ -1,4 +1,4 @@
-.room-background {
+.homebackground {
     position: relative;
     background-image: url('/images/guest_home.png');
     background-size: cover;
@@ -12,7 +12,7 @@
     font-family: 'Bona Nova';
     z-index: -2;
 }
-.room-background::before {
+.homebackground::before {
     content: '';
     position: absolute;
     top: 0;
@@ -23,38 +23,42 @@
     z-index: -1;
 }
 
-.room-background h1 {
+.homebackground h1 {
     font-size: 7em;
     text-shadow: 15px 2px 1px rgba(0, 0, 0, 0.8);
     color: #F4BB4B;
 }
-.memo {
+.homemenu {
     font-size:2.5em;
+    padding-bottom:5px;
+    margin-bottom:10px;
+    width:25%;
+    margin:auto;
 }
-.images {
+.homeimages {
     position: relative;
     display: flex;
     justify-content: space-around;
 
 }
-.images a {
+.homeimages a {
     text-decoration: none;
     text-align: center;
 
 }
 
-.item {
+.homeitem{
     margin-top: -220px;
     position: relative;
     z-index: 2;
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-img{
+.home img{
     width: 500px;
     height: 270px;
 }
 
-h3{
+.home h3{
     margin:0 auto;
 }

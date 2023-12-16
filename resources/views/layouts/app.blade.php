@@ -31,9 +31,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     {{-- CSS --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/home_page.css.') }}" rel="stylesheet">
-    <link href="{{ asset('css/room_detail.css.') }}" rel="stylesheet">
-    <link href="{{ asset('css/room_page.css.') }}" rel="stylesheet">
+    <link href="{{ asset('css/home_page.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/room_detail.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/room_page.css') }}" rel="stylesheet">
     <style>
         /* *{
             border:1px solid blue;
