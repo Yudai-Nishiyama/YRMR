@@ -36,6 +36,9 @@
     <link href="{{ asset('css/admins/room-search.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admins/create-a-new-room.css') }}" rel="stylesheet">
 
+    {{-- CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/admins/all-rooms.css') }}">
+
     <style>
         /* *{
             border:1px solid blue;
