@@ -1,0 +1,152 @@
+.bg-search {
+    background-image: url('../../images/brick_building9\ 1.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.search-rooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-left: 50px;
+}
+
+.search-inputs {
+  width: 300px;
+  margin-top: 30px;
+}
+
+.search-buttons {
+  margin-top: 30px;
+  margin-left: 70px;
+
+}
+
+.input-container label {
+  font-family: Raleway;
+  text-align: left;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.input-container {
+    margin-top: 30px;
+}
+
+.button_check {
+  font-family: Raleway;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #448a47;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.4s ease;
+}
+
+.select_check {
+    font-family: Raleway;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 35px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #448a47;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.4s ease;
+}
+
+.input_check {
+  font-family: Raleway;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #448a47;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.4s ease;
+}
+
+.input_check:hover {
+  box-shadow: none;
+}
+
+.select_check:hover {
+  box-shadow: none;
+}
+
+.button {
+  width: 150px;
+  margin-top: 30px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.4s ease;
+  border-radius: 5px;
+}
+
+.tool {
+    height: 240px;
+    width: 280px;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 25px;
+    border: 0;
+    font-weight: bold;
+    color: #fff;
+}
+
+.tool.checkedin {
+    background-color: #448A47;
+}
+
+.underline {
+  border-bottom: 1px solid #448a47;
+}
+
+.submit_button {
+    height: 35px;
+    background-color:#448A47;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #448a47;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.4s ease;
+}
+
+.homepage_button {
+    background-color:#F4BB4B;
+    color: #981E1E;
+    font-weight: bold;
+    border: 1px solid #F4BB4B;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.4s ease;
+}
+
+.submit_button:hover {
+    box-shadow: none;
+}
+
+.homepage_button:hover {
+    box-shadow: none;
+}

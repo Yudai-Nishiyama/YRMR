@@ -29,6 +29,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    {{-- CSS --}}
+    <link href="{{ asset('css/admins/room-search.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admins/create-a-new-room.css') }}" rel="stylesheet">
+
+    {{-- CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/admins/all-rooms.css') }}">
 
     <link rel="stylesheet" href={{ asset('/css/style.css') }}>
     <style>
