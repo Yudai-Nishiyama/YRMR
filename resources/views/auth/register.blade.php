@@ -1,77 +1,106 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+      <!-- Link to Raleway font -->
+      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+      <!-- Link to Bona Nova font -->
+      <link href="https://fonts.googleapis.com/css2?family=Bona Nova:wght@400;700&display=swap" rel="stylesheet">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+    <!-- Link to fontawesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <link rel="stylesheet" href="{{asset('css/register.css')}}">
+    <title>Login</title>
+</head>
+<body class="register">
+    <main>
+        <div class="registration">
+            <div class="registrarion-form">
+                <img class="logo" src="{{asset('images/My Room Your Room-logos 2.png')}}" alt="ホテルのロゴ">
+                <h1 class="register_title">Registration Form</h1>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                <form action="#">
+                    <div class="inputs">
+                        <div class="input-container">
+                            <label for="firstName">First Name</label>
+                            <input class="input_content" type="text" id="firstName" placeholder="Enter your first name">
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                        <div class="input-container">
+                            <label for="lastName">Last Name</label>
+                            <input class="input_content" type="text" id="lastName" placeholder="Enter your last name">
+                        </div>
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                    <div class="inputs">
+                        <div class="input-container">
+                            <label for="username">User Name</label>
+                            <input class="input_content" type="text" id="userName" placeholder="Enter your user name">
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                        <div class="input-container">
+                            <label for="adress">Address</label>
+                            <input class="input_content" type="text" id="address" placeholder="123 Street, Apt567, State 12345, USA">
+                        </div>
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                    <div class="inputs">
+                        <div class="input-container">
+                            <label for="email">Email</label>
+                            <input class="input_content" type="text" id="email" placeholder="mail@mail.com">
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                        <div class="input-container">
+                            <label for="phone_number">Phone Number</label>
+                            <input class="input_content" type="text" id="phone_number" placeholder="(+63)0123456789">
+                        </div>
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
+                    <div class="inputs">
+                        <div class="input-container">
+                            <label for="firstName">Password</label>
+                            <input class="input_content" type="text" id="password" placeholder="Enter your password">
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                        <div class="input-container">
+                            <label for="lastName">Password Confirmation</label>
+                            <input class="input_content" type="text" id="password_confirmation" placeholder="Confirm your password">
                         </div>
-                    </form>
-                </div>
+                    </div>
+
+                    <div class="inputs">
+
+                        <div class="input-container">
+                            <a href="#"><input class="rg_button input_content" type="submit" value="Registration"></a>
+                        </div>
+
+                    </div>
+
+                    <p class="api">or Login With:</p>
+
+                    <div class="sns">
+                        <a href="#"><img class="icon google" src="{{asset('images/flat-color-icons_google.svg')}}" alt="googleのロゴ"></a>
+                        <a href="#"><img class="icon facebook" src="{{asset('images/devicon_facebook.svg')}}" alt="facebookのロゴ"></a>
+                    </div>
+
+                </form>
+
+                <!-- Repeat the structure for other input fields -->
+
+            </div>
+
+            <div class="registration-image">
+                <img src="{{asset('images/registration-image.png')}}" alt="">
             </div>
         </div>
-    </div>
-</div>
-@endsection
+    </main>
+</body>
+</html>
+</html>
+
+

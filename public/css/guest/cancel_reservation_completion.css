@@ -1,0 +1,31 @@
+
+.line {
+    border-bottom: 1px solid #981E1E;
+}
+
+.room_button {
+    border: 1px solid #F4BB4B;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.4s ease;
+}
+
+/* .room_button {
+    border: 1px solid #448a47;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.4s ease;
+} */
+
+.room_button:hover {
+    box-shadow: none;
+}
+
+.reservation_button:hover {
+    box-shadow: none;
+}
+
+.rebook {
+    color:#333;
+    font-family: Raleway;
+    font-size: 20px;
+    margin-left: 8px;
+}

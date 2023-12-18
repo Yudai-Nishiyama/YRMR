@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CleanerController;
@@ -18,11 +20,28 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return redirect()->route('login');
+// });
 
 Auth::routes();
+
+//homepage
+
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
+
+Route::get('/guests/room_availability_search', [App\Http\Controllers\HomeController::class, 'searchRoom'])->name('searchRoom');
+Route::get('/guests/check_reservation', [App\Http\Controllers\HomeController::class, 'checkReservation'])->name('checkReservation');
+
+Route::get('/guests/reservation', [App\Http\Controllers\HomeController::class, 'reservation'])->name('reservation');
+Route::get('/guests/cancel_reservation', [App\Http\Controllers\HomeController::class, 'cancelReservation'])->name('cancelReservation');
+
+Route::get('/guests/reservation_completion', [App\Http\Controllers\HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
+Route::get('/guests/cancel_reservation_completion', [App\Http\Controllers\HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/guest/guest_reservation_management_page', [App\Http\Controllers\HomeController::class, 'GuestReservationManagementPage'])->name('GuestReservationManagement');
