@@ -80,6 +80,7 @@ Route::get('/admin/cleaner/cleaning_task', [CleanersController::class, 'showClea
 
 
 Route::get('/guest/room', [GuestController::class, 'guestroom'])->name('guestRoom');
+Route::get('/guest/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
 
 
 
