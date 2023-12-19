@@ -59,11 +59,12 @@
     {{-- CSS --}}
     <link rel="stylesheet" href="{{ asset('css/admins/all-rooms.css') }}">
 
+    <link rel="stylesheet" href={{ asset('/css/style.css') }}>
+
 </head>
 
 <body>
     <div id="app">
-
         <nav class="navbar navbar-expand-md shadow-sm navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center me-5" href="{{ url('/') }}">

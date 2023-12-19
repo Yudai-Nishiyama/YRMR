@@ -57,8 +57,8 @@
                 @csrf
                 @method('DELETE')
 
-                <a href="#" class="btn fw-bold mx-auto px-4 mb-3" style="background-color:#448A47; color:#FFFFFF; ">Return to the Page</a>
-                <button type="submit" class="btn w-25 mx-auto mb-3 fw-bold" style="background-color:#F4BB4B; color:#981E1E; ">Delete</button>
+                <a href="{{ route('showCleanerManagementPage') }}" class="btn fw-bold mx-auto px-4 mb-3" style="background-color:#448A47; color:#FFFFFF; ">Return to the Page</a>
+                <button type="submit" class="btn w-25 mx-auto mb-3 fw-bold" style="background-color:#981E1E; color:#FFFFFF; ">Delete</button>
             </div>
         </form>
         </div>
