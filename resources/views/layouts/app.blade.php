@@ -15,8 +15,14 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    {{-- css --}}
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admins/cleaners/modal/cleaner_delete_modal.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admins/cleaners/cleaning_progress_page.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/guests/calendar.css') }}" rel="stylesheet">
+
 
     {{-- FontAwesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -41,111 +47,7 @@
             border:1px solid blue;
         } */
 
-        h1,h2,h3,h4,h5,h6{
-            font-family: 'Bona Nova', serif;
-            font-weight: bold
-        }
-        p,form{
-            font-family: 'Raleway', sans-serif;
-        }
-        .cleaner-view-task p{
-            font-size: 32px;
-        }
-        p.cleaning-task-list{
-            font-weight: bold
-        }
-        /* .cleaner-page{
-            width: 25rem
-        } */
-        .cleaner-page p{
-            font-size: 32px;
-        }
-        .cleaner-page-button{
-            border: 12px solid #2C462B;
-            background-color: #448A47;
-            height: 25rem;
-            border-radius: 25px;
-            width:25rem;
-        }
-        .img-md{
-            height: 258px;
-            width: 237px;
-        }
-
-        /* Navbar */
-        .navbar {
-            background-color: #2C462B;
-            font-family: 'Bona Nova', sans-serif;
-        }
-  
-        .navbar-brand img {
-            height: 80px;
-            width: auto; 
-        }
-    
-        .admin-panel {
-            color: #F4BB4B;
-            font-weight: bold;
-            font-size: 48px
-        }
-    
-        .hi-username {
-            color: #fff;
-            font-size: 27px;
-            font-weight: bolder;
-            font-family: 'Raleway', sans-serif;
-        }
-
-        .logout {
-            color: #F4924B;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .logout:hover {
-            color: #F4BB4B;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* Admin Controls */
-        .admin-control.row {
-            display: flex;
-            flex-wrap: wrap; /* 画面が狭い場合に要素を折り返す */
-        }
-
-        .list-group {
-            font-family: 'Bona Nova', sans-serif;
-            font-weight: bolder;
-            font-size: 32px;
-            border-radius: 0;
-            background-color: #F4924B;
-            margin-bottom: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: none;
-            border: 0;
-        }
-
-        .list-group-item {
-            background-color: #F4924B;
-            color: #2C462B;
-            border: none;
-            border-bottom: 1px solid #2C462B;
-        }
-
-        .list-group-item:hover { /* カーソルが重なったとき */
-            background-color: #f4914b58;
-            color: #2C462B; 
-        }
-
-        .list-group-item.active { 
-            background-color: #F4BB4B;
-            color: #2C462B; 
-            border: none;
-            border-bottom: 1px solid #2C462B;   
-        }
+       
 
     </style>
 </head>
@@ -183,12 +85,14 @@
                                     {{ Auth::user()->name }}
                                 </a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                                 </a>
+
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -216,15 +120,9 @@
                 </div>
             </div>
         </nav>
-        @if (route('showCreateCleanerPage'))
             <main class="py-0">
                 @yield('content')
             </main>
-        @else
-            <main class="py-4">
-                @yield('content')
-            </main>
-        @endif
     </div>
 </body>
 </html>
