@@ -14,4 +14,8 @@ class GuestController extends Controller
     {
         return view('guests.room_page');
     }
+    public function roomdetail()
+    {
+        return view('guests.room_detail');
+    }
 }

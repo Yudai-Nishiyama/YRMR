@@ -1,0 +1,58 @@
+.roombody {
+    background-image: url('../images/guest_home_1.png');
+    background-size:cover;
+    position:relative;
+    width: 100%;
+    min-height: 100vh;
+}
+.roombody::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+        background-size:cover;
+}
+
+.roommenu{
+        z-index: 2;
+        font-family: 'Raleway', sans-serif;
+        height:70px;
+        width:300px;
+        font-size:25px;
+}
+
+.roommenu h3{
+    font-size:25px;
+}
+.rp_detail {
+        content: '';
+        background-color: rgba(235, 230, 230, 0.64);
+        border-radius: 5%;
+        display: block;
+        margin-top:90px;
+}
+
+.rp_btn-custom-color{
+        background-color:#448A47;
+}
+
+
+.rp_btn-custom-color1{
+        background-color:#2C462B;
+        width:300px;
+        height:70px;
+}
+.rp_btn-custom-color2{
+        background-color:#448A47;
+        height:70px;
+}
+.rp_imagebox img {
+        max-width: 100%; height: auto; display: block;
+}
+.rp_imagebox{
+        height: 330px;
+        width: 732px;
+}

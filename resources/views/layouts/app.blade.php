@@ -35,6 +35,12 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
+    {{-- css --}}
+    <link href="{{ asset('css/admins/cleaners/modal/cleaner_delete_modal.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admins/cleaners/cleaning_progress_page.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/guests/calendar.css') }}" rel="stylesheet">
+
+
     {{-- FontAwesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -47,12 +53,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     {{-- CSS --}}
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home_page.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/room_detail.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/room_page.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/admins/room-search.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admins/create-a-new-room.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/admins/all-rooms.css') }}">
-    <link rel="stylesheet" href={{ asset('/css/style.css') }}>
-
-
 </head>
 
 <body>
