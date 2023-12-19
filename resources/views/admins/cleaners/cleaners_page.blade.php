@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Admin Cleaning Page')
+@section('title', 'Admin Cleaner Page')
 
 @section('content')
 
@@ -19,7 +19,7 @@
                 {{-- button for cleaning progress page --}}
                 <div class="col">
                     <div class="cleaner-page-button text-center my-5 mx-auto">
-                        <a href="#" class="text-decoration-none" style="color:#FFFFFF;">
+                        <a href="{{ route('showCleaningProgressPage') }}" class="text-decoration-none" style="color:#FFFFFF;">
                             <div class="col mt-5">
                                 <img src="{{ asset('images/cleaning_progress.png') }}" alt="cleaning_progress">
                             </div>
@@ -34,7 +34,7 @@
 
                 <div class="col">
                     <div class="col cleaner-page-button text-center mx-auto my-5">
-                        <a href="#" class="text-decoration-none" style="color:#FFFFFF;">
+                        <a href="{{ route('showCleanerManagementPage') }}" class="text-decoration-none" style="color:#FFFFFF;">
                             <div class="col mt-5">
                                 <img class="img-md" src="{{ asset('images/cleaner_management.png') }}" alt="cleaning_management">
                             </div>

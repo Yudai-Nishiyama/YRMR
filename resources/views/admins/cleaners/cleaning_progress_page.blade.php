@@ -17,7 +17,11 @@
         <div class="card-body justify-content-center border">
             <table class="table">
                 <thead>
+<<<<<<< HEAD
+                    <tr>
+=======
                     <tr style="border-bottom: 1px solid black;">
+>>>>>>> 344b6fa7bb010f01e6c8894fdf3cf081f9e3f9a1
                         <th>Name</th>
                         <th>Room No.</th>
                         <th>Room Type</th>
@@ -29,7 +33,11 @@
                     </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
+                    <tr>
+=======
                     <tr style="border-bottom: 1px solid black;">
+>>>>>>> 344b6fa7bb010f01e6c8894fdf3cf081f9e3f9a1
                         <td>
                             <form action="#" method="POST">
                                 @csrf
@@ -60,7 +68,7 @@
                         <td style="color: #F4BB4B">Cleaning</td>
                         <td>10:00</td>
                         <td>
-                            <a href="#" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Check Progress</a>
+                            <a href="{{ route('showCheckCleaningProgressReport') }}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Check Progress</a>
                         </td>
                     </tr>
                 </tbody>

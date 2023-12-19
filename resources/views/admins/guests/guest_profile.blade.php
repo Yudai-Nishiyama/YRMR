@@ -12,7 +12,7 @@
                     <h2 style="color:#F4BB4B" class="fw-bold">Guest Profile</h2>
                 </div>
                 <div class="col d-flex align-items-center justify-content-end">
-                    <a href="#" class="float-end btn px-4" style="background-color:#448A47; color:#FFFFFF; ">Back to the page</a>
+                    <a href="{{ route('GuestReservationManagement') }}" class="float-end btn px-4" style="background-color:#448A47; color:#FFFFFF; ">Back to the page</a>
                 </div>
             </div>
         </div>

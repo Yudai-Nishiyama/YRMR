@@ -1,0 +1,84 @@
+           /* calendar */
+
+  
+           .calendar a {
+            text-decoration: none;
+            }
+    
+            .room_img{
+                width:30rem;
+                height: 15rem;
+            }
+            .calendar{
+                height: 50%;
+                width:80%;
+            }
+
+            .calender-head{
+                background-color: #F4BB4B;
+                border-radius: 10px 10px 0px 0px;
+            }
+
+            .calendar table{
+                border-collapse: separate;
+                border-radius:20px;
+                width:100%;
+                border-spacing:0;
+                /* border-left:2px solid black;
+                border-top:2px solid black; */
+            }
+
+            .calendar th {
+                margin: 0;
+                height: 30px;
+                text-align: center;
+                background-color:  #F4BB4B;
+                font-size: 25px;
+                border-bottom:2px solid black;
+                border-right:2px solid black;
+            }
+            
+            .calendar td {
+                margin: 0;
+                height: 30px;
+                font-size: 25px;
+                font-weight: bold;
+                border-bottom:2px solid black;
+                border-right:2px solid black;       
+            }
+
+            .calendar table thead tr:first-child th{
+                border-top:2px solid black;
+            }
+
+            .calendar table thead tr:first-child th:first-child{
+                border-left:2px solid black;
+            }
+
+            .calendar table tbody tr:last-child td:last-child{
+                border-radius:0 0 18px 0; 
+            }
+
+            .calendar table tbody tr:last-child td:first-child{
+                
+                border-radius:0 0 0px 18px; 
+            }
+
+            .calendar table tbody tr td:first-child {
+                border-left:2px solid black;
+            }
+            .calendar .today {
+                background-color: orange !important;
+                /* background: orange; */
+            }
+            .calendar th:nth-of-type(1), td:nth-of-type(1) {
+                color: red;
+            }
+            .calendar th:nth-of-type(7), td:nth-of-type(7) {
+                color: blue;
+            }
+            /* calendar end */
+
+            /* test */
+
+            

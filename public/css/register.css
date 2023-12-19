@@ -1,0 +1,105 @@
+.register {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    padding-bottom: 30px;
+}
+
+.registration {
+    display: flex;
+    justify-content: space-between;
+}
+
+.registration-image img {
+    width: 50vw;
+    height: 100vh;
+}
+
+.registrarion-form {
+    margin: 50px auto;
+    text-align: center;
+    font-family: Bona Nova;
+}
+
+.register_title {
+    font-family: Bona Nova;
+    margin: 0 auto;
+    border-bottom: 2px solid #448a47;
+    padding-bottom: 20px;
+    width: 80%;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+.input_content {
+    font-family: Raleway;
+    font-weight: bold;
+    padding: 8px;
+    margin-top: 5px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #448a47;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.4s ease;
+}
+
+.input_content:hover {
+    box-shadow: none; /* Set box-shadow to none on hover */
+}
+
+.input-container label {
+    font-family: Raleway;
+    text-align: left;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.input-container:first-child {
+    margin-left: 0;
+}
+
+.rg_button {
+    background-color: #448a47;
+    color: #fff;
+}
+
+.api {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.google {
+    margin-right: 30px;
+}
+
+.icon {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.4s ease; /* Transition effect for box-shadow over 2 seconds */
+}
+
+.icon:hover {
+    box-shadow: none;
+}
