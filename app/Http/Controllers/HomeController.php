@@ -65,5 +65,4 @@ class HomeController extends Controller
     {
         return view('guests.cancel_reservation_completion');
     }
-
 }
