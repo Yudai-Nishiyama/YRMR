@@ -9,6 +9,11 @@
 
     <title>{{ config('app.name') }}| @yield('title')</title>
 
+    {{-- css --}}
+    <link rel="stylesheet" href={{ asset('css/admins/view_cleaning_task.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admins/cleaners_page.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admins/style.css') }}>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
