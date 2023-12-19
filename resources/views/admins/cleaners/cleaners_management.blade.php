@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Admin Cleaning Progress Page')
+@section('title', 'Admin Cleaner Management')
 
 @section('content')
 
@@ -55,7 +55,7 @@
                 </table>
 
                 <div class="float-end">
-                    <a href="#" class="goCPbtn float-end btn fw-bold mt-5" style="background-color:#448A47; color:#FFFFFF; ">Go to the Cleaning Progress</a>
+                    <a href="{{ route('showCleaningProgressPage') }}" class="goCPbtn float-end btn fw-bold mt-5" style="background-color:#448A47; color:#FFFFFF; ">Go to the Cleaning Progress</a>
                 </div>
             </div>
 

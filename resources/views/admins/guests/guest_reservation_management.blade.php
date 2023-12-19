@@ -29,7 +29,7 @@
                 </thead>
                 <tbody>
                     <tr style="border-bottom: 1px solid black;">
-                        <td><a href="#" class="text-decoration-none" style="color:#448A47">First Name last Name</a></td>
+                        <td><a href="{{ route('GuestProfilePage') }}" class="text-decoration-none" style="color:#448A47">First Name last Name</a></td>
                         <td>Cleaner1</td>
                         <td>2023-11-14(Tue)</td>
                         <td>2023-11-15(Wed)</td>
