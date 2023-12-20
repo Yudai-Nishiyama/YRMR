@@ -26,16 +26,16 @@
     <link rel="stylesheet" href="{{asset('css/guest/cancel_resservation.css')}}">
     <link rel="stylesheet" href="{{asset('css/guest/cancel_reservation_completion.css')}}">
     <link rel="stylesheet" href="{{asset('css/guest/room_availability_search.css')}}">
-
-
-
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admins/cleaners/modal/cleaner_delete_modal.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admins/cleaners/cleaning_progress_page.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/guests/calendar.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     {{-- css --}}
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admins/cleaners/modal/cleaner_delete_modal.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admins/cleaners/cleaning_progress_page.css') }}" rel="stylesheet">
     <link href="{{ asset('css/guests/calendar.css') }}" rel="stylesheet">
@@ -60,12 +60,7 @@
 
     <link href="{{ asset('css/admins/room-search.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admins/create-a-new-room.css') }}" rel="stylesheet">
-
-    {{-- CSS --}}
     <link rel="stylesheet" href="{{ asset('css/admins/all-rooms.css') }}">
-
-    <link rel="stylesheet" href={{ asset('/css/style.css') }}>
-
 </head>
 
 <body>
