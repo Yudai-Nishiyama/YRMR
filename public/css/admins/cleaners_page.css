@@ -14,7 +14,7 @@
     width: 237px;
 }
 
-/* Create Cleaner Account */
+/* Create Cleaner Account page */
 .create_cleaner .title h2 {
     font-weight: bold;
 }
@@ -55,4 +55,50 @@
 
 .createCleanerAccount input {
     border:1px solid #448A47;
+}
+
+/* cleaners Management page*/
+.cleanerManagement .table  {
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.cleanerManagement .card-header h2 {
+    font-size: 40px;
+    margin-top: 0.5em; 
+    margin-bottom: 0em;
+    margin-left: 0.3em;
+} 
+
+.createCleanerBtn {
+    font-weight: bold;
+    background-color:#F4924B; 
+    color:#2C462B;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.createCleanerBtn:hover {
+    box-shadow: none;
+}
+
+.cleanerManagement .delete-btn {
+    font-weight: bold;
+    background-color: #981E1E;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.cleanerManagement .delete-btn:hover {
+    background-color: #981E1E;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.goCPbtn {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.goCPbtn:hover {
+    box-shadow: none;
 }
