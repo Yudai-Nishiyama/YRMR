@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('username');
             $table->string('password');
+            $table->string('email', 100)->unique();
             $table->unsignedBigInteger('role_id');
             $table->softDeletes();
             $table->timestamps();
