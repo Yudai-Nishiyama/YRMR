@@ -123,8 +123,15 @@
                               <span class="username d-block mt-2 me-5">Hi username!</span>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link logout ms-4 me-4" href="#">Log Out</a>
-                          </li>
+                            <a class="nav-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
                       </ul>
                   </div>
                 </div>
