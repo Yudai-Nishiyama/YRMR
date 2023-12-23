@@ -22,7 +22,7 @@
                 <img class="logo" src="{{asset('images/My Room Your Room-logos 2.png')}}" alt="ホテルのロゴ">
                 <h1 class="login_title">Login Form</h1>
 
-                <form action="POST" action="{{route('login')}}">
+                <form method="POST" action="{{route('login')}}">
                     @csrf
 
                     <div class="login-container">
