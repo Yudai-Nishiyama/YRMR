@@ -1,0 +1,19 @@
+.progress_bar_table .col{
+    height: 1rem;
+    width: 1rem;
+    border:1px solid black;
+}
+
+select.classic {
+    background-image:
+        /* linear-gradient(to top, transparent 50%, skyblue 50%), */
+        linear-gradient(to right, transparent 50%, #448A47 50%);
+    background-position:
+        105px,
+        105px;
+    background-size:
+        35px;
+    background-repeat: no-repeat;
+    border:1px solid #448A47;
+    border-radius: 5px;
+}
