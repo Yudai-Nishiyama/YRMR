@@ -61,6 +61,9 @@
     <link href="{{ asset('css/admins/room-search.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admins/create-a-new-room.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/admins/all-rooms.css') }}">
+    <link rel="stylesheet" href={{ asset('css/admins/navbar.css') }}>
+
+
 </head>
 
 <body>
@@ -76,14 +79,21 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <span class="username d-block mt-2 me-5">Hi username!</span>
+                            <span class="hi-username d-block mt-2 me-5">Hi username!</span>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link logout ms-4 me-4" href="#">Log Out</a>
+                            <a class="nav-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </div>
-            </div>
+                </div>
             </div>
         </nav>
             <main class="py-0">

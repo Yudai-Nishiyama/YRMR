@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('image');
             $table->unsignedBigInteger('room_type_id');
-            $table->boolean('is_active')->default('true');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->foreign('room_type_id')->references('id')->on('room_types');
         });
