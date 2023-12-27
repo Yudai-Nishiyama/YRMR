@@ -22,7 +22,7 @@
         
             <div class="card-body justify-content-center border">
                 <div class="float-end">
-                    <a href="#" class="createCleanerBtn float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">+ Create a New Cleaner</a>
+                    <a href="#" class="createCleanerBtn float-end btn fw-bold my-2" style="background-color:#F4924B; color:#2C462B; ">+ Create a New Cleaner</a>
                 </div>
                 <table class="table" >
                     <thead>
