@@ -58,8 +58,11 @@ Route::get('/guest/guest_profile_page', [App\Http\Controllers\HomeController::cl
 
 Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'showCalendar'])->name('showCalendar');
 
-Route::get('/cleaners/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');
-Route::get('/cleaners/cleaner_page', [CleanerController::class, 'showCleanerPage'])->name('showCleanerPage');
+Route::group(['prefix' => 'cleaner', 'as' => 'cleaner.', 'middleware' => 'cleaner'], function(){  
+    Route::get('/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');//cleaner.showTask
+    Route::get('/cleaner_page', [CleanerController::class, 'showCleanerPage'])->name('showCleanerPage');//cleaner.showCleanerPage
+  });
+
 
 Route::get('/admins/cleaners/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');
 Route::get('/admins/cleaners/cleaning_progress_page', [CleanersController::class, 'showCleaningProgressPage'])->name('showCleaningProgressPage');
