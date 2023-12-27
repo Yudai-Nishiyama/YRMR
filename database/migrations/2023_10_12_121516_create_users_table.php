@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email', 100)->unique();
             $table->unsignedBigInteger('role_id')
                     ->default(2)
-                    ->comment('1:admin 2:user');
+                    ->comment('1:admin 2:user 3:cleaner');
             $table->timestamps();
         });
     }
