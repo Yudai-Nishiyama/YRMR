@@ -28,37 +28,22 @@ Auth::routes();
 //homepage
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/guests/check_reservation', [App\Http\Controllers\HomeController::class, 'checkReservation'])->name('checkReservation');
+    Route::get('/guests/cancel_reservation', [App\Http\Controllers\HomeController::class, 'cancelReservation'])->name('cancelReservation');
+    Route::get('/guests/reservation', [App\Http\Controllers\HomeController::class, 'reservation'])->name('reservation');
+    Route::get('/guests/reservation_completion', [App\Http\Controllers\HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
+    Route::get('/guests/cancel_reservation_completion', [App\Http\Controllers\HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
+    Route::get('/guest/guest_reservation_management_page', [App\Http\Controllers\HomeController::class, 'GuestReservationManagementPage'])->name('GuestReservationManagement');
+    Route::get('/guest/guest_profile_page', [App\Http\Controllers\HomeController::class, 'GuestProfilePage'])->name('GuestProfilePage');
+});
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/guests/room_availability_search', [App\Http\Controllers\HomeController::class, 'searchRoom'])->name('searchRoom');
-Route::get('/guests/check_reservation', [App\Http\Controllers\HomeController::class, 'checkReservation'])->name('checkReservation');
-
-Route::get('/guests/reservation', [App\Http\Controllers\HomeController::class, 'reservation'])->name('reservation');
-Route::get('/guests/cancel_reservation', [App\Http\Controllers\HomeController::class, 'cancelReservation'])->name('cancelReservation');
-
-Route::get('/guests/reservation_completion', [App\Http\Controllers\HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
-Route::get('/guests/cancel_reservation_completion', [App\Http\Controllers\HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
-
-
-
-Route::get('/guests/room_availability_search', [App\Http\Controllers\HomeController::class, 'searchRoom'])->name('searchRoom');
-Route::get('/guests/check_reservation', [App\Http\Controllers\HomeController::class, 'checkReservation'])->name('checkReservation');
-
-Route::get('/guests/reservation', [App\Http\Controllers\HomeController::class, 'reservation'])->name('reservation');
-Route::get('/guests/cancel_reservation', [App\Http\Controllers\HomeController::class, 'cancelReservation'])->name('cancelReservation');
-
-Route::get('/guests/reservation_completion', [App\Http\Controllers\HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
-Route::get('/guests/cancel_reservation_completion', [App\Http\Controllers\HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
-
-
 Route::get('/admin/navbar', [App\Http\Controllers\HomeController::class, 'navbar'])->name('navbar');
-
-Route::get('/guest/guest_reservation_management_page', [App\Http\Controllers\HomeController::class, 'GuestReservationManagementPage'])->name('GuestReservationManagement');
-Route::get('/guest/guest_profile_page', [App\Http\Controllers\HomeController::class, 'GuestProfilePage'])->name('GuestProfilePage');
-
 Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'showCalendar'])->name('showCalendar');
-
+Route::get('/guest/room', [GuestController::class, 'guestroom'])->name('guestRoom');
+Route::get('/guest/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function(){
@@ -83,8 +68,7 @@ Route::get('/cleaners/cleaner_page', [CleanerController::class, 'showCleanerPage
 Route::get('/cleaner/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');
 
 
-Route::get('/guest/room', [GuestController::class, 'guestroom'])->name('guestRoom');
-Route::get('/guest/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
+
 
 
 
