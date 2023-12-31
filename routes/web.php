@@ -25,9 +25,14 @@ use App\Http\Controllers\AdminController;
 
 Auth::routes();
 
-//homepage
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/guests/room_availability_search', [App\Http\Controllers\HomeController::class, 'searchRoom'])->name('searchRoom');
+Route::get('/admin/navbar', [App\Http\Controllers\HomeController::class, 'navbar'])->name('navbar');
+Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'showCalendar'])->name('showCalendar');
+Route::get('/guest/room', [GuestController::class, 'guestroom'])->name('guestRoom');
+Route::get('/guest/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
 
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/guests/check_reservation', [App\Http\Controllers\HomeController::class, 'checkReservation'])->name('checkReservation');
     Route::get('/guests/cancel_reservation', [App\Http\Controllers\HomeController::class, 'cancelReservation'])->name('cancelReservation');
@@ -38,19 +43,18 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/guest/guest_profile_page', [App\Http\Controllers\HomeController::class, 'GuestProfilePage'])->name('GuestProfilePage');
 });
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/guests/room_availability_search', [App\Http\Controllers\HomeController::class, 'searchRoom'])->name('searchRoom');
-Route::get('/admin/navbar', [App\Http\Controllers\HomeController::class, 'navbar'])->name('navbar');
-Route::get('/calendar', [App\Http\Controllers\CalendarController::class, 'showCalendar'])->name('showCalendar');
-Route::get('/guest/room', [GuestController::class, 'guestroom'])->name('guestRoom');
-Route::get('/guest/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
-
+Route::group(['prefix' => 'cleaner', 'as' => 'cleaner.', 'middleware' => 'cleaner'], function(){  
+    Route::get('/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');//cleaner.showTask
+    Route::get('/cleaner_page', [CleanerController::class, 'showCleanerPage'])->name('showCleanerPage');//cleaner.showCleanerPage
+  });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function(){
+    #admin
     Route::get('/index', [App\Http\Controllers\AdminController::class, 'showAllRooms'])->name('showAllRooms');//admin.showAllRooms
     Route::get('/create_room', [App\Http\Controllers\AdminController::class, 'showCreateRoom'])->name('showCreateRoom');//admin.showCreateRoom
     Route::get('/room_search', [App\Http\Controllers\AdminController::class, 'showRoomSearch'])->name('showRoomSearch');//admin.showRoomSearch
     
+    #admin.cleaner
     Route::get('/check_cleaning_progress_report', [CleanersController::class, 'showCheckCleaningProgressReport'])->name('showCheckCleaningProgressReport');//admin.showCheckCleaningProgressReport
     Route::get('/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');//admin.showCleanersPage
     Route::get('/cleaning_progress_page', [CleanersController::class, 'showCleaningProgressPage'])->name('showCleaningProgressPage');//admin.showCleaningProgressPage
@@ -62,10 +66,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 
 
 
-
-Route::get('/cleaners/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');
-Route::get('/cleaners/cleaner_page', [CleanerController::class, 'showCleanerPage'])->name('showCleanerPage');
-Route::get('/cleaner/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');
 
 
 
