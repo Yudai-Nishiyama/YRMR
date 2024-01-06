@@ -4,16 +4,9 @@
 
 @section('content')
 
-{{-- Admin Controls --}}
-<div class="admin-control row g-0">
-    <div class="col-1" style="width: 264px;">
-        <div class="list-group" style="width: 100%;">
-            <a href="#" class="list-group-item p-3 text-center">Rooms</a>
-            <a href="#" class="list-group-item p-3 text-center active" aria-current="true">Cleaners</a>          
-            <a href="#" class="list-group-item p-3 text-center">Guests</a>
-        </div>
-    </div>
-
+<div class="row g-0">
+    @include('admins.admin-controls')
+    
     <div class="col cleanerManagement container m-5">
         <div class="card" style="border:none;">
             <div class="card-header" style="background-color: #2C462B; border-radius:25px 25px 0px 0px;">

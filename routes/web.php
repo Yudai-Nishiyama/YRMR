@@ -45,9 +45,13 @@ Route::prefix('guests')->name('guests.')->group(function () {
 //Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/navbar', [HomeController::class, 'navbar'])->name('navbar');
-    Route::get('/index', [AdminController::class, 'showAllRooms'])->name('showAllRooms');//admin.showAllRooms
-    Route::get('/create_room', [AdminController::class, 'showCreateRoom'])->name('showCreateRoom');//admin.showCreateRoom
-    Route::get('/room_search', [AdminController::class, 'showRoomSearch'])->name('showRoomSearch');//dmin.showRoomSearch    
+    
+    // Admins Rooms Routes
+    Route::prefix('rooms')->name('rooms.')->group(function () {
+        Route::get('/index', [AdminController::class, 'showAllRooms'])->name('showAllRooms');//admin.rooms.showAllRooms
+        Route::get('/create_room', [AdminController::class, 'showCreateRoom'])->name('showCreateRoom');//admin.rooms.showCreateRoom
+        Route::get('/room_search', [AdminController::class, 'showRoomSearch'])->name('showRoomSearch');//admin.rooms.showRoomSearch   
+    });
 
     // Admins Cleaners Routes
     Route::prefix('cleaners')->name('cleaners.')->group(function () {
@@ -58,6 +62,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/cleaner_management_page', [CleanersController::class, 'CleanerManagementPage'])->name('CleanerManagementPage');
         Route::get('/create_cleaner', [CleanersController::class, 'showCreateCleanerPage'])->name('showCreateCleanerPage');
         Route::delete('/{id}', [CleanersController::class, 'destroy'])->name('cleaner.destroy');
+    });
+
+    // Admins Guests Routes
+    Route::prefix('guests')->name('cleaners.')->group(function () {
+        
     });
 });
 
