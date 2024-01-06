@@ -60,7 +60,7 @@
                         <td style="color: #F4BB4B">Cleaning</td>
                         <td>10:00</td>
                         <td>
-                            <a href="{{ route('showCheckCleaningProgressReport') }}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Check Progress</a>
+                            <a href="{{ route('admin.cleaners.showCheckCleaningProgressReport') }}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Check Progress</a>
                         </td>
                     </tr>
                 </tbody>
