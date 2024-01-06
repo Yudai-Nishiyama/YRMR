@@ -42,30 +42,23 @@ Route::prefix('guests')->name('guests.')->group(function () {
     Route::get('/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
 });
 
-//Guest Routes
-Route::get('/guest/room', [GuestController::class, 'guestroom'])->name('guestRoom');
-Route::get('/guest/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
-Route::get('/guest/guest_reservation_management_page', [App\Http\Controllers\HomeController::class, 'GuestReservationManagementPage'])->name('GuestReservationManagement');
-Route::get('/guest/guest_profile_page', [App\Http\Controllers\HomeController::class, 'GuestProfilePage'])->name('GuestProfilePage');
-
 //Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/navbar', [HomeController::class, 'navbar'])->name('navbar');
-    Route::get('/index', [AdminController::class, 'showAllRooms'])->name('showAllRooms');
-    Route::get('/create_room', [AdminController::class, 'showCreateRoom'])->name('showCreateRoom');
-    Route::get('/room_search', [AdminController::class, 'showRoomSearch'])->name('showRoomSearch');
-    Route::get('/cleaner/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');
-});
+    Route::get('/index', [AdminController::class, 'showAllRooms'])->name('showAllRooms');//admin.showAllRooms
+    Route::get('/create_room', [AdminController::class, 'showCreateRoom'])->name('showCreateRoom');//admin.showCreateRoom
+    Route::get('/room_search', [AdminController::class, 'showRoomSearch'])->name('showRoomSearch');//dmin.showRoomSearch    
 
-// Admins Cleaners Routes
-Route::prefix('admins/cleaners')->name('admins.cleaners.')->group(function () {
-    Route::get('/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');
-    Route::get('/cleaning_progress_page', [CleanersController::class, 'showCleaningProgressPage'])->name('showCleaningProgressPage');
-    Route::get('/check_cleaning_progress_report', [CleanersController::class, 'showCheckCleaningProgressReport'])->name('showCheckCleaningProgressReport');
-    Route::get('/modal/cleaner_delete_modal', [CleanersController::class, 'showModalDelete'])->name('showModalDelete');
-    Route::get('/cleaner_management_page', [CleanersController::class, 'CleanerManagementPage'])->name('CleanerManagementPage');
-    Route::get('/create_cleaner', [CleanersController::class, 'showCreateCleanerPage'])->name('showCreateCleanerPage');
-    Route::delete('/{id}', [CleanersController::class, 'destroy'])->name('cleaner.destroy');
+    // Admins Cleaners Routes
+    Route::prefix('cleaners')->name('cleaners.')->group(function () {
+        Route::get('/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');//admin.cleaners.~~~~
+        Route::get('/cleaning_progress_page', [CleanersController::class, 'showCleaningProgressPage'])->name('showCleaningProgressPage');
+        Route::get('/check_cleaning_progress_report', [CleanersController::class, 'showCheckCleaningProgressReport'])->name('showCheckCleaningProgressReport');
+        Route::get('/modal/cleaner_delete_modal', [CleanersController::class, 'showModalDelete'])->name('showModalDelete');
+        Route::get('/cleaner_management_page', [CleanersController::class, 'CleanerManagementPage'])->name('CleanerManagementPage');
+        Route::get('/create_cleaner', [CleanersController::class, 'showCreateCleanerPage'])->name('showCreateCleanerPage');
+        Route::delete('/{id}', [CleanersController::class, 'destroy'])->name('cleaner.destroy');
+    });
 });
 
 // Cleaner Routes
@@ -73,6 +66,7 @@ Route::group(['prefix' => 'cleaner', 'as' => 'cleaner.', 'middleware' => 'cleane
     Route::get('/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');//cleaner.showTask
     Route::get('/cleaner_page', [CleanerController::class, 'showCleanerPage'])->name('showCleanerPage');//cleaner.showCleanerPage
 });
+  
 
 // Calender Routes
 Route::get('/calendar', [CalendarController::class, 'showCalendar'])->name('showCalendar');

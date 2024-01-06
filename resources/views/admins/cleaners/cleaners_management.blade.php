@@ -57,7 +57,7 @@
                 </table>
 
                 <div class="float-end">
-                    <a href="{{ route('admins.cleaners.showCleaningProgressPage') }}" class="goCPbtn float-end btn fw-bold mt-5" style="background-color:#448A47; color:#FFFFFF; ">Go to the Cleaning Progress</a>
+                    <a href="{{ route('admin.cleaners.showCleaningProgressPage') }}" class="goCPbtn float-end btn fw-bold mt-5" style="background-color:#448A47; color:#FFFFFF; ">Go to the Cleaning Progress</a>
                 </div>
             </div>
 
