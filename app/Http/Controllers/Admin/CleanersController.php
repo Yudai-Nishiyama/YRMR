@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class CleanersController extends Controller
 {
@@ -22,9 +23,11 @@ class CleanersController extends Controller
         return view('admins.cleaners.check_cleaning_progress_report');
     }
 
-    public function showCleanerManagementPage()
+    public function CleanerManagementPage()
     {
-        return view('admins.cleaners.cleaners_management');
+        $cleaners = User::where('role_id', 3)->with('profile')->get();
+
+        return view('admins.cleaners.cleaners_management', ['cleaners' => $cleaners]);
     }
 
     public function showModalDelete()
@@ -37,5 +40,12 @@ class CleanersController extends Controller
         return view('admins.cleaners.create_cleaner');
     }
 
+    public function destroy($id)
+    {
+        $cleaner = Cleaner::findOrFail($id);
+        $cleaner->delete();
+
+        return redirect()->route('cleaner.index')->with('success', 'Cleaner deleted successfully');
+    }
 }
 
