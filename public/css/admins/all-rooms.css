@@ -26,7 +26,7 @@
 }
 
 .list-group-item:hover { /* カーソルが重なったとき */
-    background-color: #f4914b58;
+    background-color: #c67c4b;
     color: #2C462B; 
 }
 
@@ -34,7 +34,8 @@
     background-color: #F4BB4B;
     color: #2C462B; 
     border: none;
-    border-bottom: 1px solid #2C462B;   
+    border-bottom: 1px solid #2C462B;
+    border-top: 1px solid #2C462B;
 }
 
 

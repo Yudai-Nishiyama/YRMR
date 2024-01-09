@@ -82,7 +82,7 @@
                             <span class="hi-username d-block mt-2 me-5">Hi username!</span>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}"
+                            <a class="nav-link nav-bar-logout" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
