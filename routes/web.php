@@ -3,10 +3,12 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CleanerController;
-use App\Http\Controllers\Admin\CleanersController;
-use App\Http\Controllers\GuestController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\CleanerController;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\Admin\CleanersController;
 
 /*
 |--------------------------------------------------------------------------
