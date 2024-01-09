@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('cleaning', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('reservation_id');
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('reservation_id')->references('id')->on('reservations');
         });
     }
 

@@ -76,11 +76,11 @@ Route::get('/admins/cleaners/modal/cleaner_delete_modal', [CleanersController::c
 Route::get('/admins/cleaners/create_cleaner', [CleanersController::class, 'showCreateCleanerPage'])->name('showCreateCleanerPage');
 
 Route::get('/cleaner/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');
-Route::get('/admin/cleaner/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');
+Route::get('/admin/cleaner/cleaning_page', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');
 
 
 Route::get('/guest/room', [GuestController::class, 'guestroom'])->name('guestRoom');
-Route::get('/guest/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
+Route::get('/guest/detail/{id}', [GuestController::class, 'roomdetail'])->name('roomDetail');
 
 
 
