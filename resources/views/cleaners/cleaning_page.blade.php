@@ -123,7 +123,7 @@
                             @endif
 
                             <td>
-                                <a href="#" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">View Task</a>
+                                <a href="{{route('cleaner.showTask')}}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">View Task</a>
                             </td>
                         </tr>
                         @endforeach

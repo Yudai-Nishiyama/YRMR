@@ -22,7 +22,8 @@
                 <img class="logo" src="{{asset('images/My Room Your Room-logos 2.png')}}" alt="ホテルのロゴ">
                 <h1 class="login_title">Login Form</h1>
 
-                <form action="#">
+                <form method="POST" action="{{route('login')}}">
+                    @csrf
 
                     <div class="login-container">
 
@@ -30,11 +31,11 @@
 
                             <div class="input-container">
                                 <label for="email">Email</label>
-                                <input class="input_content" type="text" id="email" placeholder="mail@mail.com">
+                                <input class="input_content" type="text" id="email" name="email" placeholder="mail@mail.com">
                             </div>
                             <div class="input-container">
                                 <label for="password">Password</label>
-                                <input class="input_content" type="text" id="password" placeholder="Enter your password">
+                                <input class="input_content" type="text" id="password" name="password" placeholder="Enter your password">
                             </div>
 
                         </div>
