@@ -9,4 +9,35 @@
 .modal-body img{
     width:50px;
     height:50px;
+    margin-bottom: 20px;
+}
+
+.custom-modal-body {
+    padding-top: 30px;
+    margin-left: 40px;
+    font-family: 'Bona Nova', sans-serif;
+}
+
+.modal-cancel-btn {
+    background-color:#448A47; 
+    color:#FFFFFF;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.modal-cancel-btn:hover {
+    background-color:#448A47; 
+    color:#F4BB4B;
+    box-shadow: none;
+}
+
+.modal-delete-btn {
+    background-color:#981E1E; 
+    color:#FFFFFF;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.modal-delete-btn:hover {
+    background-color:#981E1E; 
+    color:#F4BB4B;
+    box-shadow: none;
 }

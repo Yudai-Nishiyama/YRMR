@@ -4,15 +4,8 @@
 
 @section('content')
 
-{{-- Admin Controls --}}
-<div class="admin-control row g-0">
-    <div class="col-1" style="width: 264px;">
-        <div class="list-group" style="width: 100%;">
-            <a href="#" class="list-group-item p-3 text-center shadow-none active" aria-current="true">Rooms</a>          
-            <a href="#" class="list-group-item p-3 text-center">Cleaners</a>
-            <a href="#" class="list-group-item p-3 text-center">Guests</a>
-        </div>
-    </div>
+<div class="row g-0">
+    @include('admins.admin-controls')
 
     <div class="col cleanerManagement container m-5">
         <div class="card" style="border:none;">
@@ -22,7 +15,7 @@
         
             <div class="card-body justify-content-center border">
                 <div class="float-end">
-                    <a href="#" class="createCleanerBtn float-end btn fw-bold my-2" style="background-color:#F4924B; color:#2C462B; ">+ Create a New Cleaner</a>
+                    <a href="{{ route('admin.cleaners.showCreateCleanerPage') }}" class="createCleanerBtn float-end btn fw-bold my-3" style="background-color:#F4924B; color:#2C462B; ">+ Create a New Cleaner</a>
                 </div>
                 <table class="table" >
                     <thead>
@@ -37,25 +30,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="margin-top:2px; border-bottom: 1px solid black;">
-                            <td>First Name last Name</td>
-                            <td>Cleaner1</td>
-                            <td>gmail.com</td>
-                            <td>000-1234-5678</td>
-                            <td>1-1-1 Marunouchi Tokyo</td>
-                            <td>2023-11-14</td>
-                            <td>
-                                <button class="delete-btn btn text-white px-5 float-end" data-bs-toggle="modal" data-bs-target="#delete-cleaner-id">
-                                    Delete
-                                </button>
-                            </td>
-                            @include('admins.cleaners.modal.cleaner_delete_modal')
-                        </tr>
+                        @foreach ($cleaners as $cleaner)
+                            <tr style="margin-top:2px; border-bottom: 1px solid black;">
+                                <td>{{ $cleaner->profile->first_name }} {{ $cleaner->profile->last_name }}</td>
+                                <td>{{ $cleaner->username }}</td>
+                                <td>{{ $cleaner->email }}</td>
+                                <td>{{ $cleaner->profile->phone_number }}</td>
+                                <td>{{ $cleaner->profile->address }}</td>
+                                <td>{{ $cleaner->profile->created_at->format('Y-m-d') }}</td>
+                                <td>
+                                    <button class="delete-btn btn text-white px-5 float-end" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $cleaner->id }}">
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            @include('admins.cleaners.modal.cleaner_delete_modal', ['cleaner' => $cleaner])
+                        @endforeach
                     </tbody>
                 </table>
 
                 <div class="float-end">
-                    <a href="{{ route('showCleaningProgressPage') }}" class="goCPbtn float-end btn fw-bold mt-5" style="background-color:#448A47; color:#FFFFFF; ">Go to the Cleaning Progress</a>
+                    <a href="{{ route('admin.cleaners.showCleaningProgressPage') }}" class="goCPbtn float-end btn fw-bold mt-5" style="background-color:#448A47; color:#FFFFFF; ">Go to the Cleaning Progress</a>
                 </div>
             </div>
 
