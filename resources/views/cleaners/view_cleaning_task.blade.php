@@ -23,10 +23,18 @@
                 <div class="col">
                     <div class="row">
                         <div class="col">
-                            <p class="fw-bold text-end">VIP Room</p>
+                            <p class="fw-bold text-end">Room:{{$reservation->room->name}}</p>
                         </div>
                         <div class="col">
-                            <p style="color: #981E1E;">Checked OUT</p>
+                            @if ($reservation->guest_checkin===1 && $reservation->guest_checkout===1)
+                                <td>
+                                    <p style="color: #981E1E;">Checked OUT</p>
+                                </td>
+                            @elseif($reservation->guest_checkin===1 && $reservation->guest_checkout===0)
+                                <td>
+                                    <p style="color:#2C462B;">Checked IN</p> 
+                                </td>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -37,7 +45,14 @@
                             <p class="fw-bold">Next Reservation</p>
                         </div>
                         <div class="col-4">
-                            <p>Vacant</p>
+                            @if ($nearest_reservation_date)
+                                <td>
+                                    <p>{{$nearest_reservation_date->format('Y-m-d')}}</p>
+                                </td>
+                            @else
+                                <p>Vacant</p>
+                            @endif
+                            
                         </div>
                     </div>
                 </div>
@@ -48,10 +63,16 @@
                 <div class="col">
                     <div class="row">
                         <div class="col">
-                            <p class="fw-bold text-end ">Cleaner&nbsp; &nbsp; </p>
+                            <p class="fw-bold text-end ">Cleaner:&nbsp; &nbsp; </p>
                         </div>
                         <div class="col">
-                            <p>Not Assign Yet</p>
+                            @if ($reservation->cleaning)
+                                @foreach ($reservation->cleaning as $cleaning)
+                                    <p>{{ $cleaning->user->username }}</p>
+                                @endforeach
+                            @else
+                                <p>Not Assign Yet</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -62,7 +83,11 @@
                             <p class="fw-bold ">Estimated Finishing Time</p>
                         </div>
                         <div class="col-4 ">
-                            <p>10:00</p>
+                            <div id="clock{{ $reservation->id }}" class="clock_object">
+                                <p>
+                                    <span class="minutes"></span>:<span class="seconds"></span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -153,5 +178,7 @@
         </div>
     </div>
 </div>
+
+<script defer src="{{ asset('js/cleaning_page.js') }}"></script>
 
 @endsection

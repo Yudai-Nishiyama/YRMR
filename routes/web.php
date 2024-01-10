@@ -74,7 +74,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 // Cleaner Routes
 Route::group(['prefix' => 'cleaner', 'as' => 'cleaner.', 'middleware' => 'cleaner'], function(){  
-    Route::get('/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');//cleaner.showTask
+    Route::get('/cleaning_task/{id}', [CleanerController::class, 'showCleaningTask'])->name('showTask');//cleaner.showTask
     Route::get('/cleaner_page', [CleanerController::class, 'showCleanerPage'])->name('showCleanerPage');//cleaner.showCleanerPage
 });
   
