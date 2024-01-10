@@ -6,7 +6,7 @@
 
 <div class="row g-0">
     @include('admins.admin-controls')
-    
+
     <div class="col cleanerManagement container m-5">
         <div class="card" style="border:none;">
             <div class="card-header" style="background-color: #2C462B; border-radius:25px 25px 0px 0px;">
@@ -15,7 +15,7 @@
         
             <div class="card-body justify-content-center border">
                 <div class="float-end">
-                    <a href="#" class="createCleanerBtn float-end btn fw-bold my-3" style="background-color:#F4924B; color:#2C462B; ">+ Create a New Cleaner</a>
+                    <a href="{{ route('admin.cleaners.showCreateCleanerPage') }}" class="createCleanerBtn float-end btn fw-bold my-3" style="background-color:#F4924B; color:#2C462B; ">+ Create a New Cleaner</a>
                 </div>
                 <table class="table" >
                     <thead>
