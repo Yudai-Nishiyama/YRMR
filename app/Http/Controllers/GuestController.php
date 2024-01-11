@@ -21,7 +21,10 @@ class GuestController extends Controller
     public function guestroom()
     {
         $all_room = $this->room->all();
-        return view('guests.room_page')->with('all_room',$all_room);
+        $room_looped = NULL;
+        return view('guests.room_page')
+        ->with('room_looped',$room_looped)
+        ->with('all_room',$all_room);
     }
     public function roomdetail($id)
     {

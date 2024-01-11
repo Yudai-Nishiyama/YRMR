@@ -33,7 +33,7 @@
         background-color: rgba(235, 230, 230, 0.64);
         border-radius: 5%;
         display: block;
-        margin-top:100px;
+        margin-top:90px;
 }
 
 .rp_btn-custom-color{
@@ -51,7 +51,7 @@
         height:70px;
 }
 .rp_imagebox img {
-        max-width: 100%; height: auto; display: block;
+        max-width: 60%; height: auto; display: block;
 }
 .rp_imagebox{
         height: 330px;

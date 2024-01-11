@@ -3,21 +3,21 @@
 @section('title', 'View Cleaning Task')
 
 @section('content')
-
+@foreach ($all_room as $room)
 <div class="roombody " >
 
-    {{-- @foreach ($all_room as $room) --}}
+
         <div class="row">
             <div class="col-3">
             </div>
 
             <div class="col-5">
 
-                <div class="card mt-5 custom-card" style="height:700px; border-radius:25px 25px 25px 25px;" >
+                <div class="card mt-5 custom-card" style="border-radius:25px 25px 25px 25px;" >
 
                     <div class="card-header" style="border:1px solid black; border-bottom:none; background-color: #fbfbfb; border-radius:25px 25px 0px 0px;">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h1 style="color:#F4BB4B" class="fw-bold"></h1>
+                            <h1 style="color:#F4BB4B" class="fw-bold">{{$room->name }}</h1>
                             <p>
                                 <i class="fa-solid fa-heart" style="font-size:60px; color:rgb(142, 8, 8);"></i>
                             </p>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="row align-items-center" >
                                     <div class="col ms-3">
-                                        {{-- <h1 style="color:#981E1E;">Sum {{$room->roomType->price}}$(tax)</h1> --}}
+                                        <h1 style="color:#981E1E;">Sum {{$room->roomType->price}}$(tax)</h1>
                                     </div>
                                     <div class="col text-end text-secondary me-3"
                                         style="font-size:30px; "><a href="{{route('reservation')}}" style=""><i class="fa-solid fa-chevron-right"></i></a>
@@ -71,28 +71,36 @@
                             </div>
 
                     </div>
-                    {{-- @endforeach --}}
+
                 </div>
 
             </div>
 
             <div class="col-3 roommenu">
-                <div class="mt-5"  >
-                    <div class="justify-content-center d-flex ">
-                        <a href="{{ route('guesthome') }}"><h3 class="btn rp_btn-custom-color1 text-light d-flex justify-content-center align-items-center fw-bold">HOME</h3></a>
+                @if ($room_looped===NULL)
+                    <div class="mt-5"  >
+                        <div class="justify-content-center d-flex ">
+                            <a href="{{ route('guesthome') }}"><h3 class="btn rp_btn-custom-color1 text-light d-flex justify-content-center align-items-center fw-bold">HOME</h3></a>
+                        </div>
+                        <div class="justify-content-center d-flex ">
+                            <a href="{{route('checkReservation')}}"><h3 class="btn rp_btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold"><i
+                            class="fa-regular fa-square-check d-flex" style="font-size:40px;"></i> <span class="d-flex me-4 p-0">Check Confirmation</span></h3></a>
+                        </div>
+                        <div class="justify-content-center d-flex ">
+                            <a href="{{route('searchRoom')}}"> <h3 class="btn rp_btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold"><i
+                            class="fa-solid fa-magnifying-glass d-flex" style="font-size:40px; margin-right:55px;"></i><span class="d-flex" style="margin-right:85px;">Search</span>
+                        </div></a>
                     </div>
-                    <div class="justify-content-center d-flex ">
-                        <a href="{{route('checkReservation')}}"><h3 class="btn rp_btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold"><i
-                        class="fa-regular fa-square-check d-flex" style="font-size:40px;"></i> <span class="d-flex me-4 p-0">Check Confirmation</span></h3></a>
-                    </div>
-                    <div class="justify-content-center d-flex ">
-                        <a href="{{route('searchRoom')}}"> <h3 class="btn rp_btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold"><i
-                        class="fa-solid fa-magnifying-glass d-flex" style="font-size:40px; margin-right:55px;"></i><span class="d-flex" style="margin-right:85px;">Search</span>
-                    </div></a>
-                </div>
+                    @php
+                        $room_looped = $room->id;
+                    @endphp
+                @else
+
+                @endif
             </div>
 
         </div>
 
 </div>
+@endforeach
 @endsection

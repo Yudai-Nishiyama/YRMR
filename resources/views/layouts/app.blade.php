@@ -63,11 +63,6 @@
     <link rel="stylesheet" href="{{ asset('css/admins/all-rooms.css') }}">
     <link rel="stylesheet" href={{ asset('css/admins/navbar.css') }}>
 
-    <style>
-        *{
-            border:blue 1px solid;
-        }
-    </style>
 
 </head>
 
