@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('room_type_name');
             $table->text('description');
             $table->integer('price');
+            $table->timestamps();
         });
     }
 
