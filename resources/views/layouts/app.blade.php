@@ -63,7 +63,6 @@
     <link href="{{ asset('css/guests/calendar.css') }}" rel="stylesheet">
     <link rel="stylesheet" href={{ asset('css/admins/navbar.css') }}>
 
-
 </head>
 
 <body>

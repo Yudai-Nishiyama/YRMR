@@ -135,6 +135,6 @@
     </div>
 </div>
 
-<script defer src="{{ asset('js/cleaning_page.js') }}"></script>
+<script defer src="{{ asset('js/cleaning_page_timer.js') }}"></script>
 
 @endsection

@@ -110,7 +110,13 @@
                             </div>
                             <div class="row mt-0">
                                 <div class="col form-check d-flex align-items-center justify-content-center">
-                                    <input class="form-check-input me-1" type="checkbox" value="task_id" id="change_sheets">
+                                    <input class="form-check-input me-1" type="checkbox" value="1" id="change_sheets" onclick="handleCheckboxClick(this.id, this.checked)"
+                                        @foreach ($reservation->reservationTask as $reservation_task)
+                                            @if ($reservation_task->task_id === 1) 
+                                                checked>
+                                            @endif
+                                        @endforeach
+
                                     <label class="form-check-label " for="change_sheets">
                                     <p class="my-auto" style="color: #2C462B;">Changing Sheets</p>
                                     </label>
@@ -123,7 +129,12 @@
                                 <p class="mb-0 cleaning-task-list" style="color: #2C462B; border-bottom:3px solid #2C462B;"><i class="fa-solid fa-bath"></i> Bathrooms</p>
                                 <div class="row mt-0">
                                     <div class="col form-check d-flex align-items-center justify-content-center">
-                                        <input class="form-check-input me-1" type="checkbox" value="task_id" id="refill_amenities">
+                                        <input class="form-check-input me-1" type="checkbox" value="2" id="refill_amenities" onclick="handleCheckboxClick(this.id, this.checked)"
+                                        @foreach ($reservation->reservationTask as $reservation_task)
+                                            @if ($reservation_task->task_id === 2) 
+                                                checked>
+                                            @endif
+                                        @endforeach
                                         <label class="form-check-label" for="refill_amenities">
                                         <p class="my-auto" style="color: #2C462B;">Refill Amenities</p>
                                         </label>
@@ -138,7 +149,12 @@
                             </div>
                             <div class="row mt-0">
                                 <div class="col form-check d-flex align-items-center justify-content-center">
-                                    <input class="form-check-input me-1" type="checkbox" value="task_id" id="cleaning_the_floor">
+                                    <input class="form-check-input me-1" type="checkbox" value="3" id="cleaning_the_floor" onclick="handleCheckboxClick(this.id, this.checked)"
+                                        @foreach ($reservation->reservationTask as $reservation_task)
+                                            @if ($reservation_task->task_id === 3) 
+                                                checked>
+                                            @endif
+                                        @endforeach
                                     <label class="form-check-label" for="cleaning_the_floor">
                                     <p class="my-auto" style="color: #2C462B;">Cleaning the Floor</p>
                                     </label>
@@ -179,6 +195,8 @@
     </div>
 </div>
 
-<script defer src="{{ asset('js/cleaning_page.js') }}"></script>
+<script defer src="{{ asset('js/view_cleaning_task_click_to_input_checkbox.js') }}"></script>
+<script defer src="{{ asset('js/cleaning_page_timer.js') }}"></script>
+
 
 @endsection
