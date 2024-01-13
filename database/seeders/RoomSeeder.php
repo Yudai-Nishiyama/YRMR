@@ -23,8 +23,16 @@ class RoomSeeder extends Seeder
 
         Room::create([
             'name' => 'Room2',
-            'image' => 'room1.png',
-            'room_type_id' => 1,
+            'image' => 'room2.png',
+            'room_type_id' => 2,
+            'is_active' => 1,
+
+        ]);
+
+        Room::create([
+            'name' => 'Room2',
+            'image' => 'room2.png',
+            'room_type_id' => 2,
             'is_active' => 1,
 
         ]);
