@@ -63,7 +63,7 @@
                                         <h1 style="color:#981E1E;">Sum {{$room->roomType->price}}$(tax)</h1>
                                     </div>
                                     <div class="col text-end text-secondary me-3"
-                                        style="font-size:30px; "><a href="{{route('reservation')}}" style=""><i class="fa-solid fa-chevron-right"></i></a>
+                                        style="font-size:30px; "><a href="{{route('roomDetail' , $room->id)}}" style=""><i class="fa-solid fa-chevron-right"></i></a>
                                     </div>
                                 </div>
                             </a>
