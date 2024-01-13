@@ -79,7 +79,7 @@
         
                                 <div class="mb-4">
                                     <label for="password" class="form-label fw-bold">Password</label>
-                                    <input type="text" name="password" id="password" class="form-control" placeholder="Enter Password" value="{{ old('password') }}">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" value="{{ old('password') }}">
                                     @error('password')
                                         <div class="text-danger small">{{ $message }}</div>
                                     @enderror
