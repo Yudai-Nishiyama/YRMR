@@ -9,7 +9,7 @@
 
     {{-- Content --}}
 
-    <div class="col container">
+    <div class="col CleanerPage container m-5">
         <div class="card" style="border:none;">
             <div class="card-header" style="background-color: #2C462B; border-radius:25px 25px 0px 0px;">
                 <div class="row">
