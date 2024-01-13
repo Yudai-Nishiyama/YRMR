@@ -14,4 +14,14 @@ class Cleaning extends Model
     protected $fillable = ['user_id', 'reservation_id'];
 
     public $timestamps = false;
+
+    public function user()
+    {
+       return $this->belongsTo(User::class);
+    }
+
+    public function reservation()
+    {
+       return $this->belongsTo(Reservation::class);
+    }
 }
