@@ -64,6 +64,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/cleaner_management_page', [CleanersController::class, 'CleanerManagementPage'])->name('CleanerManagementPage');
         Route::get('/create_cleaner', [CleanersController::class, 'showCreateCleanerPage'])->name('showCreateCleanerPage');
         Route::post('/store', [CleanersController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [CleanersController::class, 'edit'])->name('edit');
+        Route::put('/cleaners/{id}/update', [CleanersController::class, 'update'])->name('update');
         Route::delete('/{id}', [CleanersController::class, 'destroy'])->name('cleaner.destroy');
     });
 

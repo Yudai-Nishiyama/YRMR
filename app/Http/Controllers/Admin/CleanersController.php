@@ -51,7 +51,7 @@ class CleanersController extends Controller
 
     public function destroy($id)
     {
-        $cleaner = Cleaner::findOrFail($id);
+        $cleaner = User::findOrFail($id);
         $cleaner->delete();
 
         return redirect()->route('admin.cleaners.CleanerManagementPage')->with('success', 'Cleaner deleted successfully');
@@ -100,4 +100,37 @@ class CleanersController extends Controller
             return redirect()->back()->withErrors('An error occurred: ' . $e->getMessage())->withInput();
         }
     }
+
+    public function edit($id)
+    {
+        $cleaner = User::findOrFail($id);
+        return view('admins.cleaners.edit_cleaner', compact('cleaner'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $cleaner = User::findOrFail($id);
+
+        $request->validate([
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
+            'username' => 'required|string|max:255|unique:users,username,' . $id, // usernameは一意である必要がありますが、自分自身を除外
+            'phone_number' => 'required|string|max:20',
+            'address' => 'required|string|max:100',
+        ]);
+
+        // データの更新（メールとパスワードは更新しない）
+        $cleaner->username = $request->username;
+        $cleaner->save();
+
+        $profile = $cleaner->profile;
+        $profile->first_name = ucfirst($request->first_name);
+        $profile->last_name = ucfirst($request->last_name);
+        $profile->phone_number = $request->phone_number;
+        $profile->address = $request->address;
+        $profile->save();
+
+        return redirect()->route('admin.cleaners.CleanerManagementPage')->with('success', 'Cleaner updated successfully');
+    }
+
 }
