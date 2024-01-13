@@ -7,7 +7,7 @@
 <div class="row g-0">
     @include('admins.admin-controls')
 
-    <div class="col container">
+    <div class="col CleanerPage container m-5">
         <div class="card" style="border:none;">
             <div class="card-header" style="background-color: #2C462B; border-radius:25px 25px 0px 0px;">
                 <div class="row">
@@ -15,7 +15,7 @@
                         <h2 style="color:#F4BB4B" class="fw-bold">Cleaner View Task</h2>
                     </div>
                     <div class="col d-flex align-items-center justify-content-end">
-                        <a href="{{ route('showCleaningProgressPage') }}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Back to Cleaning Progress</a>
+                        <a href="{{ route('admin.cleaners.showCleaningProgressPage') }}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Back to Cleaning Progress</a>
                     </div>
                 </div>
             </div>
