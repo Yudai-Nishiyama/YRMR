@@ -21,52 +21,77 @@
                         <div class="title-underline"></div>
                     </div>
     
-                    <form action="#" method="POST">
+                    <form action="{{ route('admin.cleaners.store') }}" method="POST">
+                        @csrf
                         <div class="createCleanerAccount row mt-5 mx-auto">
                             {{-- left form --}}
                             <div class="col me-5">
                                 <div class="mb-4">
                                     <label for="first_name" class="form-label fw-bold">First Name</label>
                                     <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Enter First Name" >
+                                    @error('first_name')
+                                        <div class="text-danger small">{{ $message }}</div>
+                                    @enderror
                                 </div>
     
                                 <div class="mb-4">
                                     <label for="last_name" class="form-label fw-bold">Last Name</label>
                                     <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Enter Last Name">
+                                    @error('last_name')
+                                        <div class="text-danger small">{{ $message }}</div>
+                                    @enderror
                                 </div>
     
                                 <div class="mb-4">
                                     <label for="username" class="form-label fw-bold">Username</label>
                                     <input type="text" name="username" id="username" class="form-control" placeholder="Enter Username">
+                                    @error('username')
+                                        <div class="text-danger small">{{ $message }}</div>
+                                    @enderror
                                 </div>
                 
                                 <div class="mb-5">
                                     <label for="email" class="form-label fw-bold">Email</label>
                                     <input type="email" name="email" id="email" class="form-control" placeholder="mail@mail.com">
+                                    @error('email')
+                                        <div class="text-danger small">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
-                                <a href="#" class="cancel-btn btn px-5 fw-bold float-end mt-2">Cancel</a>
+                                <a href="{{ route('admin.cleaners.CleanerManagementPage') }}" class="cancel-btn btn px-5 fw-bold float-end mt-2">Cancel</a>
                             </div>
                             {{-- right form --}}
                             <div class="col">
                                 <div class="mb-4">
                                     <label for="phone_number" class="form-label fw-bold">Phone Number</label>
                                     <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder="(+63)0123456789" style="border:1px solid #448A47;">
+                                    @error('phone_number')
+                                        <div class="text-danger small">{{ $message }}</div>
+                                    @enderror
                                 </div>
             
                                 <div class="mb-4">
                                     <label for="address" class="form-label fw-bold">Address</label>
                                     <input type="text" name="address" id="address" class="form-control" placeholder="123 street, Apt567, State 12345, USA" style="border:1px solid #448A47;">
+                                    @error('address')
+                                        <div class="text-danger small">{{ $message }}</div>
+                                    @enderror
                                 </div>
         
                                 <div class="mb-4">
                                     <label for="password" class="form-label fw-bold">Password</label>
                                     <input type="text" name="password" id="password" class="form-control" placeholder="Enter Password" style="border:1px solid #448A47;">
+                                    @error('password')
+                                        <div class="text-danger small">{{ $message }}</div>
+                                    @enderror
                                 </div>
     
                                 <div class="col mb-5">
                                     <label for="password-confirm" class="form-label fw-bold">Password Confirmation</label>
                                     <input type="password" name="password_confirmation" id="password-confirm" class="form-control" placeholder="Enter Password" style="border:1px solid #448A47;">
+                                    @error('password-confirm')
+                                        <div class="text-danger small">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <button type="submit" class="create-btn btn px-5 fw-bold mt-2">Create</button>
