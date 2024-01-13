@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admins/cleaners/modal/cleaner_delete_modal.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admins/cleaners/cleaning_progress_page.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admins/guests_page.css') }}">
     <link rel="stylesheet" href="{{ asset('css/guests/calendar.css') }}">
 
     <!-- Scripts -->

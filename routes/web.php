@@ -9,6 +9,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\CleanerController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\Admin\CleanersController;
+use App\Http\Controllers\Admin\GuestsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +39,6 @@ Route::prefix('guests')->name('guests.')->group(function () {
     Route::get('/cancel_reservation', [HomeController::class, 'cancelReservation'])->name('cancelReservation');
     Route::get('/reservation_completion', [HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
     Route::get('/cancel_reservation_completion', [HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
-    Route::get('/guest_reservation_management_page', [HomeController::class, 'GuestReservationManagementPage'])->name('GuestReservationManagement');
-    Route::get('/guest_profile_page', [HomeController::class, 'GuestProfilePage'])->name('GuestProfilePage');
     Route::get('/room', [GuestController::class, 'guestroom'])->name('guestRoom');
     Route::get('/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
 });
@@ -67,8 +66,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 
     // Admins Guests Routes
-    Route::prefix('guests')->name('cleaners.')->group(function () {
-        
+    Route::prefix('guests')->name('guests.')->group(function () {
+        Route::get('/reservation_management', [GuestsController::class, 'guestReservationManagement'])->name('guestReservationManagement');
+        Route::get('/profile', [GuestsController::class, 'guestProfile'])->name('guestProfile');
     });
 });
 
