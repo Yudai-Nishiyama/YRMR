@@ -79,8 +79,8 @@ class CleanersController extends Controller
             $user->save();
 
             $profile = new Profile; // 新しいProfileインスタンスを作成
-            $profile->first_name = $request->first_name;
-            $profile->last_name = $request->last_name;
+            $profile->first_name = ucfirst($request->first_name);
+            $profile->last_name = ucfirst($request->last_name);
             $profile->phone_number = $request->phone_number;
             $profile->address = $request->address;
             $user->profile()->save($profile); // ユーザーにプロファイルを関連付けて保存
