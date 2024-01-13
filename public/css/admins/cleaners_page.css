@@ -1,6 +1,14 @@
+.CleanerPage .card-header h2 {
+    font-size: 40px;
+    margin-top: 0.5em; 
+    margin-bottom: 0em;
+    margin-left: 0.3em;
+} 
+
 .cleaner-page p{
     font-size: 32px;
 }
+
 .cleaner-page-button{
     border: 12px solid #2C462B;
     background-color: #448A47;
