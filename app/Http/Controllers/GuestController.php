@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class GuestController extends Controller
 {
     private $room;
+
     public function __construct(Room $room)
     {
-
         $this->room = $room;
     }
 
@@ -26,10 +26,12 @@ class GuestController extends Controller
         ->with('room_looped',$room_looped)
         ->with('all_room',$all_room);
     }
-    public function roomdetail($id)
+
+
+    public function roomdetail()
     {
-        $room = $this->room->findOrFail($id);
-        return view('guests.room_detail')->with('room',$room);
+        $all_rooms = $this->room->all();
+        return view('guests.room_detail')->with('all_rooms',$all_rooms);
     }
 
 }

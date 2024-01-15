@@ -21,13 +21,13 @@
     font-family: 'Raleway', sans-serif;
 }
 
-.logout {
+.nav-bar-logout {
     color: #F4924B;
     font-size: 24px;
     font-weight: bold;
 }
 
-.logout:hover {
+.nav-bar-logout:hover {
     color: #F4BB4B;
     font-size: 24px;
     font-weight: bold;

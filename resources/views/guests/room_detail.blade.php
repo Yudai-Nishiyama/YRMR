@@ -4,6 +4,8 @@
 
 @section('content')
 
+{{$all_room}}
+
 <div class="roomdetail">
     <div class="container">
         <div class="row">
