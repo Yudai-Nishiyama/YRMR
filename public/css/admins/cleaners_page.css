@@ -90,7 +90,23 @@
     box-shadow: none;
 }
 
+.cleanerManagement .edit-cleaner-btn {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #448A47;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.cleanerManagement .edit-cleaner-btn:hover {
+    color: #F4BB4B;
+    background-color: #448A47;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
 .cleanerManagement .delete-btn {
+    color: #ffffff;
     font-weight: bold;
     background-color: #981E1E;
     border-radius: 10px;
@@ -98,6 +114,7 @@
 }
 
 .cleanerManagement .delete-btn:hover {
+    color: #F4BB4B;
     background-color: #981E1E;
     border-radius: 10px;
     box-shadow: none;
