@@ -27,6 +27,7 @@
                             <th>Address</th>
                             <th>Hire Date</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +40,10 @@
                                 <td>{{ $cleaner->profile->address }}</td>
                                 <td>{{ $cleaner->profile->created_at->format('Y-m-d') }}</td>
                                 <td>
-                                    <button class="delete-btn btn text-white px-5 float-end" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $cleaner->id }}">
+                                    <a href="{{ route('admin.cleaners.edit', $cleaner->id) }}" class="edit-cleaner-btn btn">Edit</a>
+                                </td>
+                                <td>
+                                    <button class="delete-btn btn float-end" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $cleaner->id }}">
                                         Delete
                                     </button>
                                 </td>
@@ -50,7 +54,7 @@
                 </table>
 
                 <div class="float-end">
-                    <a href="{{ route('admin.cleaners.showCleaningProgressPage') }}" class="goCPbtn float-end btn fw-bold mt-5" style="background-color:#448A47; color:#FFFFFF; ">Go to the Cleaning Progress</a>
+                    <a href="{{ route('admin.cleaners.showCleaningProgressPage') }}" class="goCPbtn float-end btn fw-bold mt-5" style="background-color: #2C462B; color:#F4BB4B; ">Go to the Cleaning Progress</a>
                 </div>
             </div>
 
