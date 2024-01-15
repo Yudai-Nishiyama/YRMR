@@ -4,14 +4,8 @@
 
 @section('content')
     {{-- Admin Controls --}}
-    <div class="admin-control row g-0">
-        <div class="col-1" style="width: 264px;">
-            <div class="list-group" style="width: 100%;">
-                <a href="#" class="list-group-item p-3 text-center shadow-none active" aria-current="true">Rooms</a>          
-                <a href="#" class="list-group-item p-3 text-center">Cleaners</a>
-                <a href="#" class="list-group-item p-3 text-center">Guests</a>
-            </div>
-        </div>
+    <div class="row g-0">
+        @include('admins.admin-controls')
 
         {{-- Content --}}
         <div class="AdminRoomSearch-container col mx-5">  

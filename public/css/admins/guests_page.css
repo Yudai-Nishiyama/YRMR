@@ -1,0 +1,55 @@
+.guestsPage {
+    font-family: 'Raleway', sans-serif;
+}
+
+.guestsPage .card-header h2 {
+    font-size: 40px;
+    margin-top: 0.5em; 
+    margin-bottom: 0em;
+    margin-left: 0.3em;
+} 
+
+/* Guest Reservation Management page*/
+
+.guestName {
+    color: black;
+}
+
+.guestName:hover {
+    color: #448A47;
+}
+
+.guestsPage .table  {
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+/* Guest Profile */
+.guestProfileTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.guestProfileContent {
+    font-size: 20px;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.guestsPage th {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.guestsPage td {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.guestsPage .btn {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 15px;
+}
