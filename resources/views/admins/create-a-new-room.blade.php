@@ -4,18 +4,11 @@
 
 @section('content')
     {{-- Admin Controls --}}
-    <div class="admin-control row g-0">
-        <div class="col-1" style="width: 264px;">
-            <div class="list-group" style="width: 100%;">
-                <a href="#" class="list-group-item p-3 text-center shadow-none active" aria-current="true">Rooms</a>          
-                <a href="#" class="list-group-item p-3 text-center">Cleaners</a>
-                <a href="#" class="list-group-item p-3 text-center">Guests</a>
-            </div>
-        </div>
+    <div class="row g-0">
+        @include('admins.admin-controls')
 
          {{-- Content --}}
-         <div class="content col" style="background-image: url('../images/create_room_background.png');
-         background-size: cover;">
+         <div class="content col create-room-background">
             <div class="container d-flex justify-content-center">
                 <div class="create-room card" style="width: 875px; margin-top: 70px; margin-bottom: 100px;">
                     <div class="mt-2">

@@ -15,7 +15,7 @@
 
 
     <link rel="stylesheet" href="{{asset('css/register.css')}}">
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <body class="register">
     <main>
@@ -24,7 +24,7 @@
                 <img class="logo" src="{{asset('images/My Room Your Room-logos 2.png')}}" alt="ホテルのロゴ">
                 <h1 class="register_title">Registration Form</h1>
 
-                <form action="#" method="POST">
+                <form action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="inputs">
                         <div class="input-container">
