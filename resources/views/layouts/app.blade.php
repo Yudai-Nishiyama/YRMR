@@ -62,7 +62,7 @@
     <link href="{{ asset('css/admins/cleaners/cleaning_progress_page.css') }}" rel="stylesheet">
     <link href="{{ asset('css/guests/calendar.css') }}" rel="stylesheet">
     <link rel="stylesheet" href={{ asset('css/admins/navbar.css') }}>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>

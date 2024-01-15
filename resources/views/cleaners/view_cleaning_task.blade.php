@@ -103,6 +103,7 @@
                 {{-- need to search how to submit value without submit button --}}
                 {{-- how to change colors of the progress bar hint video: https://www.youtube.com/watch?v=lvlTL3Fovdg --}}
                 <form action="#" method="POST">
+                    @csrf
                     <div class="row text-center ">
                         <div class="col">
                             <div class="col">
@@ -110,7 +111,7 @@
                             </div>
                             <div class="row mt-0">
                                 <div class="col form-check d-flex align-items-center justify-content-center">
-                                    <input class="form-check-input me-1" type="checkbox" value="1" id="change_sheets" onclick="handleCheckboxClick(this.id, this.checked)"
+                                    <input class="form-check-input me-1" type="checkbox" value="1" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
                                         @foreach ($reservation->reservationTask as $reservation_task)
                                             @if ($reservation_task->task_id === 1) 
                                                 checked>
@@ -129,7 +130,7 @@
                                 <p class="mb-0 cleaning-task-list" style="color: #2C462B; border-bottom:3px solid #2C462B;"><i class="fa-solid fa-bath"></i> Bathrooms</p>
                                 <div class="row mt-0">
                                     <div class="col form-check d-flex align-items-center justify-content-center">
-                                        <input class="form-check-input me-1" type="checkbox" value="2" id="refill_amenities" onclick="handleCheckboxClick(this.id, this.checked)"
+                                        <input class="form-check-input me-1" type="checkbox" value="2" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
                                         @foreach ($reservation->reservationTask as $reservation_task)
                                             @if ($reservation_task->task_id === 2) 
                                                 checked>
@@ -149,7 +150,7 @@
                             </div>
                             <div class="row mt-0">
                                 <div class="col form-check d-flex align-items-center justify-content-center">
-                                    <input class="form-check-input me-1" type="checkbox" value="3" id="cleaning_the_floor" onclick="handleCheckboxClick(this.id, this.checked)"
+                                    <input class="form-check-input me-1 " type="checkbox" value="3" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
                                         @foreach ($reservation->reservationTask as $reservation_task)
                                             @if ($reservation_task->task_id === 3) 
                                                 checked>
