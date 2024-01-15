@@ -27,15 +27,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="border-bottom: 1px solid black;">
-                            <td><a href="{{ route('admin.guests.guestProfile') }}" class="guestName text-decoration-none">First Name last Name</a></td>
-                            <td>Cleaner1</td>
-                            <td>2023-11-14(Tue)</td>
-                            <td>2023-11-15(Wed)</td>
-                            <td>Room 101</td>
-                            <td>Single Bed</td>
-                            <td>123456879</td>
-                        </tr>
+                        @foreach($reservations as $reservation)
+                            <tr style="border-bottom: 1px solid black;">
+                                <td><a href="{{ route('admin.guests.guestProfile', $reservation->user->id) }}" class="guestName text-decoration-none">{{ $reservation->user->profile->first_name }} {{ $reservation->user->profile->last_name }}</a></td>
+                                <td>{{ $reservation->user->username }}</td>
+                                <td>{{ $reservation->check_in->format('Y-m-d(D)') }}</td>
+                                <td>{{ $reservation->check_out->format('Y-m-d(D)') }}</td>
+                                <td>{{ $reservation->room->number }}</td>
+                                <td>{{ $reservation->room->type }}</td>
+                                <td>{{ $reservation->reservation_number }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
