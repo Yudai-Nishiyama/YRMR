@@ -24,52 +24,53 @@
                 <img class="logo" src="{{asset('images/My Room Your Room-logos 2.png')}}" alt="ホテルのロゴ">
                 <h1 class="register_title">Registration Form</h1>
 
-                <form action="#">
+                <form action="#" method="POST">
+                    @csrf
                     <div class="inputs">
                         <div class="input-container">
                             <label for="firstName">First Name</label>
-                            <input class="input_content" type="text" id="firstName" placeholder="Enter your first name">
+                            <input class="input_content" type="text" id="firstName" name="first_name" placeholder="Enter your first name">
                         </div>
 
                         <div class="input-container">
                             <label for="lastName">Last Name</label>
-                            <input class="input_content" type="text" id="lastName" placeholder="Enter your last name">
+                            <input class="input_content" type="text" id="lastName"name="last_name" placeholder="Enter your last name">
                         </div>
                     </div>
 
                     <div class="inputs">
                         <div class="input-container">
                             <label for="username">User Name</label>
-                            <input class="input_content" type="text" id="userName" placeholder="Enter your user name">
+                            <input class="input_content" type="text" id="userName" name="username" placeholder="Enter your user name">
                         </div>
 
                         <div class="input-container">
                             <label for="adress">Address</label>
-                            <input class="input_content" type="text" id="address" placeholder="123 Street, Apt567, State 12345, USA">
+                            <input class="input_content" type="text" id="address" name="address" placeholder="123 Street, Apt567, State 12345, USA">
                         </div>
                     </div>
 
                     <div class="inputs">
                         <div class="input-container">
                             <label for="email">Email</label>
-                            <input class="input_content" type="text" id="email" placeholder="mail@mail.com">
+                            <input class="input_content" type="text" id="email" name="email" placeholder="mail@mail.com">
                         </div>
 
                         <div class="input-container">
                             <label for="phone_number">Phone Number</label>
-                            <input class="input_content" type="text" id="phone_number" placeholder="(+63)0123456789">
+                            <input class="input_content" type="text" id="phone_number" name="phone_number" placeholder="(+63)0123456789">
                         </div>
                     </div>
 
                     <div class="inputs">
                         <div class="input-container">
                             <label for="firstName">Password</label>
-                            <input class="input_content" type="text" id="password" placeholder="Enter your password">
+                            <input class="input_content" type="text" id="password" name="password" placeholder="Enter your password">
                         </div>
 
                         <div class="input-container">
                             <label for="lastName">Password Confirmation</label>
-                            <input class="input_content" type="text" id="password_confirmation" placeholder="Confirm your password">
+                            <input class="input_content" type="text" id="password_confirmation" name="" placeholder="Confirm your password">
                         </div>
                     </div>
 
