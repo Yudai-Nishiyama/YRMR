@@ -34,7 +34,7 @@ class CleanersController extends Controller
 
     public function CleanerManagementPage()
     {
-        $cleaners = User::where('role_id', 3)->with('profile')->get();
+        $cleaners = User::where('role_id', User::CLEANER_ROLE_ID)->with('profile')->get();
 
         return view('admins.cleaners.cleaners_management', ['cleaners' => $cleaners]);
     }
@@ -75,7 +75,7 @@ class CleanersController extends Controller
             $user->username = $request->username;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
-            $user->role_id = 3; // CleanerのロールIDを設定
+            $user->role_id = User::CLEANER_ROLE_ID;
             $user->save();
 
             $profile = new Profile; // 新しいProfileインスタンスを作成
