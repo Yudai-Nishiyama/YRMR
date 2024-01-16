@@ -170,12 +170,21 @@
                         <p class="fw-bold">Cleaning Progress</p>
                     </div>
                     <div class="col text-end">
+                        @if ($reservation->reservationTask->count() === 1)
+                        <p class="fw-bold" style="color:#F4BB4B;">30%</p>
+                        @elseif($reservation->reservationTask->count() === 2)
+                        <p class="fw-bold" style="color: #F4BB4B;">60%</p>
+                        @elseif($reservation->reservationTask->count() === 3)
+                        <p class="fw-bold" style="color:#448A47;">100%</p>
+                        @elseif($reservation->reservationTask->count() === 0)
                         <p class="fw-bold" style="color: #981E1E;">0%</p>
+                        @endif
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col">
+                        
                         <div style="border: 2px solid #981E1E; border-radius: 16px;">
                             {{-- function --}}<br>
                         </div>

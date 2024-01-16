@@ -28,6 +28,7 @@ function handleCheckboxClick(taskId, isChecked,reservation_id) {
     });
 
     // Using jQuery's AJAX method
+    //if checkbox being checked will be true
     if(isChecked){
         $.ajax({
             //url is the link to the server, in this case the url will be the backend code of php,
@@ -47,6 +48,7 @@ function handleCheckboxClick(taskId, isChecked,reservation_id) {
                 console.error("Error occurred: " + status + ", " + error);
             }
         });
+        //if the checkbox has been checked will be false
         }else{
             $.ajax({
                 url: '/cleaner/cleaner_page/delete/'+ reservation_id,
