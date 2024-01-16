@@ -28,9 +28,13 @@
                     </thead>
                     <tbody>
                         @foreach($reservations as $reservation)
-                            @if($reservation->user->role_id == 2)
+                        @if($reservation->user && $reservation->user->role_id == 2)
                                 <tr style="border-bottom: 1px solid black;">
-                                    <td><a href="{{ route('admin.guests.guestProfile', $reservation->user->id) }}" class="guestName text-decoration-none">{{ $reservation->user->profile->first_name }} {{ $reservation->user->profile->last_name }}</a></td>
+                                    <td>
+                                        <a href="{{ route('admin.guests.guestProfile', $reservation->user->id) }}" class="guestName text-decoration-none">
+                                        {{ $reservation->user->profile->first_name }} {{ $reservation->user->profile->last_name }}
+                                        </a>
+                                    </td>
                                     <td>{{ $reservation->user->username }}</td>
                                     <td>{{ \Carbon\Carbon::parse($reservation->check_in)->format('Y-m-d (D.)') }}</td>
                                     <td>{{ \Carbon\Carbon::parse($reservation->check_out)->format('Y-m-d (D.)') }}</td>

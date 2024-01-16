@@ -29,9 +29,9 @@
                         <div class="col-5 guestProfileTitle">Username</div>
                     </div>
                     <div class="row text-center">
-                        <div class="col-5 guestProfileContent">First Name Last Name</div>
+                        <div class="col-5 guestProfileContent">{{ $user->profile->first_name }} {{ $user->profile->last_name }}</div>
                         <div class="col-2"></div>
-                        <div class="col-5 guestProfileContent">username1</div>
+                        <div class="col-5 guestProfileContent">{{ $user->username }}</div>
                     </div>
                     {{-- second row --}}
                     <div class="row mt-4">
@@ -40,9 +40,9 @@
                             <div class="col-5 guestProfileTitle">Email</div>
                     </div>
                     <div class="row text-center">
-                        <div class="col-5 guestProfileContent">090-1234-5678</div>
+                        <div class="col-5 guestProfileContent">{{ $user->profile->phone_number }}</div>
                         <div class="col-2"></div>
-                        <div class="col-5 guestProfileContent">sample.email_address@gmail.com</div>
+                        <div class="col-5 guestProfileContent">{{ $user->email }}</div>
                     </div>
                     {{-- thrid row --}}
                     <div class="row mt-4">
@@ -51,9 +51,9 @@
                         <div class="col-5 guestProfileTitle">Latest Reservation</div>
                     </div>
                     <div class="row text-center">
-                        <div class="col-5 guestProfileContent">1-2-3 sample-city, Tokyo, Japan</div>
+                        <div class="col-5 guestProfileContent">{{ $user->profile->address }}</div>
                         <div class="col-2"></div>
-                        <div class="col-5 guestProfileContent">2023-11-14(Tue.)~2023-11-15(Wed.)</div>
+                        <div class="col-5 guestProfileContent">{{ \Carbon\Carbon::parse($user->reservations->last()->check_in)->format('Y-m-d (D)') }} ~ {{ \Carbon\Carbon::parse($user->reservations->last()->check_out)->format('Y-m-d (D)') }}</div>
                     </div>
 
                     {{-- Reservation History --}}
@@ -72,13 +72,15 @@
                             </tr>
                         </thead>
                         <tbody class="fw-normal">
-                            <tr style="border-bottom: 1px solid black">
-                                <td>2023-11-14(Tue.)</td>
-                                <td>2023-11-15(Wed.)</td>
-                                <td>Room 101</td>
-                                <td>Single Bed</td>
-                                <td>1234656789</td>
-                            </tr>
+                            @foreach($user->reservations->reverse() as $reservation) 
+                                <tr style="border-bottom: 1px solid black">
+                                    <td>{{ \Carbon\Carbon::parse($reservation->check_in)->format('Y-m-d (D.)') }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($reservation->check_out)->format('Y-m-d (D.)') }}</td>
+                                    <td>Room {{ $reservation->room->name }}</td>
+                                    <td>{{ $reservation->room->roomType->room_type_name }}</td>
+                                    <td>{{ $reservation->reservation_number }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
