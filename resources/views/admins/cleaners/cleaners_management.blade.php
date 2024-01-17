@@ -1,62 +1,67 @@
 @extends('layouts.app')
 
-@section('title', 'Admin Cleaning Progress Page')
+@section('title', 'Admin Cleaner Management')
 
 @section('content')
 
-<div class="container">
-    <div class="card" style="border:none;">
-        <div class="card-header" style="background-color: #2C462B; border-radius:25px 25px 0px 0px;">
-            <div class="row">
-                <div class="col">
-                    <h2 style="color:#F4BB4B" class="fw-bold">Cleaner Management</h2>
+<div class="row g-0">
+    @include('admins.admin-controls')
+
+    <div class="col cleanerManagement container m-5">
+        <div class="card" style="border:none;">
+            <div class="card-header" style="background-color: #2C462B; border-radius:25px 25px 0px 0px;">
+                <h2 style="color:#F4BB4B" class="fw-bold mt-1">Cleaner Management</h2>
+            </div>
+        
+            <div class="card-body justify-content-center border">
+                <div class="float-end">
+                    <a href="{{ route('admin.cleaners.showCreateCleanerPage') }}" class="createCleanerBtn float-end btn fw-bold my-3" style="background-color:#F4924B; color:#2C462B; ">+ Create a New Cleaner</a>
+                </div>
+                <table class="table" >
+                    <thead>
+                        <tr style="border-bottom: 1px solid black;">
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Hire Date</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($cleaners as $cleaner)
+                            <tr style="margin-top:2px; border-bottom: 1px solid black;">
+                                <td>{{ $cleaner->profile->first_name }} {{ $cleaner->profile->last_name }}</td>
+                                <td>{{ $cleaner->username }}</td>
+                                <td>{{ $cleaner->email }}</td>
+                                <td>{{ $cleaner->profile->phone_number }}</td>
+                                <td>{{ $cleaner->profile->address }}</td>
+                                <td>{{ $cleaner->profile->created_at->format('Y-m-d') }}</td>
+                                <td>
+                                    <a href="{{ route('admin.cleaners.edit', $cleaner->id) }}" class="edit-cleaner-btn btn">Edit</a>
+                                </td>
+                                <td>
+                                    <button class="delete-btn btn float-end" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $cleaner->id }}">
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            @include('admins.cleaners.modal.cleaner_delete_modal', ['cleaner' => $cleaner])
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <div class="float-end">
+                    <a href="{{ route('admin.cleaners.showCleaningProgressPage') }}" class="goCPbtn float-end btn fw-bold mt-5" style="background-color: #2C462B; color:#F4BB4B; ">Go to the Cleaning Progress</a>
                 </div>
             </div>
-        </div>
-    
-        <div class="card-body justify-content-center border">
-            <div class="float-end">
-                <a href="#" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">+ Create a New Cleaner</a>
-            </div>
-            <table class="table" >
-                <thead>
-                    <tr style="border-bottom: 1px solid black;">
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Address</th>
-                        <th>Hire Date</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom: 1px solid black;">
-                        <td>First Name last Name</td>
-                        <td>Cleaner1</td>
-                        <td>gmail.com</td>
-                        <td>000-1234-5678</td>
-                        <td>1-1-1 Marunouchi Tokyo</td>
-                        <td>2023-11-14</td>
-                        <td>
-                            <button class="btn text-white px-5 float-end" data-bs-toggle="modal" data-bs-target="#delete-cleaner-id" style="background-color:#981E1E; border-radius:10px;">
-                                Delete
-                            </button>
-                        </td>
-                        @include('admins.cleaners.modal.cleaner_delete_modal')
-                    </tr>
-                </tbody>
-            </table>
 
-            <div class="float-end">
-                <a href="#" class="float-end btn fw-bold mt-5" style="background-color:#448A47; color:#FFFFFF; ">Go to the Cleaning Progress</a>
+            <div class="card-footer" style="background-color: #2C462B; border-radius:0px 0px 25px 25px;">
+                <br>
             </div>
-        </div>
-
-        <div class="card-footer" style="background-color: #2C462B; border-radius:0px 0px 25px 25px;">
-            <br>
         </div>
     </div>
 </div>
-
 @endsection

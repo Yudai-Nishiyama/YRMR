@@ -54,6 +54,11 @@
     width: 133px;
 }
 
+.create-room-background {
+    background-image: url('../images/create_room_background.png');
+    background-size: cover;
+}
+
 .create-room.title {
     font-family: 'Bona Nova', sans-serif;
     font-weight: bold;

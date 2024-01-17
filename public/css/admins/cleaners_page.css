@@ -1,0 +1,129 @@
+.CleanerPage .card-header h2 {
+    font-size: 40px;
+    margin-top: 0.5em; 
+    margin-bottom: 0em;
+    margin-left: 0.3em;
+} 
+
+.cleaner-page p{
+    font-size: 32px;
+}
+
+.cleaner-page-button{
+    border: 12px solid #2C462B;
+    background-color: #448A47;
+    height: 25rem;
+    border-radius: 25px;
+    width:25rem;
+}
+
+.img-md{
+    height: 258px;
+    width: 237px;
+}
+
+/* Create Cleaner Account page */
+.create_cleaner .title h2 {
+    font-weight: bold;
+}
+
+.create_cleaner .title-underline {
+    border-top: 3px solid #448A47;
+    width: 428px;
+    margin: 0 auto;
+}
+
+.title-underline {
+    border-top: 3px solid #448A47;
+    width: 428px;
+    margin: 0 auto;
+}
+
+.create_cleaner .create-btn {
+    background-color: #448A47;
+    color: #ffffff;
+    font-weight: bold;
+    }
+
+.create_cleaner .create-btn:hover {
+    color: #ffffff;
+    background-color: #2C462B;
+}
+
+.create_cleaner .cancel-btn {
+    background-color:#F4BB4B;
+    color:#981E1E;
+}
+
+.create_cleaner .cancel-btn:hover {
+    background-color: #F4924B;
+    color: #981E1E;
+    font-weight: bold;
+}
+
+.createCleanerAccount input {
+    border:1px solid #448A47;
+}
+
+/* cleaners Management page*/
+.cleanerManagement .table  {
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.cleanerManagement .card-header h2 {
+    font-size: 40px;
+    margin-top: 0.5em; 
+    margin-bottom: 0em;
+    margin-left: 0.3em;
+} 
+
+.createCleanerBtn {
+    font-weight: bold;
+    background-color:#F4924B; 
+    color:#2C462B;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.createCleanerBtn:hover {
+    box-shadow: none;
+}
+
+.cleanerManagement .edit-cleaner-btn {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #448A47;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.cleanerManagement .edit-cleaner-btn:hover {
+    color: #F4BB4B;
+    background-color: #448A47;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.cleanerManagement .delete-btn {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #981E1E;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.cleanerManagement .delete-btn:hover {
+    color: #F4BB4B;
+    background-color: #981E1E;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.goCPbtn {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.goCPbtn:hover {
+    box-shadow: none;
+}
