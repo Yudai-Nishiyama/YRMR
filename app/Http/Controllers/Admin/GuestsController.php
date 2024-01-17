@@ -16,8 +16,10 @@ class GuestsController extends Controller
 
     }
 
-    public function guestProfile()
+    public function guestProfile($id)
     {
-        return view('admins.guests.guest_profile');
+        $user = User::with('profile', 'reservations.room.roomType')->findOrFail($id);
+        $reservation = $user->reservations->last();
+        return view('admins.guests.guest_profile', ['user' => $user, 'reservation' => $reservation]);
     }
 }
