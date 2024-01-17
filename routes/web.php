@@ -8,7 +8,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\CleanerController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\CleanersController;
+use App\Http\Controllers\Admin\GuestsController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +35,7 @@ Auth::routes();
 //homepage
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 // Guests Routes
 Route::prefix('guests')->name('guests.')->group(function () {
     Route::get('/room_availability_search', [HomeController::class, 'searchRoom'])->name('roomAvailabilitySearch');
@@ -38,8 +44,6 @@ Route::prefix('guests')->name('guests.')->group(function () {
     Route::get('/cancel_reservation', [HomeController::class, 'cancelReservation'])->name('cancelReservation');
     Route::get('/reservation_completion', [HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
     Route::get('/cancel_reservation_completion', [HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
-    Route::get('/guest_reservation_management_page', [HomeController::class, 'GuestReservationManagementPage'])->name('GuestReservationManagement');
-    Route::get('/guest_profile_page', [HomeController::class, 'GuestProfilePage'])->name('GuestProfilePage');
     Route::get('/room', [GuestController::class, 'guestroom'])->name('guestRoom');
     Route::get('/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
 });
@@ -47,12 +51,12 @@ Route::prefix('guests')->name('guests.')->group(function () {
 //Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/navbar', [HomeController::class, 'navbar'])->name('navbar');
-    
+
     // Admins Rooms Routes
     Route::prefix('rooms')->name('rooms.')->group(function () {
         Route::get('/index', [AdminController::class, 'showAllRooms'])->name('showAllRooms');//admin.rooms.showAllRooms
         Route::get('/create_room', [AdminController::class, 'showCreateRoom'])->name('showCreateRoom');//admin.rooms.showCreateRoom
-        Route::get('/room_search', [AdminController::class, 'showRoomSearch'])->name('showRoomSearch');//admin.rooms.showRoomSearch   
+        Route::get('/room_search', [AdminController::class, 'showRoomSearch'])->name('showRoomSearch');//admin.rooms.showRoomSearch
     });
 
     // Admins Cleaners Routes
@@ -63,12 +67,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/modal/cleaner_delete_modal', [CleanersController::class, 'showModalDelete'])->name('showModalDelete');
         Route::get('/cleaner_management_page', [CleanersController::class, 'CleanerManagementPage'])->name('CleanerManagementPage');
         Route::get('/create_cleaner', [CleanersController::class, 'showCreateCleanerPage'])->name('showCreateCleanerPage');
+        Route::post('/store', [CleanersController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [CleanersController::class, 'edit'])->name('edit');
+        Route::put('/cleaners/{id}/update', [CleanersController::class, 'update'])->name('update');
         Route::delete('/{id}', [CleanersController::class, 'destroy'])->name('cleaner.destroy');
     });
 
     // Admins Guests Routes
-    Route::prefix('guests')->name('cleaners.')->group(function () {
-        
+    Route::prefix('guests')->name('guests.')->group(function () {
+        Route::get('/reservation_management', [GuestsController::class, 'guestReservationManagement'])->name('guestReservationManagement');
+        Route::get('/profile/{id}', [GuestsController::class, 'guestProfile'])->name('guestProfile');
     });
 });
 
@@ -80,7 +88,7 @@ Route::group(['prefix' => 'cleaner', 'as' => 'cleaner.', 'middleware' => 'cleane
     Route::post('/cleaner_page/post/{id}', [CleanerController::class, 'addCleaning'])->name('addCleaning');//cleaner.addCleaning
     Route::delete('/cleaner_page/delete/{id}', [CleanerController::class, 'deleteCleaning'])->name('deleteCleaning');//cleaner.deleteCleaning
 });
-  
+
 
 // Calender Routes
 Route::get('/calendar', [CalendarController::class, 'showCalendar'])->name('showCalendar');

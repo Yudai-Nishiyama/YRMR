@@ -35,7 +35,7 @@
                             </div>
                             <div class="input-container">
                                 <label for="password">Password</label>
-                                <input class="input_content" type="text" id="password" name="password" placeholder="Enter your password">
+                                <input class="input_content" type="password" id="password" name="password" placeholder="Enter your password">
                             </div>
 
                         </div>

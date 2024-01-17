@@ -7,14 +7,10 @@
 <div class="row g-0">
     @include('admins.admin-controls')
 
-    <div class="col container">
+    <div class="col CleanerPage container m-5">
         <div class="card" style="border:none;">
             <div class="card-header" style="background-color: #2C462B; border-radius:25px 25px 0px 0px;">
-                <div class="row">
-                    <div class="col">
-                        <h2 style="color:#F4BB4B" class="fw-bold">Cleaner Page</h2>
-                    </div>
-                </div>
+                <h2 style="color:#F4BB4B" class="fw-bold mt-1">Cleaner Page</h2>  
             </div>
         
             <div class="card-body cleaner-page justify-content-center border">
