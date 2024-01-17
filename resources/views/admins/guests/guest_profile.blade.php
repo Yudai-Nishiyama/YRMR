@@ -2,6 +2,12 @@
 
 @section('title', 'Check Cleaning Progress')
 
+@php
+    $lastReservation = $user->reservations->last();
+    $checkInDate = \Carbon\Carbon::parse($lastReservation->check_in)->format('Y-m-d (D)');
+    $checkOutDate = \Carbon\Carbon::parse($lastReservation->check_out)->format('Y-m-d (D)');
+@endphp
+
 @section('content')
 
 <div class="row g-0">
@@ -53,7 +59,7 @@
                     <div class="row text-center">
                         <div class="col-5 guestProfileContent">{{ $user->profile->address }}</div>
                         <div class="col-2"></div>
-                        <div class="col-5 guestProfileContent">{{ \Carbon\Carbon::parse($user->reservations->last()->check_in)->format('Y-m-d (D)') }} ~ {{ \Carbon\Carbon::parse($user->reservations->last()->check_out)->format('Y-m-d (D)') }}</div>
+                        <div class="col-5 guestProfileContent">{{ $checkInDate }} ~ {{ $checkOutDate }}</div>
                     </div>
 
                     {{-- Reservation History --}}
