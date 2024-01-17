@@ -111,7 +111,7 @@
                             </div>
                             <div class="row mt-0">
                                 <div class="col form-check d-flex align-items-center justify-content-center">
-                                    <input class="form-check-input me-1" type="checkbox" value="1" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
+                                    <input class="form-check-input me-1 cleaning_task" type="checkbox" value="1" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
                                         @foreach ($reservation->reservationTask as $reservation_task)
                                             @if ($reservation_task->task_id === 1) 
                                                 checked>
@@ -130,7 +130,7 @@
                                 <p class="mb-0 cleaning-task-list" style="color: #2C462B; border-bottom:3px solid #2C462B;"><i class="fa-solid fa-bath"></i> Bathrooms</p>
                                 <div class="row mt-0">
                                     <div class="col form-check d-flex align-items-center justify-content-center">
-                                        <input class="form-check-input me-1" type="checkbox" value="2" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
+                                        <input class="form-check-input me-1 cleaning_task" type="checkbox" value="2" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
                                         @foreach ($reservation->reservationTask as $reservation_task)
                                             @if ($reservation_task->task_id === 2) 
                                                 checked>
@@ -150,7 +150,7 @@
                             </div>
                             <div class="row mt-0">
                                 <div class="col form-check d-flex align-items-center justify-content-center">
-                                    <input class="form-check-input me-1 " type="checkbox" value="3" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
+                                    <input class="form-check-input me-1 cleaning_task" type="checkbox" value="3" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
                                         @foreach ($reservation->reservationTask as $reservation_task)
                                             @if ($reservation_task->task_id === 3) 
                                                 checked>
@@ -165,37 +165,122 @@
                     </div>
                 </form>
                 
-                <div class="row mt-3">
-                    <div class="col">
-                        <p class="fw-bold">Cleaning Progress</p>
-                    </div>
-                    <div class="col text-end">
-                        @if ($reservation->reservationTask->count() === 1)
-                        <p class="fw-bold" style="color:#F4BB4B;">30%</p>
-                        @elseif($reservation->reservationTask->count() === 2)
-                        <p class="fw-bold" style="color: #F4BB4B;">60%</p>
-                        @elseif($reservation->reservationTask->count() === 3)
-                        <p class="fw-bold" style="color:#448A47;">100%</p>
-                        @elseif($reservation->reservationTask->count() === 0)
-                        <p class="fw-bold" style="color: #981E1E;">0%</p>
-                        @endif
-                    </div>
-                </div>
+                @if ($reservation->reservationTask->count() === 3)
+                    <div id="check_row" class="row mt-3" data-my-value="{{ $reservation->reservationTask->count() }}">
+                        <div class="col">
+                            <p class="fw-bold">Cleaning Progress</p>
+                        </div>
 
-                <div class="row">
-                    <div class="col">
-                        
-                        <div style="border: 2px solid #981E1E; border-radius: 16px;">
-                            {{-- function --}}<br>
+                        <div id="vct_cleaning_progress_percentage" class="col text-end">
+                            <p style="color:#448A47;">100%</p>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col text-center">
-                        <p class="fw-bold" style="color: #981E1E">Not Cleaned</p>
+                    <div class="row">
+                        <div id="vct_cleaning_progress_bar1" class="col" style="background-color:#448A47; border-right:none; border-radius: 16px 0 0 16px;">
+                            <br>
+                        </div>
+                        <div id="vct_cleaning_progress_bar2" class="col" style="background-color:#448A47; border-right:none; border-left:none;">
+                            <br>
+                        </div>
+                        <div id="vct_cleaning_progress_bar3" class="col" style="background-color:#448A47; border-radius: 0 16px 16px 0; border-left:none;">
+                            <br>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <p class="fw-bold" style="color: #448A47">Completed</p>
+                        </div>
+                    </div>
+                @elseif($reservation->reservationTask->count() === 2)
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p class="fw-bold">Cleaning Progress</p>
+                        </div>
+
+                        <div id="vct_cleaning_progress_percentage" class="col text-end">
+                            <p style="color:#F4BB4B;">60%</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="vct_cleaning_progress_bar1" class="col" style="background-color:#F4BB4B; border-right:none; border-radius: 16px 0 0 16px;">
+                            <br>
+                        </div>
+                        <div id="vct_cleaning_progress_bar2" class="col" style="background-color:#F4BB4B; border-right:none; border-left:none;">
+                            <br>
+                        </div>
+                        <div id="vct_cleaning_progress_bar3" class="col" style=" border-radius: 0 16px 16px 0; border-left:none;">
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <p class="fw-bold" style="color: #F4BB4B;">Cleaning</p>
+                        </div>
+                    </div>
+
+                @elseif($reservation->reservationTask->count() === 1)
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p class="fw-bold">Cleaning Progress</p>
+                        </div>
+
+                        <div id="vct_cleaning_progress_percentage" class="col text-end">
+                            <p style="color:#F4BB4B;">30%</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="vct_cleaning_progress_bar1" class="col" style="background-color:#F4BB4B; border-right:none; border-radius: 16px 0 0 16px;">
+                            <br>
+                        </div>
+                        <div id="vct_cleaning_progress_bar2" class="col" style="; border-right:none; border-left:none;">
+                            <br>
+                        </div>
+                        <div id="vct_cleaning_progress_bar3" class="col" style=" border-radius: 0 16px 16px 0; border-left:none;">
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <p class="fw-bold" style="color: #F4BB4B;">Cleaning</p>
+                        </div>
+                    </div>
+
+                @elseif($reservation->reservationTask->count() === 0)
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p class="fw-bold">Cleaning Progress</p>
+                        </div>
+
+                        <div id="vct_cleaning_progress_percentage" class="col text-end">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="vct_cleaning_progress_bar1" class="col" style="border: 2px solid #981E1E; border-right:none; border-radius: 16px 0 0 16px;">
+                            <br>
+                        </div>
+                        <div id="vct_cleaning_progress_bar2" class="col" style="border: 2px solid #981E1E; border-right:none; border-left:none;">
+                            <br>
+                        </div>
+                        <div id="vct_cleaning_progress_bar3" class="col" style="border: 2px solid #981E1E; border-radius: 0 16px 16px 0; border-left:none;">
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <p class="fw-bold" style="color: #981E1E">Not Cleaned</p>
+                        </div>
+                    </div>
+                @endif
+               
             </div>
         </div>
 

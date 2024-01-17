@@ -35,6 +35,14 @@ class CleanerController extends Controller
                     ->with('nearest_reservation_date',$nearest_reservation_date);
     }
 
+    public function showReservationTask($id){
+        $reservation = $this->reservation->findOrFail($id);
+        $reservation_task = $reservation->reservationTask()->get();
+
+        return view('cleaners.view_cleaning_task')
+        ->with('reservation_task', $reservation_task);
+    }
+
     public function addCleaning(Request $request,$id)
     {
        

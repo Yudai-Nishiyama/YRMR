@@ -12,7 +12,6 @@
     {{-- css --}}
     <link rel="stylesheet" href={{ asset('css/admins/view_cleaning_task.css') }}>
     <link rel="stylesheet" href={{ asset('css/admins/cleaners_page.css') }}>
-    <link rel="stylesheet" href={{ asset('css/admins/style.css') }}>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -23,7 +22,6 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/guest/resservation.css')}}">
     <link rel="stylesheet" href="{{asset('css/guest/reservation_completion.css')}}">
-    <link rel="stylesheet" href="{{asset('css/guest/cancel_resservation.css')}}">
     <link rel="stylesheet" href="{{asset('css/guest/cancel_reservation_completion.css')}}">
     <link rel="stylesheet" href="{{asset('css/guest/room_availability_search.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
