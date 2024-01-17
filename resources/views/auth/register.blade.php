@@ -15,7 +15,7 @@
 
 
     <link rel="stylesheet" href="{{asset('css/register.css')}}">
-    <title>Login</title>
+    <title>Registration</title>
 </head>
 <body class="register">
     <main>
@@ -24,59 +24,84 @@
                 <img class="logo" src="{{asset('images/My Room Your Room-logos 2.png')}}" alt="ホテルのロゴ">
                 <h1 class="register_title">Registration Form</h1>
 
-                <form action="#">
+                <form method="POST" action="{{route('register')}}">
+                    @csrf
                     <div class="inputs">
                         <div class="input-container">
                             <label for="firstName">First Name</label>
-                            <input class="input_content" type="text" id="firstName" placeholder="Enter your first name">
+                            <input class="input_content" type="text" id="firstName" name="first_name" value="{{ old('first_name')}}" placeholder="Enter your first name">
+                            @error("first_name")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="input-container">
                             <label for="lastName">Last Name</label>
-                            <input class="input_content" type="text" id="lastName" placeholder="Enter your last name">
+                            <input class="input_content" type="text" id="lastName" name="last_name" value="{{ old('last_name')}}" placeholder="Enter your last name">
+                            @error("last_name")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="inputs">
                         <div class="input-container">
                             <label for="username">User Name</label>
-                            <input class="input_content" type="text" id="userName" placeholder="Enter your user name">
+                            <input class="input_content" type="text" id="userName" name="username" value="{{ old('username')}}" placeholder="Enter your user name">
+                            @error("username")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="input-container">
                             <label for="adress">Address</label>
-                            <input class="input_content" type="text" id="address" placeholder="123 Street, Apt567, State 12345, USA">
+                            <input class="input_content" type="text" id="address" name="address" value="{{ old('address')}}" placeholder="123 Street, Apt567, State 12345, USA">
+                            @error("address")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="inputs">
                         <div class="input-container">
                             <label for="email">Email</label>
-                            <input class="input_content" type="text" id="email" placeholder="mail@mail.com">
+                            <input class="input_content" type="text" id="email" name="email" value="{{ old('email')}}" placeholder="mail@mail.com">
+                            @error("email")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="input-container">
                             <label for="phone_number">Phone Number</label>
-                            <input class="input_content" type="text" id="phone_number" placeholder="(+63)0123456789">
+                            <input class="input_content" type="text" name="phone_number" value="{{ old('phone_number')}}" id="phone_number" placeholder="(+63)0123456789">
+                            @error("phone_number")
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="inputs">
                         <div class="input-container">
-                            <label for="firstName">Password</label>
-                            <input class="input_content" type="text" id="password" placeholder="Enter your password">
+                            <label for="password">Password</label>
+                            <input class="input_content" type="password" id="password" name="password" value="{{ old('password')}}" placeholder="Enter your password">
+                            @error("password")
+                            <div class="alert text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="input-container">
-                            <label for="lastName">Password Confirmation</label>
-                            <input class="input_content" type="text" id="password_confirmation" placeholder="Confirm your password">
+                            <label for="password-comfirm">Password Confirmation</label>
+                            <input class="input_content" type="password" id="password-confirm" name="password_confirmation" value="{{ old('password_confirmation')}}" placeholder="Confirm your password">
+                            @error("password_confirmation")
+                            <div class="alert text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="inputs">
 
                         <div class="input-container">
-                            <a href="#"><input class="rg_button input_content" type="submit" value="Registration"></a>
+                            <input class="rg_button input_content" type="submit" value="Registration">
                         </div>
 
                     </div>

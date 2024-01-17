@@ -22,7 +22,7 @@ class GuestController extends Controller
     {
         return view('guests.room_page');
     }
-    
+
     public function roomdetail()
     {
         $all_rooms = $this->room->all();
