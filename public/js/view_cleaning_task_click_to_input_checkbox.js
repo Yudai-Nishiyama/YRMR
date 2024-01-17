@@ -44,7 +44,7 @@ function handleCheckboxClick(taskId, isChecked,reservation_id) {
             success: function(response) {
                 console.log(response); // Displaying the server response in the console
                 // alert($(".cleaning_task").length);
-                onClickChangeColor(response.rowCount);
+                onClickChangeColor();
             },
             error: function(xhr, status, error) {
                 console.error("Error occurred: " + status + ", " + error);
@@ -62,7 +62,7 @@ function handleCheckboxClick(taskId, isChecked,reservation_id) {
                 },
                 success: function(response) {
                     console.log(response); // Displaying the server response in the console
-                    onClickChangeColor(response.rowCount);
+                    onClickChangeColor();
                 },
                 error: function(xhr, status, error) {
                     console.error("Error occurred: " + status + ", " + error);
@@ -72,73 +72,88 @@ function handleCheckboxClick(taskId, isChecked,reservation_id) {
 
 }
 
-function onClickChangeColor(rowCount){
-        var rowCount = $(".cleaning_task:checked").length;
-        var vct_cleaning_progress_percentage = $('#vct_cleaning_progress_percentage p');
-        var vct_cleaning_progress_bar1 = $('#vct_cleaning_progress_bar1');
-        var vct_cleaning_progress_bar2 = $('#vct_cleaning_progress_bar2');
-        var vct_cleaning_progress_bar3 = $('#vct_cleaning_progress_bar3');
-        alert(vct_cleaning_progress_bar1.length);
-        if (rowCount >= 3) {
-            vct_cleaning_progress_percentage.text('100%');
-            vct_cleaning_progress_percentage.css('color','#448A47');
-            vct_cleaning_progress_bar1.css([
-                'background-color', '#448A47',
-                // 'border',''
-        ]);
-            vct_cleaning_progress_bar2.css([
-                'background-color', '#448A47',
-                // 'border',''
-        ]);
-            vct_cleaning_progress_bar3.css([
-                'background-color', '#448A47',
-                // 'border',''
-        ]);
-        } else if(rowCount >= 2) {
-            vct_cleaning_progress_percentage.text('60%');
-            vct_cleaning_progress_percentage.css('color','#F4BB4B');
-            vct_cleaning_progress_bar1.css([
-                'background-color', '#F4BB4B',
-                // 'border',''
-        ]);
-            vct_cleaning_progress_bar2.css([
-                'background-color', '#F4BB4B',
-                // 'border',''
-        ]);
-            vct_cleaning_progress_bar3.css([
-                'background-color', '',
-                // 'border',''
-        ]);
-        } else if(rowCount >= 1){
-            vct_cleaning_progress_percentage.text('30%');
-            vct_cleaning_progress_percentage.css('color','#F4BB4B');
-            vct_cleaning_progress_bar1.css([
-                'background-color', '#F4BB4B',
-                // 'border',''
-        ]);
-            vct_cleaning_progress_bar2.css([
-                'background-color', '',
-                // 'border',''
-        ]);
-            vct_cleaning_progress_bar3.css([
-                'background-color', '',
-                // 'border',''
-        ]);
+function onClickChangeColor() {
+    var rowCount = $(".cleaning_task:checked").length;
+    var vct_cleaning_progress_percentage = $('#vct_cleaning_progress_percentage p');
+    var vct_cleaning_progress_bar1 = $('#vct_cleaning_progress_bar1');
+    var vct_cleaning_progress_bar2 = $('#vct_cleaning_progress_bar2');
+    var vct_cleaning_progress_bar3 = $('#vct_cleaning_progress_bar3');
+    var cleaning_label = $('.cleaning_label');
 
-        } else if(rowCount >= 0){
-            vct_cleaning_progress_percentage.text('0%');
-            vct_cleaning_progress_percentage.css('color','#981E1E');
-            vct_cleaning_progress_bar1.css([
-                'background-color', '',
-                'border','1px solid #981E1E'
-        ]);
-            vct_cleaning_progress_bar2.css([
-                'background-color', '',
-                'border','1px solid #981E1E'
-        ]);
-            vct_cleaning_progress_bar3.css([
-                'background-color', '',
-                'border','1px solid #981E1E'
-        ]);
-        }
+    if (rowCount >= 3) {
+        vct_cleaning_progress_percentage.text('100%');
+        vct_cleaning_progress_percentage.css('color', '#448A47');
+        cleaning_label.text('Completed');
+        cleaning_label.css('color', '#448A47');
+
+        vct_cleaning_progress_bar1.css({
+            'background-color': '#448A47',
+            'border': ''
+        });
+        vct_cleaning_progress_bar2.css({
+            'background-color': '#448A47',
+            'border': ''
+        });
+        vct_cleaning_progress_bar3.css({
+            'background-color': '#448A47',
+            'border': ''
+        });
+    } else if (rowCount >= 2) {
+        vct_cleaning_progress_percentage.text('60%');
+        vct_cleaning_progress_percentage.css('color', '#F4BB4B');
+        cleaning_label.text('Cleaning');
+        cleaning_label.css('color', '#F4BB4B');
+        vct_cleaning_progress_bar1.css({
+            'background-color': '#F4BB4B',
+            'border': ''
+        });
+        vct_cleaning_progress_bar2.css({
+            'background-color': '#F4BB4B',
+            'border': ''
+        });
+        vct_cleaning_progress_bar3.css({
+            'background-color': '',
+            'border': ''
+        });
+    } else if (rowCount >= 1) {
+        vct_cleaning_progress_percentage.text('30%');
+        vct_cleaning_progress_percentage.css('color', '#F4BB4B');
+        cleaning_label.text('Cleaning');
+        cleaning_label.css('color', '#F4BB4B');
+        vct_cleaning_progress_bar1.css({
+            'background-color': '#F4BB4B',
+            'border': ''
+        });
+        vct_cleaning_progress_bar2.css({
+            'background-color': '',
+            'border': ''
+        });
+        vct_cleaning_progress_bar3.css({
+            'background-color': '',
+            'border': ''
+        });
+    } else if (rowCount >= 0) {
+        vct_cleaning_progress_percentage.text('0%');
+        vct_cleaning_progress_percentage.css('color', '#981E1E');
+        cleaning_label.text('Not Cleaned');
+        cleaning_label.css('color', '#981E1E');
+        vct_cleaning_progress_bar1.css({
+            'background-color': '',
+            'border': '1px solid #981E1E',
+            'border-right':'none',
+            'border-radius': '16px 0 0 16px'
+        });
+        vct_cleaning_progress_bar2.css({
+            'background-color': '',
+            'border': '1px solid #981E1E',
+            'border-right':'none',
+            'border-left':'none'
+        });
+        vct_cleaning_progress_bar3.css({
+            'background-color': '',
+            'border': '1px solid #981E1E',
+            'border-radius': '0 16px 16px 0',
+            'border-left':'none'
+        });
     }
+}

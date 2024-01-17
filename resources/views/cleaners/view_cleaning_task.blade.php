@@ -83,7 +83,12 @@
                             <p class="fw-bold ">Estimated Finishing Time</p>
                         </div>
                         <div class="col-4 ">
-                            <div id="clock{{ $reservation->id }}" class="clock_object">
+                            <div id="clock{{ $reservation->id }}" 
+                                @if ($reservation->guest_checkout == 1)
+                                    class="clock_object"
+                                @else
+                                    
+                                @endif>
                                 <p>
                                     <span class="minutes"></span>:<span class="seconds"></span>
                                 </p>
@@ -111,7 +116,12 @@
                             </div>
                             <div class="row mt-0">
                                 <div class="col form-check d-flex align-items-center justify-content-center">
-                                    <input class="form-check-input me-1 cleaning_task" type="checkbox" value="1" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
+                                    <input class="form-check-input me-1 cleaning_task" type="checkbox" value="1" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)" 
+                                        @if ($reservation->guest_checkout == 1)
+                                            
+                                        @else
+                                            disabled 
+                                        @endif
                                         @foreach ($reservation->reservationTask as $reservation_task)
                                             @if ($reservation_task->task_id === 1) 
                                                 checked>
@@ -130,7 +140,12 @@
                                 <p class="mb-0 cleaning-task-list" style="color: #2C462B; border-bottom:3px solid #2C462B;"><i class="fa-solid fa-bath"></i> Bathrooms</p>
                                 <div class="row mt-0">
                                     <div class="col form-check d-flex align-items-center justify-content-center">
-                                        <input class="form-check-input me-1 cleaning_task" type="checkbox" value="2" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
+                                        <input class="form-check-input me-1 cleaning_task" type="checkbox" value="2" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)" 
+                                        @if ($reservation->guest_checkout == 1)
+                                            
+                                        @else
+                                            disabled 
+                                        @endif
                                         @foreach ($reservation->reservationTask as $reservation_task)
                                             @if ($reservation_task->task_id === 2) 
                                                 checked>
@@ -150,7 +165,12 @@
                             </div>
                             <div class="row mt-0">
                                 <div class="col form-check d-flex align-items-center justify-content-center">
-                                    <input class="form-check-input me-1 cleaning_task" type="checkbox" value="3" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)"
+                                    <input class="form-check-input me-1 cleaning_task" type="checkbox" value="3" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)" 
+                                        @if ($reservation->guest_checkout == 1)
+                                                
+                                        @else
+                                            disabled 
+                                        @endif
                                         @foreach ($reservation->reservationTask as $reservation_task)
                                             @if ($reservation_task->task_id === 3) 
                                                 checked>
@@ -165,7 +185,7 @@
                     </div>
                 </form>
                 
-                @if ($reservation->reservationTask->count() === 3)
+                @if ($reservation->reservationTask->count() == 3)
                     <div id="check_row" class="row mt-3" data-my-value="{{ $reservation->reservationTask->count() }}">
                         <div class="col">
                             <p class="fw-bold">Cleaning Progress</p>
@@ -190,10 +210,10 @@
 
                     <div class="row">
                         <div class="col text-center">
-                            <p class="fw-bold" style="color: #448A47">Completed</p>
+                            <p class="fw-bold cleaning_label" style="color: #448A47">Completed</p>
                         </div>
                     </div>
-                @elseif($reservation->reservationTask->count() === 2)
+                @elseif($reservation->reservationTask->count() == 2)
                     <div class="row mt-3">
                         <div class="col">
                             <p class="fw-bold">Cleaning Progress</p>
@@ -218,11 +238,11 @@
 
                     <div class="row">
                         <div class="col text-center">
-                            <p class="fw-bold" style="color: #F4BB4B;">Cleaning</p>
+                            <p class="fw-bold cleaning_label" style="color: #F4BB4B;">Cleaning</p>
                         </div>
                     </div>
 
-                @elseif($reservation->reservationTask->count() === 1)
+                @elseif($reservation->reservationTask->count() == 1)
                     <div class="row mt-3">
                         <div class="col">
                             <p class="fw-bold">Cleaning Progress</p>
@@ -246,12 +266,12 @@
                     </div>
 
                     <div class="row">
-                        <div class="col text-center">
-                            <p class="fw-bold" style="color: #F4BB4B;">Cleaning</p>
+                        <div class="col text-center ">
+                            <p class="fw-bold cleaning_label" style="color: #F4BB4B;">Cleaning</p>
                         </div>
                     </div>
 
-                @elseif($reservation->reservationTask->count() === 0)
+                @elseif($reservation->reservationTask->count() == 0)
                     <div class="row mt-3">
                         <div class="col">
                             <p class="fw-bold">Cleaning Progress</p>
@@ -276,7 +296,7 @@
 
                     <div class="row">
                         <div class="col text-center">
-                            <p class="fw-bold" style="color: #981E1E">Not Cleaned</p>
+                            <p class="fw-bold cleaning_label" style="color: #981E1E">Not Cleaned</p>
                         </div>
                     </div>
                 @endif
