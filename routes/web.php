@@ -35,10 +35,6 @@ Auth::routes();
 //homepage
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// ログインルート
-// Route::get('/attr/login', [LoginController::class, 'login'])->name('attr.login');
-// Route::post('/attr', [LoginController::class, 'store'])->name('attr.store');
-
 
 // Guests Routes
 Route::prefix('guests')->name('guests.')->group(function () {
