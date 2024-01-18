@@ -73,7 +73,7 @@
                 <tbody>
                     <tr>
                         <td style="text-align: center;">
-                            <a href="#"><button class="yellow_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #F4BB4B; color: #981E1E; font-family: 'Raleway', sans-serif; font-weight: bold;">Back to the page</button></a>
+                            <a href="/guests/rooms"><button class="yellow_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #F4BB4B; color: #981E1E; font-family: 'Raleway', sans-serif; font-weight: bold;">Back to the page</button></a>
                         </td>
                         <td style="text-align: center;">
                             <a href="#"><button class="green_button" data-bs-toggle="modal" data-bs-target="#reservation-completion-id" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Reservation</button></a>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\RoomType;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -41,9 +43,12 @@ class HomeController extends Controller
         return view('guests.room_availability_search');
     }
 
-    public function checkReservation()
+    public function checkReservation($id)
     {
-        return view('guests.check_reservation');
+        $reservation = Reservation::where('reservation_number', $id)->firstOrFail();
+        $room = Room::find($reservation->room_id);
+        $roomType = RoomType::find($room->room_type_id);
+        return view('guests.check_reservation',['reservation' => $reservation, "room_type" => $roomType, "room" => $room]);
     }
 
 
@@ -52,9 +57,11 @@ class HomeController extends Controller
         return view('guests.reservation',['room' => $room]);
     }
 
-    public function cancelReservation()
+    public function cancelReservation($id)
     {
-        return view('guests.cancel_reservation');
+        Reservation::where('reservation_number', $id)->delete();
+        return view('home');
+
     }
 
     public function reservationCompletion()

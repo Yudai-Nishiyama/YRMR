@@ -8,8 +8,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\CleanerController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\CleanersController;
 use App\Http\Controllers\Admin\GuestsController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,12 +35,13 @@ Auth::routes();
 //homepage
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 // Guests Routes
 Route::prefix('guests')->name('guests.')->group(function () {
     Route::get('/room-availability-search', [HomeController::class, 'searchRoom'])->name('roomAvailabilitySearch');
-    Route::get('/check-reservation', [HomeController::class, 'checkReservation'])->name('checkReservation');
+    Route::get('/check-reservation/{id}', [HomeController::class, 'checkReservation'])->name('checkReservation');
     Route::get('/reservation/{room}', [HomeController::class, 'reservation'])->name('reservation');
-    Route::get('/cancel-reservation', [HomeController::class, 'cancelReservation'])->name('cancelReservation');
+    Route::get('/cancel-reservation/{id}', [HomeController::class, 'cancelReservation'])->name('cancelReservation');
     Route::get('/reservation-completion', [HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
     Route::get('/cancel-reservation-completion', [HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
     Route::get('/rooms', [GuestController::class, 'guestroom'])->name('guestRoom');
@@ -72,7 +77,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Admins Guests Routes
     Route::prefix('guests')->name('guests.')->group(function () {
         Route::get('/reservation_management', [GuestsController::class, 'guestReservationManagement'])->name('guestReservationManagement');
-        Route::get('/profile', [GuestsController::class, 'guestProfile'])->name('guestProfile');
+        Route::get('/profile/{id}', [GuestsController::class, 'guestProfile'])->name('guestProfile');
     });
 });
 

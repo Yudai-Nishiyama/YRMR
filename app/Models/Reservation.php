@@ -19,6 +19,16 @@ class Reservation extends Model
             'guest_checkout',
     ];
 
+    protected $table = 'reservations';
+
+    // $dates プロパティを追加して、日付フィールドを Carbon インスタンスにキャストする
+    protected $dates = ['check_in', 'check_out'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function cleaning()
     {
         return $this->hasMany(Cleaning::class);

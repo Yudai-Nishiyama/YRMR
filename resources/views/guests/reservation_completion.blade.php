@@ -31,7 +31,7 @@
             <h2 style="font-size: 48px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="mt-3">for the reservation!!</h2>
             <p style="font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="mt-5">Reservation Number</p>
             <p style="font-size: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="mt-2">{{ $reservation->reservation_number }}</p>
-            <a href="#"><button class="mt-5 check_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Check the reservation</button></a>
+            <a href="/guests/check-reservation/{{ $reservation->reservation_number }}"><button class="mt-5 check_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Check the reservation</button></a>
         </div>
     </div>
 </div>
