@@ -9,6 +9,16 @@ class Reservation extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+            'user_id',
+            'room_id',
+            'check_in',
+            'check_out',
+            'reservation_number',
+            'guest_checkin',
+            'guest_checkout',
+    ];
+
     public function cleaning()
     {
         return $this->hasMany(Cleaning::class);

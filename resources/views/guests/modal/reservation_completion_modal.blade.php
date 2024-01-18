@@ -15,13 +15,12 @@
                         </div>
                     </div>
                 </div>
-                <form action="#" method="post">
+                <form action="{{ route('guests.reserveRoom', ['room' => $room->id] )}}" method="post">
                 <div class="modal-footer border-0 justify-content-center pt-0">
                     @csrf
-                    @method('DELETE')
 
                     <a href="#" class="btn fw-bold mb-3" style="background-color:#F4BB4B; color:#981E1E; width: 180px;">Return to the Page</a>
-                    <button type="submit" class="btn mb-3 fw-bold" style="background-color:#448A47; color:#FFFFFF; width: 180px;">Reservation</button>
+                    <button type="submit" form="reservation-form" class="btn mb-3 fw-bold" style="background-color:#448A47; color:#FFFFFF; width: 180px;">Reservation</button>
                 </div>
             </form>
             </div>
