@@ -61,9 +61,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // Admins Cleaners Routes
     Route::prefix('cleaners')->name('cleaners.')->group(function () {
-        Route::get('/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');//admin.cleaners.~~~~
+        Route::get('/admin_cleaning_page', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');//admin.cleaners.~~~~
         Route::get('/cleaning_progress_page', [CleanersController::class, 'showCleaningProgressPage'])->name('showCleaningProgressPage');
-        Route::get('/check_cleaning_progress_report', [CleanersController::class, 'showCheckCleaningProgressReport'])->name('showCheckCleaningProgressReport');
+        Route::post('/cleaning_progress_page/chooseCleaner/{id}', [CleanersController::class, 'chooseCleaner'])->name('chooseCleaner');
+        Route::patch('/cleaning_progress_page/changeCleaner/{id}', [CleanersController::class, 'changeCleaner'])->name('changeCleaner');
+        Route::get('/check_cleaning_progress_report/{id}', [CleanersController::class, 'showCheckCleaningProgressReport'])->name('showCheckCleaningProgressReport');
         Route::get('/modal/cleaner_delete_modal', [CleanersController::class, 'showModalDelete'])->name('showModalDelete');
         Route::get('/cleaner_management_page', [CleanersController::class, 'CleanerManagementPage'])->name('CleanerManagementPage');
         Route::get('/create_cleaner', [CleanersController::class, 'showCreateCleanerPage'])->name('showCreateCleanerPage');

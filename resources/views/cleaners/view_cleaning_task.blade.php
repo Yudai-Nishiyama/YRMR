@@ -12,7 +12,7 @@
                     <h2 style="color:#F4BB4B" class="fw-bold">Cleaner View Task</h2>
                 </div>
                 <div class="col d-flex align-items-center justify-content-end">
-                    <a href="#" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Back to Cleaning Progress</a>
+                    <a href="{{ route('cleaner.showCleanerPage') }}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Back to Cleaning Progress</a>
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@
                                         @endforeach
 
                                     <label class="form-check-label " for="change_sheets">
-                                    <p class="my-auto" style="color: #2C462B;">Changing Sheets</p>
+                                    <p class="my-auto changing_sheet_text" style="color: #2C462B;">Changing Sheets</p>
                                     </label>
                                 </div>
                             </div>
@@ -152,7 +152,7 @@
                                             @endif
                                         @endforeach
                                         <label class="form-check-label" for="refill_amenities">
-                                        <p class="my-auto" style="color: #2C462B;">Refill Amenities</p>
+                                        <p class="my-auto refill_amentities_task" style="color: #2C462B;">Refill Amenities</p>
                                         </label>
                                     </div>
                                 </div>
@@ -177,7 +177,7 @@
                                             @endif
                                         @endforeach
                                     <label class="form-check-label" for="cleaning_the_floor">
-                                    <p class="my-auto" style="color: #2C462B;">Cleaning the Floor</p>
+                                    <p class="my-auto cleaning_the_floor_text" style="color: #2C462B;">Cleaning the Floor</p>
                                     </label>
                                 </div>
                             </div>

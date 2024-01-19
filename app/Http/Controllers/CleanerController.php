@@ -12,7 +12,6 @@ class CleanerController extends Controller
     public function __construct(Reservation $reservation)
     {
         $this->reservation = $reservation;
-
     }
 
     public function showCleanerPage()

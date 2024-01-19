@@ -40,5 +40,19 @@ class AdminSeeder extends Seeder
             'role_id' => User::USER_ROLE_ID,
         ]);
 
+        User::create([
+            'username' => 'cleaner2',
+            'email' => 'cleaner2@email.com',
+            'password' => Hash::make('cleaner12345'),
+            'role_id' => User::CLEANER_ROLE_ID,
+        ]);
+
+        User::create([
+            'username' => 'cleaner3',
+            'email' => 'cleaner3@email.com',
+            'password' => Hash::make('cleaner12345'),
+            'role_id' => User::CLEANER_ROLE_ID,
+        ]);
+
     }
 }
