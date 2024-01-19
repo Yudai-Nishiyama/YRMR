@@ -15,10 +15,10 @@
                     </div>
                 </div>
             </div>
-            <form action="{{route('guests.cancelReservation', ['id' => $reservation->reservation_number] )}}" method="delete">
+            <form action="{{route('guests.cancelReservation', ['id' => $reservation->reservation_number] )}}" method="put">
             <div class="modal-footer border-0 justify-content-center pt-0">
                 @csrf
-                @method('DELETE')
+                @method('PUT')
 
                 <button type="button" data-bs-dismiss="modal" aria-label="Close" class="btn fw-bold mb-3" style="background-color:#448A47; color:#FFFFFF; width: 180px;">Back to the Page</button>
                 <button type="submit" class="btn mb-3 fw-bold" style="background-color:#F4BB4B; color:#981E1E; width: 180px;">Yes</button>

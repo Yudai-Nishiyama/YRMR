@@ -97,34 +97,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="history" style="text-align: left; font-size: 20px;">2023-11-14(Tue)</td>
-                        <td class="history" style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif;">2023-11-15(Wed)</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Room1</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Single Bed</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">2#426740671012</td>
-                    </tr>
-                    <tr>
-                        <td class="history" style="text-align: left; font-size: 20px;">2023-11-14(Tue)</td>
-                        <td class="history" style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif;">2023-11-15(Wed)</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Room1</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Single Bed</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">2#426740671012</td>
-                    </tr>
-                    <tr>
-                        <td class="history" style="text-align: left; font-size: 20px;">2023-11-14(Tue)</td>
-                        <td class="history" style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif;">2023-11-15(Wed)</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Room1</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Single Bed</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">2#426740671012</td>
-                    </tr>
-                    <tr>
-                        <td class="history last" style="text-align: left; font-size: 20px;">2023-11-14(Tue)</td>
-                        <td class="history last" style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif;">2023-11-15(Wed)</td>
-                        <td class="history last" style="text-align: left; font-size: 20px;">Room1</td>
-                        <td class="history last" style="text-align: left; font-size: 20px;">Single Bed</td>
-                        <td class="history last" style="text-align: left; font-size: 20px;">2#426740671012</td>
-                    </tr>
+                    @foreach($reservationHistory as $resHistory)
+                        <tr>
+                            <td class="history last" style="text-align: left; font-size: 20px;">{{$resHistory->check_in}}</td>
+                            <td class="history last" style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif;">{{$resHistory->check_out}}</td>
+                            <td class="history last" style="text-align: left; font-size: 20px;">{{$room->name}}</td>
+                            <td class="history last" style="text-align: left; font-size: 20px;">{{$room_type->room_type_name}}</td>
+                            <td class="history last" style="text-align: left; font-size: 20px;">{{$resHistory->reservation_number}}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

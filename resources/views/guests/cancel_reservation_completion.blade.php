@@ -30,7 +30,7 @@
             <h2 style="font-size: 48px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="mt-5">Reservation</h2>
             <h2 style="font-size: 48px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);" class="mt-3">cancellation completed</h2>
             <i class="fa-solid fa-triangle-exclamation mt-5" style="color: #f4bb4b; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);"><span class="rebook">If you would like to rebook, please try again.</span></i>
-            <a href="#"><button class="mt-5 room_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #F4BB4B; color: #981E1E; font-family: 'Raleway', sans-serif; font-weight: bold;">Back to room page</button></a>
+            <a href="/guests/rooms"><button class="mt-5 room_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #F4BB4B; color: #981E1E; font-family: 'Raleway', sans-serif; font-weight: bold;">Back to room page</button></a>
         </div>
     </div>
 </div>

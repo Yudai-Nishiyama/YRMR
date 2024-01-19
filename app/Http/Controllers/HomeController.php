@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Room;
+use App\Models\User;
 use App\Models\RoomType;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -48,7 +51,8 @@ class HomeController extends Controller
         $reservation = Reservation::where('reservation_number', $id)->firstOrFail();
         $room = Room::find($reservation->room_id);
         $roomType = RoomType::find($room->room_type_id);
-        return view('guests.check_reservation',['reservation' => $reservation, "room_type" => $roomType, "room" => $room]);
+        $reservationHistory = Reservation::where('room_id', $reservation->room_id)->where('user_id', Auth::id())->get();
+        return view('guests.check_reservation',['reservation' => $reservation, "room_type" => $roomType, "room" => $room, 'reservationHistory' => $reservationHistory]);
     }
 
 
@@ -59,8 +63,19 @@ class HomeController extends Controller
 
     public function cancelReservation($id)
     {
-        Reservation::where('reservation_number', $id)->delete();
-        return view('home');
+        $reservation = Reservation::where('reservation_number', $id)->firstOrFail();
+        if($reservation) {
+            $reservation->deleted_at = Carbon::now()->toDateTimeString();
+            $reservation->save();
+
+            $user = User::find(Auth::id());
+
+            if($user) {
+                $user->has_booking = 0;
+                $user->save();
+            }
+        }
+        return view('guests.cancel_reservation_completion');
 
     }
 
