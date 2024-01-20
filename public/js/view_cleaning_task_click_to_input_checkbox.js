@@ -181,3 +181,22 @@ function onClickChangeColor(taskId,isChecked) {
         }
     }
 }
+
+$(document).ready(function() {
+
+    var cleaning_the_floor_text = $('.cleaning_the_floor_text');
+    var refill_amentities_task = $('.refill_amentities_task');
+    var changing_sheet_text = $('.changing_sheet_text');
+
+    if ($('.checkbox_task1').is(':checked')) {
+        changing_sheet_text.css('text-decoration-line', 'line-through');
+    }
+
+    if ($('.checkbox_task2').is(':checked')) {
+        refill_amentities_task.css('text-decoration-line', 'line-through');
+    }
+
+    if ($('.checkbox_task3').is(':checked')) {
+        cleaning_the_floor_text.css('text-decoration-line', 'line-through');
+    }
+});

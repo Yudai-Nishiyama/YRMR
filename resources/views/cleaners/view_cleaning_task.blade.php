@@ -52,7 +52,6 @@
                             @else
                                 <p>Vacant</p>
                             @endif
-                            
                         </div>
                     </div>
                 </div>
@@ -104,9 +103,7 @@
                         <p class="fw-bold ">Cleaning Task List</p>
                     </div>
                 </div>
-                {{-- checkbox --}}
-                {{-- need to search how to submit value without submit button --}}
-                {{-- how to change colors of the progress bar hint video: https://www.youtube.com/watch?v=lvlTL3Fovdg --}}
+
                 <form action="#" method="POST">
                     @csrf
                     <div class="row text-center ">
@@ -117,19 +114,21 @@
                             <div class="row mt-0">
                                 <div class="col form-check d-flex align-items-center justify-content-center">
                                     <input class="form-check-input me-1 cleaning_task" type="checkbox" value="1" id="{{$reservation->id}}" onclick="handleCheckboxClick(this.value, this.checked,this.id)" 
-                                        @if ($reservation->guest_checkout == 1)
-                                            
-                                        @else
-                                            disabled 
-                                        @endif
-                                        @foreach ($reservation->reservationTask as $reservation_task)
+                                    @if ($reservation->guest_checkout == 1)
+                                        
+                                    @else
+                                        disabled 
+                                    @endif
+                                    @foreach ($reservation->reservationTask as $reservation_task)
                                             @if ($reservation_task->task_id === 1) 
                                                 checked>
                                             @endif
                                         @endforeach
 
                                     <label class="form-check-label " for="change_sheets">
-                                    <p class="my-auto changing_sheet_text" style="color: #2C462B;">Changing Sheets</p>
+                                        <p class="my-auto changing_sheet_text" style="color: #2C462B;">
+                                            Changing Sheets
+                                        </p>
                                     </label>
                                 </div>
                             </div>
@@ -152,7 +151,9 @@
                                             @endif
                                         @endforeach
                                         <label class="form-check-label" for="refill_amenities">
-                                        <p class="my-auto refill_amentities_task" style="color: #2C462B;">Refill Amenities</p>
+                                            <p class="my-auto refill_amentities_task" style="color: #2C462B;">
+                                                Refill Amenities
+                                            </p>
                                         </label>
                                     </div>
                                 </div>
@@ -172,12 +173,14 @@
                                             disabled 
                                         @endif
                                         @foreach ($reservation->reservationTask as $reservation_task)
-                                            @if ($reservation_task->task_id === 3) 
-                                                checked>
-                                            @endif
-                                        @endforeach
+                                                @if ($reservation_task->task_id === 3) 
+                                                    checked>
+                                                @endif
+                                            @endforeach
                                     <label class="form-check-label" for="cleaning_the_floor">
-                                    <p class="my-auto cleaning_the_floor_text" style="color: #2C462B;">Cleaning the Floor</p>
+                                        <p class="my-auto cleaning_the_floor_text" style="color: #2C462B;">
+                                            Cleaning the Floor
+                                        </p>
                                     </label>
                                 </div>
                             </div>

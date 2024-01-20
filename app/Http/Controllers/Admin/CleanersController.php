@@ -78,9 +78,21 @@ class CleanersController extends Controller
                 ->with('cleaners',$cleaners);
     }
 
-    public function showCheckCleaningProgressReport()
+    public function showCheckCleaningProgressReport($id)
     {
-        return view('admins.cleaners.check_cleaning_progress_report');
+        $reservation = $this->reservation->findOrFail($id);
+        $nearest_reservation_date = $reservation
+                                   ->where('id', '!=', $reservation->id)
+                                   ->where('room_id', $reservation->room_id)
+                                   ->oldest('created_at')
+                                   ->first();
+        $reservation_task = $reservation->reservationTask()->get();
+        
+        return view('admins.cleaners.check_cleaning_progress_report')
+                    ->with('reservation',$reservation)
+                    ->with('nearest_reservation_date',$nearest_reservation_date)
+                    ->with('reservation_task', $reservation_task);
+
     }
 
     public function CleanerManagementPage()
