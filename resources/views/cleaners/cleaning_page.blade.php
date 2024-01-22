@@ -111,13 +111,11 @@
                             </td>
                             {{-- when the guest checkout the  --}}
                             @if ($reservation->guest_checkin===1 && $reservation->guest_checkout===1)
-
                                 <td>
                                     <div id="clock{{ $reservation->id }}" class="clock_object">
                                         <span class="minutes"></span>:<span class="seconds"></span>
                                     </div>
                                 </td>
-  
                             @else
                                 <td></td>
                             @endif
@@ -137,6 +135,6 @@
     </div>
 </div>
 
-<script defer src="{{ asset('js/cleaning_page.js') }}"></script>
+<script defer src="{{ asset('js/cleaning_page_timer.js') }}"></script>
 
 @endsection
