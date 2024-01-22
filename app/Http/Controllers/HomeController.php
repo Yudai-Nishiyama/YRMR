@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,6 +22,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    private $user;
+    public function __construct(User $user) {
+        $user = $this->user;
+    }
+
     public function index()
     {
         return view('home');
@@ -48,6 +55,14 @@ class HomeController extends Controller
 
     public function reservation()
     {
+        return view('guests.reservation');
+    }
+
+    public function reservationCalendar($id,$date)
+    {
+        $user = $this->user->findOrFail($id);
+        $date = $date
+
         return view('guests.reservation');
     }
 
