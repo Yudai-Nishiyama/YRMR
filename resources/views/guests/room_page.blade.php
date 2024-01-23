@@ -9,6 +9,7 @@
     <div class="row">
         <div class="col-3">
         </div>
+        @foreach($rooms as $room)
         <div class="col-5">
             <div class="card mt-5 custom-card" style="height:700px; border-radius:25px 25px 25px 25px;" >
                 <div class="card-header" style="border:1px solid black; border-bottom:none; background-color: #fbfbfb; border-radius:25px 25px 0px 0px;">
@@ -59,7 +60,7 @@
 
                     {{-- Reservation --}}
                     <div class="row">
-                        <a href="#">
+                        <a href="{{ route('guests.reservation', ['room' => $room->id])}}">
                             <div class="col btn  text-light float-end mt-2 "
                             style="border-radius: 25px; font-weight: bold; min-width: 200px;background-color:#448A47;"><h4 style="font-family: 'Raleway', sans-serif;">Reservation<i class="fa-solid fa-caret-right"></i></h4>
                             </div>
@@ -69,6 +70,7 @@
                 </div>
             </div>
         </div>
+        @endforeach
 
         <div class="col-3 roommenu">
             <div class="mt-5"  >

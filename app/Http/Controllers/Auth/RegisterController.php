@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role_id' => 2,
+            'has_booking' => 0,
         ]);
 
         Profile::create([

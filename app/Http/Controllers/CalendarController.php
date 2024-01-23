@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class CalendarController extends Controller
 {
+    private $room;
+
+    public function __construct(Room $room)
+    {
+        $this->room =$room;
+    }
     public function showCalendar(Request $request)
     {
-
+        // $room = $this->room->findOrFail($id);
+    
         $ym = $request->input('ym');
 
         // added this condition solve the problem of "1970-01"
@@ -19,7 +27,8 @@ class CalendarController extends Controller
 
         $calendarData = $this->calendar($ym);
 
-        return view('guests.calendar')
+        return view('guests.calender')
+            // ->with('room',$room)
             ->with('weeks', $calendarData['weeks'])
             ->with('html_title', $calendarData['html_title'])
             ->with('prev', $this->getPrevMonth($ym))
@@ -72,13 +81,15 @@ class CalendarController extends Controller
 
             $date = $ym . '-' . str_pad($day, 2, '0', STR_PAD_LEFT); //例：2021-06-03 str_pad()で日に０を追加した。
 
+            $link = '<a href="' . route('guests.reservationCalendar', $date) . '">';
+
             if ($today == $date) {
             // 今日の日付の場合は、class="today"をつける
-                $week .= '<td class="today text-center">' . '<p>'.$day.'</p>';
+            
+            $week .=  '<td class="today text-center">'.$link .'<p>' . $day . '</p></a></td>';
             } else {
-                $week .= '<td class="text-center">' . '<p>'.$day.'</p>';
+            $week .= '<td class="text-center">'.$link.'<p>' . $day . '</p></a></td>';
             }
-            $week .= '</td>';
 
             // 週終わり、または、月終わりの場合
             if ($youbi % 7 == 6 || $day == $day_count) { //$youbi % 7 は、$youbi を7で割った余りを計算する演算です。$youbi % 7 は0から6の範囲の値を取ります。これによって、週の何日目かを表現することができます。例えば、0は日曜日、1は月曜日、

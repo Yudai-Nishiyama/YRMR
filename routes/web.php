@@ -38,14 +38,16 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 // Guests Routes
 Route::prefix('guests')->name('guests.')->group(function () {
-    Route::get('/room_availability_search', [HomeController::class, 'searchRoom'])->name('roomAvailabilitySearch');
-    Route::get('/check_reservation', [HomeController::class, 'checkReservation'])->name('checkReservation');
-    Route::get('/reservation', [HomeController::class, 'reservation'])->name('reservation');
-    Route::get('/cancel_reservation', [HomeController::class, 'cancelReservation'])->name('cancelReservation');
-    Route::get('/reservation_completion', [HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
-    Route::get('/cancel_reservation_completion', [HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
-    Route::get('/room', [GuestController::class, 'guestroom'])->name('guestRoom');
+    Route::get('/room-availability-search', [HomeController::class, 'searchRoom'])->name('roomAvailabilitySearch');
+    Route::get('/check-reservation/{id}', [HomeController::class, 'checkReservation'])->name('checkReservation');
+    Route::get('/reservationCalendar/{room}', [HomeController::class, 'reservationCalendar'])->name('reservationCalendar');
+    Route::get('/reservation/{room}', [HomeController::class, 'reservation'])->name('reservation');
+    Route::get('/cancel-reservation/{id}', [HomeController::class, 'cancelReservation'])->name('cancelReservation');
+    Route::get('/reservation-completion', [HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
+    Route::get('/cancel-reservation-completion', [HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
+    Route::get('/rooms', [GuestController::class, 'guestroom'])->name('guestRoom');
     Route::get('/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
+    Route::post('/reservation/{room}',[GuestController::class, 'reserveRoom'])->name('reserveRoom');
 });
 
 //Admin Routes

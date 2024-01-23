@@ -20,7 +20,8 @@ return new class extends Migration
                     ->default(2)
                     ->comment('1:admin 2:user 3:cleaner');
             $table->timestamps();
-
+            $table->boolean("has_booking")
+                    ->default(0);
         });
     }
 
