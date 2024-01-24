@@ -4,7 +4,7 @@
     border:1px solid black;
 }
 
-select.classic {
+select.choose_cleaner {
     background-image:
         /* linear-gradient(to top, transparent 50%, skyblue 50%), */
         linear-gradient(to right, transparent 50%, #448A47 50%);
@@ -12,7 +12,7 @@ select.classic {
         105px,
         105px;
     background-size:
-        35px;
+        60px;
     background-repeat: no-repeat;
     border:1px solid #448A47;
     border-radius: 5px;

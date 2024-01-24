@@ -1,3 +1,4 @@
+
 function handleCheckboxClick(taskId, isChecked,reservation_id) {
     // Logging the status
     console.log('Checkbox with id ' + taskId + ' is checked: ' + isChecked);
@@ -25,7 +26,7 @@ function handleCheckboxClick(taskId, isChecked,reservation_id) {
             success: function(response) {
                 console.log(response); // Displaying the server response in the console
                 // alert($(".cleaning_task").length);
-                onClickChangeColor();
+                onClickChangeColor(taskId,isChecked);
             },
             error: function(xhr, status, error) {
                 console.error("Error occurred: " + status + ", " + error);
@@ -43,7 +44,7 @@ function handleCheckboxClick(taskId, isChecked,reservation_id) {
                 },
                 success: function(response) {
                     console.log(response); // Displaying the server response in the console
-                    onClickChangeColor();
+                    onClickChangeColor(taskId,isChecked);
                 },
                 error: function(xhr, status, error) {
                     console.error("Error occurred: " + status + ", " + error);
@@ -53,13 +54,17 @@ function handleCheckboxClick(taskId, isChecked,reservation_id) {
 
 }
 
-function onClickChangeColor() {
+function onClickChangeColor(taskId,isChecked) {
+    var taskId   = taskId
     var rowCount = $(".cleaning_task:checked").length;
     var vct_cleaning_progress_percentage = $('#vct_cleaning_progress_percentage p');
     var vct_cleaning_progress_bar1 = $('#vct_cleaning_progress_bar1');
     var vct_cleaning_progress_bar2 = $('#vct_cleaning_progress_bar2');
     var vct_cleaning_progress_bar3 = $('#vct_cleaning_progress_bar3');
     var cleaning_label = $('.cleaning_label');
+    var cleaning_the_floor_text = $('.cleaning_the_floor_text');
+    var refill_amentities_task = $('.refill_amentities_task');
+    var changing_sheet_text = $('.changing_sheet_text');
 
     if (rowCount >= 3) {
         vct_cleaning_progress_percentage.text('100%');
@@ -137,4 +142,43 @@ function onClickChangeColor() {
             'border-left':'none'
         });
     }
+
+    if (isChecked){
+
+        if (taskId == 1){
+            changing_sheet_text.css('text-decoration-line', 'line-through')
+        }else if (taskId == 2){
+            refill_amentities_task.css('text-decoration-line', 'line-through')
+        }else if (taskId == 3){
+            cleaning_the_floor_text.css('text-decoration-line', 'line-through')
+        }
+
+    }else{
+        if (taskId == 1){
+            changing_sheet_text.css('text-decoration-line', 'none')
+        }else if (taskId == 2){
+            refill_amentities_task.css('text-decoration-line', 'none')
+        }else if (taskId == 3){
+            cleaning_the_floor_text.css('text-decoration-line', 'none')
+        }
+    }
 }
+
+$(document).ready(function() {
+
+    var cleaning_the_floor_text = $('.cleaning_the_floor_text');
+    var refill_amentities_task = $('.refill_amentities_task');
+    var changing_sheet_text = $('.changing_sheet_text');
+
+    if ($('.checkbox_task1').is(':checked')) {
+        changing_sheet_text.css('text-decoration-line', 'line-through');
+    }
+
+    if ($('.checkbox_task2').is(':checked')) {
+        refill_amentities_task.css('text-decoration-line', 'line-through');
+    }
+
+    if ($('.checkbox_task3').is(':checked')) {
+        cleaning_the_floor_text.css('text-decoration-line', 'line-through');
+    }
+});

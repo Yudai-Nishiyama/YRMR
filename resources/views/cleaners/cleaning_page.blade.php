@@ -30,7 +30,6 @@
                 </thead>
                 <tbody>
                     @foreach ($all_reservations as $reservation)
-    
                     <tr>
                             @if ($reservation->cleaning->isEmpty())
                                 <td>Cleaner Not Yet Assign</td>
@@ -58,7 +57,7 @@
                                         <div class="col"></div>
                                     </div>
                                     <td></td>
-                                    <td style="color: #F4BB4B">Cleaning</td>
+                                    <td  style="color: #F4BB4B">Cleaning</td>
 
                                 {{-- 60% progress  --}}
                                 @elseif($reservation->reservationTask->count() === 2)
@@ -74,7 +73,7 @@
                                         <div class="col"></div>
                                     </div>
                                     <td></td>
-                                    <td style="color: #F4BB4B">Cleaning</td>
+                                    <td  style="color: #F4BB4B">Cleaning</td>
 
                                     {{-- 100% progress --}}
                                 @elseif($reservation->reservationTask->count() === 3)
@@ -121,7 +120,7 @@
                             @endif
 
                             <td>
-                                <a href="{{route('cleaner.showTask')}}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">View Task</a>
+                                <a href="{{route('cleaner.showTask',$reservation->id)}}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">View Task</a>
                             </td>
                         </tr>
                         @endforeach
