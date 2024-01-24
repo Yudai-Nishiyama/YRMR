@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class CalendarController extends Controller
 {
@@ -13,9 +14,9 @@ class CalendarController extends Controller
     {
         $this->room =$room;
     }
-    public function showCalendar(Request $request)
+    public function showCalendar(Request $request,$id)
     {
-        // $room = $this->room->findOrFail($id);
+        $room = $this->room->findOrFail($id);
     
         $ym = $request->input('ym');
 
@@ -25,17 +26,17 @@ class CalendarController extends Controller
         }
         //
 
-        $calendarData = $this->calendar($ym);
+        $calendarData = $this->calendar($room,$ym);
 
         return view('guests.calender')
-            // ->with('room',$room)
+            ->with('room',$room)
             ->with('weeks', $calendarData['weeks'])
             ->with('html_title', $calendarData['html_title'])
             ->with('prev', $this->getPrevMonth($ym))
             ->with('next', $this->getNextMonth($ym));
     }
 
-    public function calendar($ym)
+    public function calendar($room,$ym)
     {
         // タイムゾーンを設定
         date_default_timezone_set('Asia/Tokyo');
@@ -81,15 +82,48 @@ class CalendarController extends Controller
 
             $date = $ym . '-' . str_pad($day, 2, '0', STR_PAD_LEFT); //例：2021-06-03 str_pad()で日に０を追加した。
 
-            $link = '<a href="' . route('guests.reservationCalendar', $date) . '">';
+            $link = '<a href="' . route('guests.reservationCalendar', ['id' => $room->id, 'date' => $date]) . '">';
+            $unlink = '';
+            if($date > $today){
 
-            if ($today == $date) {
-            // 今日の日付の場合は、class="today"をつける
-            
-            $week .=  '<td class="today text-center">'.$link .'<p>' . $day . '</p></a></td>';
-            } else {
-            $week .= '<td class="text-center">'.$link.'<p>' . $day . '</p></a></td>';
+                foreach($room->reservations() as $room_reserved){
+                    foreach($room_reserved as $reservation){
+                        $check_in_datetime = $reservation->check_in;
+                        $check_in_date = Carbon::parse($check_in_datetime)->toDateString();
+
+                        if ($today == $date) {
+                            // 今日の日付の場合は、class="today"をつける
+                            $week .= '<td class="today text-center">' . $link . '<p>' . $day.'</p>';
+                            
+                            if ($check_in_date == $date) {
+                                $week .= '<p style="color:red;">X</p>';
+                            } else {
+                                $week .= '<p style="color:blue;">O</p>';
+                            }
+                            
+                        
+                        } else {
+                            $week .= '<td class="text-center">'.$link.'<p>' . $day .'</p>';
+                            if ($check_in_date == $date) {
+                                $week .= '<p style="color:red;">X</p>';
+                            } else {
+                                $week .= '<p style="color:blue;">O</p>';
+                            }
+                        }
+                    }
+                }
+            }else{
+                if ($today == $date) {
+                $week .= '<td class="today text-center">' . $unlink . '<p>' . $day.'</p>';
+                $week .= '<p style="color:gray;">-</p>';
+                $week .= '</td>';
+                } else {
+                    $week .= '<td class="text-center">' . $unlink . '<p>' . $day.'</p>';
+                    $week .= '<p style="color:gray;">-</p>';
+                    $week .= '</td>';
+                }
             }
+            $week .= '</a></td>';
 
             // 週終わり、または、月終わりの場合
             if ($youbi % 7 == 6 || $day == $day_count) { //$youbi % 7 は、$youbi を7で割った余りを計算する演算です。$youbi % 7 は0から6の範囲の値を取ります。これによって、週の何日目かを表現することができます。例えば、0は日曜日、1は月曜日、
@@ -111,7 +145,7 @@ class CalendarController extends Controller
             'prev' => $prev,
             'next' => $next,
         ];
-    }
+    }    
 
     //先月の年と月を取得する
     private function getPrevMonth($ym)

@@ -37,14 +37,14 @@
                 <div class="calender-head px-4 py-3 text-center">
                     <div class="row">
                         <div class="col-2 text-start">
-                            <a class="btn fw-bold" href="{{ route('showCalendar', ['ym' => $prev]) }}" style="background-color: #2C462B; color: #ffffff;"><i class="fa-solid fa-caret-left"></i> Last Month</a>
+                            <a class="btn fw-bold" href="{{ route('showCalendar', ['ym' => $prev, 'id' => $room->id]) }}" style="background-color: #2C462B; color: #ffffff;"><i class="fa-solid fa-caret-left"></i> Last Month</a>
                         </div>
                         <div class="col-8">
                             <span class="mx-3 h2 display-5 fw-bold">{{ $html_title }}</span>
                         </div>
                         {{-- @if ($next !== null) --}}
                         <div class="col-2 text-end">
-                            <a class="btn fw-bold" href="{{ route('showCalendar', ['ym' => $next]) }}" style="background-color: #2C462B; color: #ffffff;"><i class="fa-solid fa-caret-right"></i> Next Month</a>
+                            <a class="btn fw-bold" href="{{ route('showCalendar', ['ym' => $next, 'id' => $room->id]) }}" style="background-color: #2C462B; color: #ffffff;"><i class="fa-solid fa-caret-right"></i> Next Month</a>
                         </div>
                         {{-- @endif --}}
                     </div>

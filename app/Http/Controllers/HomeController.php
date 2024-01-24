@@ -35,7 +35,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        return view('guests.home_page');
     }
 
     public function showLoginForm()
@@ -67,7 +67,7 @@ class HomeController extends Controller
         return view('guests.reservation',['room' => $room]);
     }
 
-    public function reservationCalendar($date,$id)
+    public function reservationCalendar($id,$date)
     {
         $room = $this->room->findOrFail($id);
         $checkin_date = $date;

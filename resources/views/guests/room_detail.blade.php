@@ -4,7 +4,7 @@
 
 @section('content')
 
-{{$all_room}}
+{{-- {{$all_room}} --}}
 
 <div class="roomdetail">
     <div class="container">
@@ -27,17 +27,17 @@
             </div>
             </div>
             <div class="col-6 mt-4">
-                <h1 style="color:#F4924B">Room1</h1>
-                <p style="font-family: 'Bona Nova';">This room is New York style. There is a large living room and comfortable bedroom. You can spend your time stress-free.</p>
+                <h1 style="color:#F4924B">{{$room->name}}</h1>
+                <p style="font-family: 'Bona Nova';">{{$room->roomType->description}}</p>
                 <div class="rd_detail" style="font-size:25px; width:600px; height:200px; background-color: rgba(235, 230, 230, 0.64); border-radius: 25px; margin-top:75px;">
-                    <p class="ms-3" >Room Name:Room1</p>
-                    <p class="ms-3" >Room Type: Single Bed</p>
-                    <p class="ms-3" >Price: $300(tax)~</p>
+                    <p class="ms-3" >Room Name:{{$room->name}}</p>
+                    <p class="ms-3" >Room Type: {{$room->roomType->room_type_name}}</p>
+                    <p class="ms-3" >Price: {{$room->roomType->price}}(tax)~</p>
                 </div>
                 <div class="roomdetail_bottons row" >
-                    <div class="btn rd_btn-custom-color fw-bold " ><a href="#" style="text-decoration:none; color:#981E1E" >Back to the page</a></div>
+                    <div class="btn rd_btn-custom-color fw-bold " ><a href="{{ route('guests.guestRoom') }}" style="text-decoration:none; color:#981E1E" >Back to the page</a></div>
                     <div class="btn rd_btn-custom-color2 float-end text-light ms-5 fw-bold "><i
-                        class="fa-regular fa-calendar-check"></i>&nbsp; <a href="#" style="text-decoration:none; color:white;">Calendar</a>
+                        class="fa-regular fa-calendar-check"></i>&nbsp; <a href="{{ route('showCalendar',$room->id) }}" style="text-decoration:none; color:white;">Calendar</a>
                     </div>
                 </div>
             </div>
