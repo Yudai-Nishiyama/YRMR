@@ -21,9 +21,10 @@
 }
 
 .registrarion-form {
-    margin: 50px auto;
+    margin: 150px auto;
     text-align: center;
     font-family: Bona Nova;
+
 }
 
 .register_title {
@@ -91,6 +92,13 @@
     justify-content: center;
 }
 
+.link {
+    color:#2C462B;
+}
+
+.link:hover {
+    color: #448a47;
+}
 .google {
     margin-right: 30px;
 }

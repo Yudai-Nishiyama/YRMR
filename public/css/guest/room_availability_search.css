@@ -3,6 +3,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    height: 880px;
 }
 
 .logo {
@@ -23,6 +24,10 @@
   flex-wrap: wrap;
   gap: 30px;
   margin-left: 50px;
+}
+
+.search-result {
+    text-decoration: none;
 }
 
 .search-inputs {

@@ -37,3 +37,16 @@
 .reservation_button:hover {
     box-shadow: none;
 }
+
+.room_detail_style {
+    font-size: 28px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+.room_detail_custom {
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Bona Nova', sans-serif;
+    color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
