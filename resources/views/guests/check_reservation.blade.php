@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body d-flex justify-content-center align-items-center" style="height: 500px;">
                         <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden;">
-                            <img src="{{ asset('images/AdobeStock_633635429_Preview.png') }}" class="img-fluid" alt="Room1 Image" style="width: 90%; height: 90%; object-fit: cover;">
+                            <img src={{ asset($room->image) }} class="img-fluid" alt="Room1 Image" style="width: 90%; height: 90%; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -40,24 +40,24 @@
                             <table style="width: 80%; font-family: 'Bona Nova', sans-serif;">
                                 <tbody>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Name</td>
-                                        <td style="text-align: left; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">{{$room->name}}</td>
+                                        <td class="room_detail_style">Room Name</td>
+                                        <td class="room_detail_custom">{{$room->name}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                        <td style="text-align: left; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">{{$room_type->room_type_name}}</td>
+                                        <td class="room_detail_style">Room Type</td>
+                                        <td class="room_detail_custom">{{$room_type->room_type_name}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                        <td style="text-align: left; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">{{$room_type->price}}</td>
+                                        <td class="room_detail_style">Price</td>
+                                        <td class="room_detail_custom">{{$room_type->price}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
-                                        <td style="text-align: left; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">{{ $reservation->check_in }} ~ {{ $reservation->check_out }}</td>
+                                        <td class="room_detail_style">Date</td>
+                                        <td class="room_detail_custom">{{ $reservation->check_in }} ~ {{ $reservation->check_out }}</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Reservation Number</td>
-                                        <td style="text-align: left; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">{{$reservation->reservation_number}}</td>
+                                        <td class="room_detail_style">Reservation Number</td>
+                                        <td class="room_detail_custom">{{$reservation->reservation_number}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -70,10 +70,10 @@
                     <tbody>
                         <tr>
                             <td style="text-align: center;">
-                                <a href="#"><button class="back_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Return to home page</button></a>
+                                <a href="{{ url('/') }}"><button class="back_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Return to home page</button></a>
                             </td>
                             <td style="text-align: center;">
-                                <a href="#"><button class="reservation_button" data-bs-toggle="modal" data-bs-target="#reservation-cancelation-id" style="width: 250px; height: 35px; border-radius: 5px; background-color: #F4BB4B; color: #981E1E; font-family: 'Raleway', sans-serif; font-weight: bold;">Cancel the eservation</button></a>
+                                <a href="#"><button class="reservation_button" data-bs-toggle="modal" data-bs-target="#reservation-cancelation-id" style="width: 250px; height: 35px; border-radius: 5px; background-color: #F4BB4B; color: #981E1E; font-family: 'Raleway', sans-serif; font-weight: bold;">Cancel the reservation</button></a>
                             </td>
                         </tr>
                     </tbody>

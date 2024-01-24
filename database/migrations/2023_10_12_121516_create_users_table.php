@@ -22,6 +22,8 @@ return new class extends Migration
             $table->timestamps();
             $table->boolean("has_booking")
                     ->default(0);
+            $table->string('google_id')->nullable();
+            $table->string('facebook_id')->nullable();
         });
     }
 

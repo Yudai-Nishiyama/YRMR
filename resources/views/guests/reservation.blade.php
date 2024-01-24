@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('title', 'Reservation')
@@ -19,7 +20,7 @@
                 </div>
                 <div class="card-body d-flex justify-content-center align-items-center" style="height: 500px;">
                     <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden;">
-                        <img src="{{ asset('images/AdobeStock_633635429_Preview.png') }}" class="img-fluid" alt="Room1 Image" style="width: 90%; height: 90%; object-fit: cover;">
+                        <img src={{ asset($room->image) }} class="img-fluid" alt="Room1 Image" style="width: 90%; height: 90%; object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -37,27 +38,27 @@
                             <table style="width: 100%; font-family: 'Bona Nova', sans-serif;">
                                 <tbody>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Name</td>
-                                        <td style="text-align: center; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room1</td>
+                                        <td class="room_detail_style">Room Name</td>
+                                        <td class="room_detail_custom">{{$room->name}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                        <td style="text-align: center; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
+                                        <td class="room_detail_style">Room Type</td>
+                                        <td class="room_detail_custom">{{$room->roomType->room_type_name}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                        <td style="text-align: center; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
+                                        <td class="room_detail_style">Price</td>
+                                        <td class="room_detail_custom">{{$room->roomType->price}}</td>
                                     </tr>
 
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Check In</td>
-                                        <td style="text-align: center; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">
+                                        <td class="room_detail_style">Check In</td>
+                                        <td class="room_detail_custom">
                                             <input type="datetime-local" id="check_in" name="check_in" required>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Check Out</td>
-                                        <td style="text-align: center; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">
+                                        <td class="room_detail_style">Check Out</td>
+                                        <td class="room_detail_custom">
                                             <input type="datetime-local" id="check_out" class="" name="check_out" required>
                                         </td>
                                     </tr>
