@@ -60,8 +60,8 @@
                     <p class="api">or Login With:</p>
 
                     <div class="sns">
-                        <a href="#"><img class="icon google" src="{{asset('images/flat-color-icons_google.svg')}}" alt="googleのロゴ"></a>
-                        <a href="#"><img class="icon facebook" src="{{asset('images/devicon_facebook.svg')}}" alt="facebookのロゴ"></a>
+                        <a href="{{ route('google.login') }}"><img class="icon google" src="{{asset('images/flat-color-icons_google.svg')}}" alt="googleのロゴ"></a>
+                        <a href="{{ route('facebook.login') }}"><img class="icon facebook" src="{{asset('images/devicon_facebook.svg')}}" alt="facebookのロゴ"></a>
                     </div>
 
                 </form>

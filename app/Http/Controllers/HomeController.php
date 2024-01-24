@@ -49,8 +49,37 @@ class HomeController extends Controller
 
     public function searchRoom()
     {
-        return view('guests.room_availability_search');
+        return view('guests.room_availability_search',['availableRooms' => []]);
     }
+
+    public function roomSearcher(Request $request)
+{
+    $roomType = $request->input('room_type');
+    $checkInDate = $request->input('checkin_date');
+    $checkOutDate = $request->input('checkout_date');
+
+    $bookedRoomIds = Reservation::where(function ($query) use ($checkInDate, $checkOutDate) {
+        $query->where(function ($subQuery) use ($checkInDate) {
+
+            $subQuery->where('check_in', '<=', $checkInDate)
+                     ->where('check_out', '>=', $checkInDate);
+        })->orWhere(function ($subQuery) use ($checkOutDate) {
+
+            $subQuery->where('check_in', '<=', $checkOutDate)
+                     ->where('check_out', '>=', $checkOutDate);
+        })->orWhere(function ($subQuery) use ($checkInDate, $checkOutDate) {
+
+            $subQuery->where('check_in', '>=', $checkInDate)
+                     ->where('check_out', '<=', $checkOutDate);
+        });
+    })->pluck('room_id')->unique();
+
+    $availableRooms = Room::whereNotIn('id', $bookedRoomIds)
+                           ->where('room_type_id', $roomType)
+                           ->with('roomType')
+                           ->get();
+    return view('guests.room_availability_search', ['availableRooms' => $availableRooms]);
+}
 
     public function checkReservation($id)
     {
@@ -60,7 +89,6 @@ class HomeController extends Controller
         $reservationHistory = Reservation::where('room_id', $reservation->room_id)->where('user_id', Auth::id())->get();
         return view('guests.check_reservation',['reservation' => $reservation, "room_type" => $roomType, "room" => $room, 'reservationHistory' => $reservationHistory]);
     }
-
 
     public function reservation(Room $room)
     {

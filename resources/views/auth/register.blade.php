@@ -13,7 +13,7 @@
     <!-- Link to fontawesome -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="{{asset('css/register.css')}}">
     <title>Registration</title>
 </head>
@@ -47,7 +47,7 @@
                     <div class="inputs">
                         <div class="input-container">
                             <label for="username">User Name</label>
-                            <input class="input_content" type="text" id="userName" name="username" value="{{ old('username')}}" placeholder="Enter your user name">
+                            <input class="input_content" type="text" id="userName" name="username" value="{{ old('username')}}" placeholder="Enter your user name" autocomplete="off">
                             @error("username")
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -83,7 +83,7 @@
                     <div class="inputs">
                         <div class="input-container">
                             <label for="password">Password</label>
-                            <input class="input_content" type="password" id="password" name="password" value="{{ old('password')}}" placeholder="Enter your password">
+                            <input class="input_content" type="password" id="password" name="password" value="{{ old('password')}}" placeholder="Enter your password" autocomplete="off">
                             @error("password")
                             <div class="alert text-danger">{{ $message }}</div>
                             @enderror
@@ -106,12 +106,8 @@
 
                     </div>
 
-                    <p class="api">or Login With:</p>
+                    <a class="link" href="{{ url('/login') }}">If you have already registered , click here</a>
 
-                    <div class="sns">
-                        <a href="#"><img class="icon google" src="{{asset('images/flat-color-icons_google.svg')}}" alt="googleのロゴ"></a>
-                        <a href="#"><img class="icon facebook" src="{{asset('images/devicon_facebook.svg')}}" alt="facebookのロゴ"></a>
-                    </div>
 
                 </form>
 

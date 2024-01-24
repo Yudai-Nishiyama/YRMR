@@ -19,7 +19,7 @@
                 </div>
                 <div class="card-body d-flex justify-content-center align-items-center" style="height: 500px;">
                     <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden;">
-                        <img src="{{ asset('images/AdobeStock_633635429_Preview.png') }}" class="img-fluid" alt="Room1 Image" style="width: 90%; height: 90%; object-fit: cover;">
+                        <img src={{ asset($room->image) }} class="img-fluid" alt="Room1 Image" style="width: 90%; height: 90%; object-fit: cover;">
                     </div>
                 </div>
             </div>
