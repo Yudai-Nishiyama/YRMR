@@ -2,39 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Room;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 class CalendarController extends Controller
 {
-    private $room;
+    public function showCalendar(Request $request)
+    {
 
-    public function __construct(Room $room)
-    {
-        $this->room =$room;
-    }
-    public function showCalendar(Request $request,$id)
-    {
-        $room = $this->room->findOrFail($id);
         $ym = $request->input('ym');
 
         // added this condition solve the problem of "1970-01"
         if (!$ym) {
             $ym = now()->format('Y-m');
         }
+        //
 
-        $calendarData = $this->calendar($room,$ym);
+        $calendarData = $this->calendar($ym);
 
-        return view('guests.calender')
-            ->with('room',$room)
+        return view('guests.calendar')
             ->with('weeks', $calendarData['weeks'])
             ->with('html_title', $calendarData['html_title'])
             ->with('prev', $this->getPrevMonth($ym))
             ->with('next', $this->getNextMonth($ym));
     }
 
-    public function calendar($room,$ym)
+    public function calendar($ym)
     {
         // タイムゾーンを設定
         date_default_timezone_set('Asia/Tokyo');
@@ -76,60 +68,17 @@ class CalendarController extends Controller
         $week .= str_repeat('<td></td>', $youbi);//str_repeat 関数は、指定された文字列を指定された回数だけ繰り返して生成した文字
                                                 //最初の週の開始位置が計算され、開始する前は、前の月の日付のため空白のセルとなる。その後のループで各日に対応する <td> セルが追加されています。
                                                 //.= は、文字列を連結するための演算子です。例：$example = 'Hello';$example .= ' World';echo $example;　結果：”Hello world”
-        
-
         for ($day = 1; $day <= $day_count; $day++, $youbi++) {
 
             $date = $ym . '-' . str_pad($day, 2, '0', STR_PAD_LEFT); //例：2021-06-03 str_pad()で日に０を追加した。
 
-            $link = '<a href="' . route('guests.reservationCalendar', ['id' => $room->id, 'date' => $date]) . '">';
-            $unlink = '';
-            if($date > $today){
-                $isReserved = false; 
-                foreach($room->reservations as $reservation){
-                    
-                        $check_in_datetime = $reservation->check_in;
-                        $check_in_date = Carbon::parse($check_in_datetime)->toDateString();
-                        if ( $check_in_date == $date) {
-                            $isReserved = true;
-                            break; // 予約が見つかればループを終了
-                        }
-                }
-
-                if ($today == $date) {
-                    // 今日の日付の場合は、class="today"をつける
-                    $week .= '<td class="today text-center">';
-                    
-                    if ($isReserved) {
-                        $week .= $unlink.'<p>' . $day.'</p> <p style="color:red;">X</p></td>';
-                    } else {
-                        $week .=$link.'<p>' . $day. '</p><p style="color:blue;">O</p></a></td>';
-                    }
-                    
-                    
-                
-                } else  {
-                    $week .= '<td class="text-center">';
-                    if ($isReserved) {
-                        $week .= $unlink.'<p>' . $day.'</p> <p style="color:red;">X</p>';
-                    } else {
-                        $week .=$link.'<p>' . $day. '</p> <p style="color:blue;">O</p>';
-                    }
-                }
-                    
-                
-            }else{
-                if ($today == $date) {
-                $week .= '<td class="today text-center">' . $unlink . '<p>' . $day.'</p>';
-                $week .= '<p style="color:gray;">-</p>';
-                $week .= '</td>';
-                } else {
-                    $week .= '<td class="text-center">' . $unlink . '<p>' . $day.'</p>';
-                    $week .= '<p style="color:gray;">-</p>';
-                    $week .= '</td>';
-                }
+            if ($today == $date) {
+            // 今日の日付の場合は、class="today"をつける
+                $week .= '<td class="today text-center">' . '<p>'.$day.'</p>';
+            } else {
+                $week .= '<td class="text-center">' . '<p>'.$day.'</p>';
             }
-
+            $week .= '</td>';
 
             // 週終わり、または、月終わりの場合
             if ($youbi % 7 == 6 || $day == $day_count) { //$youbi % 7 は、$youbi を7で割った余りを計算する演算です。$youbi % 7 は0から6の範囲の値を取ります。これによって、週の何日目かを表現することができます。例えば、0は日曜日、1は月曜日、
@@ -143,7 +92,6 @@ class CalendarController extends Controller
                 // weekをリセット
                 $week = '';
             }
-                    
         }
         //カレンダーの値を変数に導入する。
         return [
@@ -152,7 +100,7 @@ class CalendarController extends Controller
             'prev' => $prev,
             'next' => $next,
         ];
-    }    
+    }
 
     //先月の年と月を取得する
     private function getPrevMonth($ym)
