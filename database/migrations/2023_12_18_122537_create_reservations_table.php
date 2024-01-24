@@ -17,12 +17,12 @@ return new class extends Migration
             $table->unsignedBigInteger('room_id');
             $table->datetime('check_in');
             $table->datetime('check_out');
-            $table->string('reservation_number',10);
+            $table->string('reservation_number');
             $table->timestamps();
             $table->softDeletes();
             $table->boolean('guest_checkin')->default(false);
             $table->boolean('guest_checkout')->default(false);
-            
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('room_id')->references('id')->on('rooms');
         });

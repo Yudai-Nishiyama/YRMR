@@ -6,12 +6,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CleanerController;
 use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\Admin\CleanersController;
+use App\Http\Controllers\Auth\FacebookController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Admin\GuestsController;
-
+use App\Http\Controllers\Admin\CleanersController;
+use App\Http\Controllers\SearchController;
 
 
 
@@ -38,14 +40,17 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 // Guests Routes
 Route::prefix('guests')->name('guests.')->group(function () {
-    Route::get('/room_availability_search', [HomeController::class, 'searchRoom'])->name('roomAvailabilitySearch');
-    Route::get('/check_reservation', [HomeController::class, 'checkReservation'])->name('checkReservation');
-    Route::get('/reservation', [HomeController::class, 'reservation'])->name('reservation');
-    Route::get('/cancel_reservation', [HomeController::class, 'cancelReservation'])->name('cancelReservation');
-    Route::get('/reservation_completion', [HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
-    Route::get('/cancel_reservation_completion', [HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
-    Route::get('/room', [GuestController::class, 'guestroom'])->name('guestRoom');
+    // Route::post('/room-availability-search', [SearchController::class, 'search']);
+    Route::get('/room-availability-search', [HomeController::class, 'searchRoom'])->name('roomAvailabilitySearch');
+    Route::post('/room-searcher', [HomeController::class, 'roomSearcher'])->name('roomSearcher');
+    Route::get('/check-reservation/{id}', [HomeController::class, 'checkReservation'])->name('checkReservation');
+    Route::get('/reservation/{room}', [HomeController::class, 'reservation'])->name('reservation');
+    Route::get('/cancel-reservation/{id}', [HomeController::class, 'cancelReservation'])->name('cancelReservation');
+    Route::get('/reservation-completion', [HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
+    Route::get('/cancel-reservation-completion', [HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
+    Route::get('/rooms', [GuestController::class, 'guestroom'])->name('guestRoom');
     Route::get('/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
+    Route::post('/reservation/{room}',[GuestController::class, 'reserveRoom'])->name('reserveRoom');
 });
 
 //Admin Routes
@@ -93,3 +98,8 @@ Route::group(['prefix' => 'cleaner', 'as' => 'cleaner.', 'middleware' => 'cleane
 // Calender Routes
 Route::get('/calendar', [CalendarController::class, 'showCalendar'])->name('showCalendar');
 
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+
+Route::get('/auth/facebook', [FacebookController::class, 'redirectToFacebook'])->name('facebook.login');
+Route::get('/auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback'])->name('facebook.callback');

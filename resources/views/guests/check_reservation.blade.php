@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body d-flex justify-content-center align-items-center" style="height: 500px;">
                         <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.3); border-radius: 20px; overflow: hidden;">
-                            <img src="{{ asset('images/AdobeStock_633635429_Preview.png') }}" class="img-fluid" alt="Room1 Image" style="width: 90%; height: 90%; object-fit: cover;">
+                            <img src={{ asset($room->image) }} class="img-fluid" alt="Room1 Image" style="width: 90%; height: 90%; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -40,24 +40,24 @@
                             <table style="width: 80%; font-family: 'Bona Nova', sans-serif;">
                                 <tbody>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Name</td>
-                                        <td style="text-align: left; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room1</td>
+                                        <td class="room_detail_style">Room Name</td>
+                                        <td class="room_detail_custom">{{$room->name}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Room Type</td>
-                                        <td style="text-align: left; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Single bed</td>
+                                        <td class="room_detail_style">Room Type</td>
+                                        <td class="room_detail_custom">{{$room_type->room_type_name}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Price</td>
-                                        <td style="text-align: left; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">$300</td>
+                                        <td class="room_detail_style">Price</td>
+                                        <td class="room_detail_custom">{{$room_type->price}}</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Date</td>
-                                        <td style="text-align: left; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">11/1~11/2</td>
+                                        <td class="room_detail_style">Date</td>
+                                        <td class="room_detail_custom">{{ $reservation->check_in }} ~ {{ $reservation->check_out }}</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Reservation Number</td>
-                                        <td style="text-align: left; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">2#426740671012</td>
+                                        <td class="room_detail_style">Reservation Number</td>
+                                        <td class="room_detail_custom">{{$reservation->reservation_number}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -70,16 +70,16 @@
                     <tbody>
                         <tr>
                             <td style="text-align: center;">
-                                <a href="#"><button class="back_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Return to home page</button></a>
+                                <a href="{{ url('/') }}"><button class="back_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #448A47; color: #ffffff; font-family: 'Raleway', sans-serif; font-weight: bold;">Return to home page</button></a>
                             </td>
                             <td style="text-align: center;">
-                                <a href="#"><button class="reservation_button" style="width: 250px; height: 35px; border-radius: 5px; background-color: #F4BB4B; color: #981E1E; font-family: 'Raleway', sans-serif; font-weight: bold;">Cancel the eservation</button></a>
+                                <a href="#"><button class="reservation_button" data-bs-toggle="modal" data-bs-target="#reservation-cancelation-id" style="width: 250px; height: 35px; border-radius: 5px; background-color: #F4BB4B; color: #981E1E; font-family: 'Raleway', sans-serif; font-weight: bold;">Cancel the reservation</button></a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            @include('guests.modal.reservation_completion_modal')
+            @include('guests.modal.cancel_reservation_completion_modal')
         </div>
 
         <div class="row mt-4 justify-content-left">
@@ -97,34 +97,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="history" style="text-align: left; font-size: 20px;">2023-11-14(Tue)</td>
-                        <td class="history" style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif;">2023-11-15(Wed)</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Room1</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Single Bed</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">2#426740671012</td>
-                    </tr>
-                    <tr>
-                        <td class="history" style="text-align: left; font-size: 20px;">2023-11-14(Tue)</td>
-                        <td class="history" style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif;">2023-11-15(Wed)</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Room1</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Single Bed</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">2#426740671012</td>
-                    </tr>
-                    <tr>
-                        <td class="history" style="text-align: left; font-size: 20px;">2023-11-14(Tue)</td>
-                        <td class="history" style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif;">2023-11-15(Wed)</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Room1</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">Single Bed</td>
-                        <td class="history" style="text-align: left; font-size: 20px;">2#426740671012</td>
-                    </tr>
-                    <tr>
-                        <td class="history last" style="text-align: left; font-size: 20px;">2023-11-14(Tue)</td>
-                        <td class="history last" style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif;">2023-11-15(Wed)</td>
-                        <td class="history last" style="text-align: left; font-size: 20px;">Room1</td>
-                        <td class="history last" style="text-align: left; font-size: 20px;">Single Bed</td>
-                        <td class="history last" style="text-align: left; font-size: 20px;">2#426740671012</td>
-                    </tr>
+                    @foreach($reservationHistory as $resHistory)
+                        <tr>
+                            <td class="history last" style="text-align: left; font-size: 20px;">{{$resHistory->check_in}}</td>
+                            <td class="history last" style="text-align: left; font-size: 20px; font-family: 'Bona Nova', sans-serif;">{{$resHistory->check_out}}</td>
+                            <td class="history last" style="text-align: left; font-size: 20px;">{{$room->name}}</td>
+                            <td class="history last" style="text-align: left; font-size: 20px;">{{$room_type->room_type_name}}</td>
+                            <td class="history last" style="text-align: left; font-size: 20px;">{{$resHistory->reservation_number}}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
