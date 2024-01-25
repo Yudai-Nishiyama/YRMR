@@ -35,7 +35,7 @@
                             </div>
                             <div class="input-container">
                                 <label for="password">Password</label>
-                                <input class="input_content" type="text" id="password" name="password" placeholder="Enter your password">
+                                <input class="input_content" type="password" id="password" name="password" placeholder="Enter your password">
                             </div>
 
                         </div>
@@ -60,8 +60,8 @@
                     <p class="api">or Login With:</p>
 
                     <div class="sns">
-                        <a href="#"><img class="icon google" src="{{asset('images/flat-color-icons_google.svg')}}" alt="googleのロゴ"></a>
-                        <a href="#"><img class="icon facebook" src="{{asset('images/devicon_facebook.svg')}}" alt="facebookのロゴ"></a>
+                        <a href="{{ route('google.login') }}"><img class="icon google" src="{{asset('images/flat-color-icons_google.svg')}}" alt="googleのロゴ"></a>
+                        <a href="{{ route('facebook.login') }}"><img class="icon facebook" src="{{asset('images/devicon_facebook.svg')}}" alt="facebookのロゴ"></a>
                     </div>
 
                 </form>
@@ -76,5 +76,3 @@
         </div>
     </main>
 </body>
-</html>
-</html>

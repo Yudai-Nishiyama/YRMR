@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="reservation-completion-id">
+<div class="modal fade" id="reservation-cancelation-id">
     <div class="modal-dialog" style="border:2px solid #981E1E; border-radius:13px;">
         <div class="modal-content" >
             <div class="modal-header justify-content-center" style="border-bottom : 1px solid #981E1E;">
@@ -15,12 +15,12 @@
                     </div>
                 </div>
             </div>
-            <form action="#" method="post">
+            <form action="{{route('guests.cancelReservation', ['id' => $reservation->reservation_number] )}}" method="put">
             <div class="modal-footer border-0 justify-content-center pt-0">
                 @csrf
-                @method('DELETE')
+                @method('PUT')
 
-                <a href="#" class="btn fw-bold mb-3" style="background-color:#448A47; color:#FFFFFF; width: 180px;">Back to the Page</a>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close" class="btn fw-bold mb-3" style="background-color:#448A47; color:#FFFFFF; width: 180px;">Back to the Page</button>
                 <button type="submit" class="btn mb-3 fw-bold" style="background-color:#F4BB4B; color:#981E1E; width: 180px;">Yes</button>
             </div>
         </form>

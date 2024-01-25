@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use DB;
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Reservation;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class CleanersController extends Controller
 {
     private $user;
+    private $reservation;
 
-    public function __construct(User $user)
+    public function __construct(User $user, Reservation $reservation)
     {
         $this->user = $user;
+        $this->reservation = $reservation;
     }
 
     public function showCleanersPage()
@@ -24,17 +28,76 @@ class CleanersController extends Controller
 
     public function showCleaningProgressPage()
     {
-        return view('admins.cleaners.cleaning_progress_page');
+        $all_reservations = $this->reservation->all();
+        $cleaners = $this->user->where('role_id',User::CLEANER_ROLE_ID)->get();
+        return view('admins.cleaners.cleaning_progress_page')
+                ->with('all_reservations',$all_reservations)
+                ->with('cleaners',$cleaners);
     }
 
-    public function showCheckCleaningProgressReport()
+    public function chooseCleaner(Request $request,$id)
     {
-        return view('admins.cleaners.check_cleaning_progress_report');
+        $request->validate([
+            "cleaner_id" => "required"
+        ]);
+
+        $reservation = $this->reservation->findOrFail($id);
+
+        $postData = [
+            'user_id' => $request->cleaner_id,
+            'reservation_id' => $reservation->id,
+        ];
+
+        $reservation->cleaning()->create($postData);
+
+        $all_reservations = $this->reservation->all();
+        $cleaners = $this->user->where('role_id',User::CLEANER_ROLE_ID)->get();
+        return view('admins.cleaners.cleaning_progress_page')
+                ->with('all_reservations',$all_reservations)
+                ->with('cleaners',$cleaners);
+    }
+
+    public function changeCleaner(Request $request,$id)
+    {
+        $request->validate([
+            "cleaner_id" => "required"
+        ]);
+
+        $reservation = $this->reservation->findOrFail($id);
+
+        $postData = [
+            'user_id' => $request->cleaner_id,
+        ];
+
+        $reservation->cleaning()->update($postData);
+
+        $all_reservations = $this->reservation->all();
+        $cleaners = $this->user->where('role_id',User::CLEANER_ROLE_ID)->get();
+        return view('admins.cleaners.cleaning_progress_page')
+                ->with('all_reservations',$all_reservations)
+                ->with('cleaners',$cleaners);
+    }
+
+    public function showCheckCleaningProgressReport($id)
+    {
+        $reservation = $this->reservation->findOrFail($id);
+        $nearest_reservation_date = $reservation
+                                   ->where('id', '!=', $reservation->id)
+                                   ->where('room_id', $reservation->room_id)
+                                   ->oldest('created_at')
+                                   ->first();
+        $reservation_task = $reservation->reservationTask()->get();
+        
+        return view('admins.cleaners.check_cleaning_progress_report')
+                    ->with('reservation',$reservation)
+                    ->with('nearest_reservation_date',$nearest_reservation_date)
+                    ->with('reservation_task', $reservation_task);
+
     }
 
     public function CleanerManagementPage()
     {
-        $cleaners = User::where('role_id', 3)->with('profile')->get();
+        $cleaners = User::where('role_id', User::CLEANER_ROLE_ID)->with('profile')->get();
 
         return view('admins.cleaners.cleaners_management', ['cleaners' => $cleaners]);
     }
@@ -69,13 +132,13 @@ class CleanersController extends Controller
             'address' => 'required|string|max:100', // 画像では varchar(100)
         ]);
 
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $user = new User; // 新しいインスタンスを作成
             $user->username = $request->username;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
-            $user->role_id = 3; // CleanerのロールIDを設定
+            $user->role_id = User::CLEANER_ROLE_ID;
             $user->save();
 
             $profile = new Profile; // 新しいProfileインスタンスを作成

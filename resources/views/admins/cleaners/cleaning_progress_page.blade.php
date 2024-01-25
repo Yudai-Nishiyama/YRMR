@@ -34,40 +34,102 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($all_reservations as $reservation)
                         <tr style="border-bottom: 1px solid black;">
                             <td>
                                 <form action="#" method="POST">
                                     @csrf
-                                    <select class="classic" name="" onchange="this.form.submit()"> {{-- submit form without submit button --}}
-                                        <option selected value="id_of_non_selected">Choose a cleaner</option>
-                                        <option value="id_of_cleaner">cleaner A</option>
-                                        <option value="id">B</option>
-                                        <option value="id">C</option>
+                                    <select class="choose_cleaner" id="{{$reservation->id}}" onchange="chooseCleaner(this.value,this.id)"> {{-- submit form without submit button --}}
+                                        <option selected value="0">Choose a cleaner</option>
+                                        @foreach ($cleaners as $cleaner)
+                                            <option value={{ $cleaner->id }}>{{ $cleaner->username }}</option>
+                                        @endforeach
                                     </select>
                                 </form>
                             </td>
-                            <td>101</td>
-                            <td>Double bed</td>
+                            <td>{{ $reservation->room->name }}</td>
+                            <td>{{ $reservation->room->roomType->room_type_name }}</td>
+                            {{-- progress bar --}}
                             <td>
-                                <div class="row">
-                                    <div class="col text-center ">
-                                        <p class="mb-0">60%</p>
+                                {{-- 30% progress --}}
+                                @if ($reservation->reservationTask->count() === 1)
+                                    <div class="row">
+                                        <div class="col text-center ">
+                                            <p class="mb-0" style="color: #F4BB4B">30%</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row progress_bar_table">
-                                    {{-- use if function to display color? --}}
-                                    <div class="col" style="background-color: #F4BB4B"></div>
-                                    <div class="col" style="background-color: #F4BB4B"></div>
-                                    <div class="col"></div>
-                                </div>
+                                    <div class="row progress_bar_table">
+                                        {{-- use if function to display color? --}}
+                                        <div class="col" style="background-color: #F4BB4B"></div>
+                                        <div class="col"></div>
+                                        <div class="col"></div>
+                                    </div>
+                                    <td></td>
+                                    <td style="color: #F4BB4B">Cleaning</td>
+
+                                {{-- 60% progress  --}}
+                                @elseif($reservation->reservationTask->count() === 2)
+                                    <div class="row">
+                                        <div class="col text-center ">
+                                            <p class="mb-0" style="color: #F4BB4B">60%</p>
+                                        </div>
+                                    </div>
+                                    <div class="row progress_bar_table">
+                                        {{-- use if function to display color? --}}
+                                        <div class="col" style="background-color: #F4BB4B"></div>
+                                        <div class="col" style="background-color: #F4BB4B"></div>
+                                        <div class="col"></div>
+                                    </div>
+                                    <td></td>
+                                    <td style="color: #F4BB4B">Cleaning</td>
+
+                                    {{-- 100% progress --}}
+                                @elseif($reservation->reservationTask->count() === 3)
+                                    <div class="row">
+                                        <div class="col text-center ">
+                                            <p class="mb-0" style="color:#448A47">100%</p>
+                                        </div>
+                                    </div>
+                                    <div class="row progress_bar_table">
+                                        {{-- use if function to display color? --}}
+                                        <div class="col" style="background-color: #448A47"></div>
+                                        <div class="col" style="background-color: #448A47"></div>
+                                        <div class="col" style="background-color: #448A47"></div>
+                                    </div>
+                                    <td></td>
+                                    <td style="color: #448A47">Completed</td>
+
+                                    {{-- 0% progress --}}
+                                @elseif($reservation->reservationTask->count() === 0)
+                                    <div class="row">
+                                        <div class="col text-center ">
+                                            <p class="mb-0" style="color: #981E1E">0%</p>
+                                        </div>
+                                    </div>
+                                    <div class="row progress_bar_table">
+                                        {{-- use if function to display color? --}}
+                                        <div class="col" style="border: 2px solid #981E1E"></div>
+                                        <div class="col" style="border: 2px solid #981E1E"></div>
+                                        <div class="col" style="border: 2px solid #981E1E"></div>
+                                    </div>
+                                    <td></td>
+                                    <td style="color: #981E1E">Not Clean</td>
+                                @endif
                             </td>
-                            <td></td>
-                            <td style="color: #F4BB4B">Cleaning</td>
-                            <td>10:00</td>
+                            @if ($reservation->guest_checkin===1 && $reservation->guest_checkout===1)
+                                <td>
+                                    <div id="clock{{ $reservation->id }}" class="clock_object">
+                                        <span class="minutes"></span>:<span class="seconds"></span>
+                                    </div>
+                                </td>
+                            @else
+                                <td></td>
+                            @endif
                             <td>
-                                <a href="{{ route('admin.cleaners.showCheckCleaningProgressReport') }}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Check Progress</a>
+                                <a href="{{ route('admin.cleaners.showCheckCleaningProgressReport',$reservation->id) }}" class="float-end btn fw-bold" style="background-color:#F4924B; color:#2C462B; ">Check Progress</a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -77,5 +139,7 @@
             </div>
         </div>
     </div>
+    <script defer src="{{ asset('js/choose_cleaner.js') }}"></script>
+    <script defer src="{{ asset('js/cleaning_page_timer.js') }}"></script>
 
 @endsection

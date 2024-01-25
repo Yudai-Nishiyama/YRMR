@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class RoomType extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
+    protected $table = 'room_types';
+
+    public function rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
 }

@@ -12,7 +12,6 @@
     {{-- css --}}
     <link rel="stylesheet" href={{ asset('css/admins/view_cleaning_task.css') }}>
     <link rel="stylesheet" href={{ asset('css/admins/cleaners_page.css') }}>
-    <link rel="stylesheet" href={{ asset('css/admins/style.css') }}>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -23,12 +22,12 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/guest/resservation.css')}}">
     <link rel="stylesheet" href="{{asset('css/guest/reservation_completion.css')}}">
-    <link rel="stylesheet" href="{{asset('css/guest/cancel_resservation.css')}}">
     <link rel="stylesheet" href="{{asset('css/guest/cancel_reservation_completion.css')}}">
     <link rel="stylesheet" href="{{asset('css/guest/room_availability_search.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admins/cleaners/modal/cleaner_delete_modal.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admins/cleaners/cleaning_progress_page.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admins/guests_page.css') }}">
     <link rel="stylesheet" href="{{ asset('css/guests/calendar.css') }}">
 
     <!-- Scripts -->
@@ -62,8 +61,7 @@
     <link href="{{ asset('css/admins/cleaners/cleaning_progress_page.css') }}" rel="stylesheet">
     <link href="{{ asset('css/guests/calendar.css') }}" rel="stylesheet">
     <link rel="stylesheet" href={{ asset('css/admins/navbar.css') }}>
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>

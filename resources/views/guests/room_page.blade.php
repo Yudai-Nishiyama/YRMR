@@ -6,32 +6,19 @@
 @foreach ($all_room as $room)
 <div class="roombody " >
 
+    <div class="row">
+        <div class="col-3">
+        </div>
+        @foreach($rooms as $room)
+        <div class="col-5">
+            <div class="card mt-5 custom-card" style="height:700px; border-radius:25px 25px 25px 25px;" >
+                <div class="card-header" style="border:1px solid black; border-bottom:none; background-color: #fbfbfb; border-radius:25px 25px 0px 0px;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 style="color:#F4BB4B" class="fw-bold">Room1</h1>
+                        <p>
+                            <i class="fa-solid fa-heart" style="font-size:60px; color:rgb(142, 8, 8);"></i>
+                        </p>
 
-        <div class="row">
-            <div class="col-3">
-            </div>
-
-            <div class="col-5">
-
-                <div class="card mt-5 custom-card" style="border-radius:25px 25px 25px 25px;" >
-
-                    <div class="card-header" style="border:1px solid black; border-bottom:none; background-color: #fbfbfb; border-radius:25px 25px 0px 0px;">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h1 style="color:#F4BB4B" class="fw-bold">{{$room->name }}</h1>
-                            <p>
-                                <i class="fa-solid fa-heart" style="font-size:60px; color:rgb(142, 8, 8);"></i>
-                            </p>
-                            {{-- if we have 'favoraite'colum in db --}}
-                            {{-- @if ($item->is_favorite)
-                                <p class="color"><i class="fa-solid fa-heart"></i></p>
-                            @else
-                                <i class="fa-thin fa-heart"></i>
-                            @endif
-
-                            // DB migration
-                            Schema::table('favorites', function (Blueprint $table) {
-                                $table->boolean('is_favorite')->default(false);
-                            }); --}}
                         </div>
                     </div>
                     <div class="card-body"  style="border:1px solid black; border-top:none; border-radius:0px 0px 25px 25px;">
@@ -67,6 +54,11 @@
                                     </div>
                                 </div>
                             </a>
+                    {{-- Reservation --}}
+                    <div class="row">
+                        <a href="{{ route('guests.reservation', ['room' => $room->id])}}">
+                            <div class="col btn  text-light float-end mt-2 "
+                            style="border-radius: 25px; font-weight: bold; min-width: 200px;background-color:#448A47;"><h4 style="font-family: 'Raleway', sans-serif;">Reservation<i class="fa-solid fa-caret-right"></i></h4>
                             </div>
                         </div>
 
@@ -84,6 +76,11 @@
                 </div>
 
             </div>
+<<<<<<< HEAD
+=======
+        </div>
+        @endforeach
+>>>>>>> ed9677bfb4c6ba8be9b397e33c95e8307acf4004
 
             <div class="col-3 roommenu">
                 @if ($room_looped===NULL)
