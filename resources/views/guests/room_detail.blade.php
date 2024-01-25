@@ -35,9 +35,9 @@
                     <p class="ms-3" >Price: {{$room->roomType->price}}(tax)~</p>
                 </div>
                 <div class="roomdetail_bottons row" >
-                    <div class="btn rd_btn-custom-color fw-bold " ><a href="{{ route('guests.guesthome') }}" style="text-decoration:none; color:#981E1E" >Back to the page</a></div>
+                    <div class="btn rd_btn-custom-color fw-bold " ><a href="{{ route('guests.guestRoom') }}" style="text-decoration:none; color:#981E1E" >Back to the page</a></div>
                     <div class="btn rd_btn-custom-color2 float-end text-light ms-5 fw-bold "><i
-                        class="fa-regular fa-calendar-check"></i>&nbsp; <a href="{{ route('showCalendar') }}" style="text-decoration:none; color:white;">Calendar</a>
+                        class="fa-regular fa-calendar-check"></i>&nbsp; <a href="{{ route('showCalendar',$room->id) }}" style="text-decoration:none; color:white;">Calendar</a>
                     </div>
                 </div>
             </div>

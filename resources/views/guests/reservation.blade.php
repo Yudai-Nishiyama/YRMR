@@ -51,6 +51,9 @@
                                     </tr>
 
                                     <tr>
+                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Check In</td>
+                                        <td style="text-align: center; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">
+                                            <input type="datetime-local" id="check_in" name="check_in" value="{{$checkin_date}}T15:00" required>
                                         <td class="room_detail_style">Check In</td>
                                         <td class="room_detail_custom">
                                             <input type="datetime-local" id="check_in" name="check_in" required>
@@ -60,6 +63,9 @@
                                         <td class="room_detail_style">Check Out</td>
                                         <td class="room_detail_custom">
                                             <input type="datetime-local" id="check_out" class="" name="check_out" required>
+                                        <td style="text-align: left; font-size: 28px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Check Out</td>
+                                        <td style="text-align: center; font-size: 28px; font-family: 'Bona Nova', sans-serif; color: #F4BB4B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">
+                                            <input type="datetime-local" id="check_out" class="" name="check_out" value="{{$checkout_date}}T15:00" required>
                                         </td>
                                     </tr>
                                 </tbody>
