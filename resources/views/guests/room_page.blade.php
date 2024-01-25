@@ -37,7 +37,7 @@
                     <div class="card-body"  style="border:1px solid black; border-top:none; border-radius:0px 0px 25px 25px;">
                         <div class="row "  >
                             <div class="col rp_imagebox" style="height: 330px; width: 732px;">
-                                <img src="{{ asset('images/'. $room->image)}}"  alt="TEST" style="max-width: 100%; height: auto; display: block;"></div>
+                                <img src="{{ asset('storage/images/room/'. $room->image)}}"  alt="TEST" style="max-width: 100%; height: auto; display: block;"></div>
                         </div>
                         {{-- <img src="{{ $post->image }}" alt="#" class="w-100"> --}}
                         {{-- details --}}
@@ -63,7 +63,7 @@
                                         <h1 style="color:#981E1E;">Sum {{$room->roomType->price}}$(tax)</h1>
                                     </div>
                                     <div class="col text-end text-secondary me-3"
-                                        style="font-size:30px; "><a href="{{route('roomDetail' , $room->id)}}" style=""><i class="fa-solid fa-chevron-right"></i></a>
+                                        style="font-size:30px; "><a href="{{route('guests.roomDetail' , $room->id)}}" style=""><i class="fa-solid fa-chevron-right"></i></a>
                                     </div>
                                 </div>
                             </a>
@@ -72,7 +72,7 @@
 
                             {{-- Reservation --}}
                             <div class="row">
-                                <a href="{{route('reservation')}}">
+                                <a href="{{route('guests.reservation')}}">
                                     <div class="col btn  text-light float-end mt-2 "
                                     style="border-radius: 25px; font-weight: bold; min-width: 200px;background-color:#448A47;"><h4 style="font-family: 'Raleway', sans-serif;">Reservation<i class="fa-solid fa-caret-right"></i></h4>
                                     </div>
@@ -89,14 +89,14 @@
                 @if ($room_looped===NULL)
                     <div class="mt-5"  >
                         <div class="justify-content-center d-flex ">
-                            <a href="{{ route('guesthome') }}"><h3 class="btn rp_btn-custom-color1 text-light d-flex justify-content-center align-items-center fw-bold">HOME</h3></a>
+                            <a href="{{ route('guests.guesthome') }}"><h3 class="btn rp_btn-custom-color1 text-light d-flex justify-content-center align-items-center fw-bold">HOME</h3></a>
                         </div>
                         <div class="justify-content-center d-flex ">
-                            <a href="{{route('checkReservation')}}"><h3 class="btn rp_btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold"><i
+                            <a href="{{route('guests.checkReservation')}}"><h3 class="btn rp_btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold"><i
                             class="fa-regular fa-square-check d-flex" style="font-size:40px;"></i> <span class="d-flex me-4 p-0">Check Confirmation</span></h3></a>
                         </div>
                         <div class="justify-content-center d-flex ">
-                            <a href="{{route('searchRoom')}}"> <h3 class="btn rp_btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold"><i
+                            <a href="{{route('guests.roomAvailabilitySearch')}}"> <h3 class="btn rp_btn-custom-color2 text-light mt-2 d-flex justify-content-center align-items-center fw-bold"><i
                             class="fa-solid fa-magnifying-glass d-flex" style="font-size:40px; margin-right:55px;"></i><span class="d-flex" style="margin-right:85px;">Search</span>
                         </div></a>
                     </div>

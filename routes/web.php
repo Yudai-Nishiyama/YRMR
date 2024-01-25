@@ -40,8 +40,9 @@ Route::prefix('guests')->name('guests.')->group(function () {
     Route::get('/cancel_reservation_completion', [HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
     Route::get('/guest_reservation_management_page', [HomeController::class, 'GuestReservationManagementPage'])->name('GuestReservationManagement');
     Route::get('/guest_profile_page', [HomeController::class, 'GuestProfilePage'])->name('GuestProfilePage');
+    Route::get('/home', [GuestController::class, 'guesthome'])->name('guesthome');
     Route::get('/room', [GuestController::class, 'guestroom'])->name('guestRoom');
-    Route::get('/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
+    Route::get('/detail/{id}', [GuestController::class, 'roomdetail'])->name('roomDetail');
 });
 
 //Admin Routes
@@ -53,6 +54,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/index', [AdminController::class, 'showAllRooms'])->name('showAllRooms');//admin.rooms.showAllRooms
         Route::get('/create_room', [AdminController::class, 'showCreateRoom'])->name('showCreateRoom');//admin.rooms.showCreateRoom
         Route::get('/room_search', [AdminController::class, 'showRoomSearch'])->name('showRoomSearch');//admin.rooms.showRoomSearch
+        Route::post('/save_room', [AdminController::class, 'saveRoom'])->name('saveRoom');
     });
 
     // Admins Cleaners Routes

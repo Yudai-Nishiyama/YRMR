@@ -28,10 +28,10 @@ class GuestController extends Controller
     }
 
 
-    public function roomdetail()
+    public function roomdetail($id)
     {
-        $all_rooms = $this->room->all();
-        return view('guests.room_detail')->with('all_rooms',$all_rooms);
+        $room = Room::find($id);
+        return view('guests.room_detail')->with('room', $room);
     }
 
 }
