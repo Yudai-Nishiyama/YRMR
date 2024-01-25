@@ -17,8 +17,13 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    private $user;
+    private $room;
+
+    public function __construct(User $user,Room $room)
     {
+        $this->user = $user;
+        $this->room = $room;
         $this->middleware('auth');
     }
 
@@ -27,9 +32,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
-        return view('home');
+        return view('guests.home_page');
     }
 
     public function showLoginForm()
@@ -89,6 +95,20 @@ class HomeController extends Controller
         return view('guests.reservation',['room' => $room]);
     }
 
+    public function reservationCalendar($id,$date)
+    {
+        $room = $this->room->findOrFail($id);
+        $checkin_date = $date;
+        $originalDate = $date;
+        $checkout_date = date('Y-m-d', strtotime($originalDate . ' +1 day'));
+
+        return view('guests.reservation')
+                            ->with('room',$room)
+                            ->with('checkin_date',$checkin_date)
+                            ->with('checkout_date',$checkout_date);
+    }
+
+    
     public function cancelReservation($id)
     {
         $reservation = Reservation::where('reservation_number', $id)->firstOrFail();

@@ -4,6 +4,7 @@
     position:relative;
     width: 100%;
     min-height: 100vh;
+    background-repeat: repeat-y;
 }
 .roombody::before {
         content: '';
@@ -50,7 +51,7 @@
         height:70px;
 }
 .rp_imagebox img {
-        max-width: 100%; height: auto; display: block;
+        max-width: 60%; height: auto; display: block;
 }
 .rp_imagebox{
         height: 330px;

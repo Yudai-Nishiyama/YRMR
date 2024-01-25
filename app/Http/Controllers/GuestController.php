@@ -23,14 +23,18 @@ class GuestController extends Controller
     }
     public function guestroom()
     {
-        $rooms = Room::all();
-        return view('guests.room_page',['rooms' => $rooms]);
+        $all_room = $this->room->all();
+        $room_looped = NULL;
+        return view('guests.room_page')
+        ->with('room_looped',$room_looped)
+        ->with('all_room',$all_room);
     }
 
-    public function roomdetail()
+
+    public function roomdetail($id)
     {
-        $all_rooms = $this->room->all();
-        return view('guests.room_detail')->with('all_rooms',$all_rooms);
+        $room = $this->room->findOrFail($id);
+        return view('guests.room_detail')->with('room',$room);
     }
 
     public function reserveRoom(Request $request, Room $room)
