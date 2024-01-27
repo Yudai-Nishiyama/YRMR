@@ -33,8 +33,13 @@ class GuestController extends Controller
 
     public function roomdetail($id)
     {
+<<<<<<< HEAD
+        $room = Room::find($id);
+        return view('guests.room_detail')->with('room', $room);
+=======
         $room = $this->room->findOrFail($id);
         return view('guests.room_detail')->with('room',$room);
+>>>>>>> 670c76bd9dba901b949c0229d7e77223fb8b4558
     }
 
     public function reserveRoom(Request $request, Room $room)
