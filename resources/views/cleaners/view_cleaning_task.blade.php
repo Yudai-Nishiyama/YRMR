@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container">
-    <div class="card" style="border:none;">
+    <div class="card mt-3" style="border:none;">
         <div class="card-header" style="background-color: #2C462B; border-radius:25px 25px 0px 0px;">
             <div class="row">
                 <div class="col">
@@ -47,7 +47,7 @@
                         <div class="col-4">
                             @if ($nearest_reservation_date)
                                 <td>
-                                    <p>{{$nearest_reservation_date->format('Y-m-d')}}</p>
+                                    <p>{{ date('Y-m-d', strtotime($nearest_reservation_date->check_in))}}</p>
                                 </td>
                             @else
                                 <p>Vacant</p>

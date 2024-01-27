@@ -50,7 +50,7 @@
                             <div class="col-4">
                                 @if ($nearest_reservation_date)
                                 <td>
-                                    <p>{{$nearest_reservation_date->format('Y-m-d')}}</p>
+                                    <p>{{ date('Y-m-d', strtotime($nearest_reservation_date->check_in))}}</p>
                                 </td>
                             @else
                                 <p>Vacant</p>

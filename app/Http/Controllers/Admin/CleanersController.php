@@ -90,7 +90,7 @@ class CleanersController extends Controller
         
         return view('admins.cleaners.check_cleaning_progress_report')
                     ->with('reservation',$reservation)
-                    ->with('nearest_reservation_date',$nearest_reservation_date)
+                    ->with('nearest_reservation_date', $nearest_reservation_date)
                     ->with('reservation_task', $reservation_task);
 
     }

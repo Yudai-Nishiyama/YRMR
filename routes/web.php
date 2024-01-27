@@ -57,11 +57,11 @@ Route::prefix('guests')->name('guests.')->group(function () {
 });
 
 //Admin Routes
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/navbar', [HomeController::class, 'navbar'])->name('navbar');
 
     // Admins Rooms Routes
-    Route::prefix('rooms')->name('rooms.')->group(function () {
+    Route::prefix('rooms')->name('rooms.')->middleware('admin')->group(function () {
         Route::get('/index', [RoomsController::class, 'index'])->name('index');
         Route::get('/{id}/details', [RoomsController::class, 'details'])->name('details');
         Route::get('/create_room', [AdminController::class, 'showCreateRoom'])->name('showCreateRoom');
