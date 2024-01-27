@@ -39,7 +39,7 @@
                                     <label for="price" class="form-label">Price</label>
                                     <div class="input-group" style="border: 1px solid #448A47; border-radius: 5px 0px 0px 5px;">
                                         <span class="input-group-text"style="border: none; border-radius: 5px 0px 0px 5px;">$</span>
-                                        <input type="number" name="roomPrice" class="form-control" id="price" placeholder="Enter Price" style="border: none; border-radius: 0px 5px 5px 0px;">
+                                        <input type="number" name="roomPrice" class="form-control" id="roomPrice" placeholder="Enter Price" style="border: none; border-radius: 0px 5px 5px 0px;">
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="mb-5">
                                     <label for="description" class="form-label">Description</label>
-                                    <textarea class="form-control" name="roomDescription" id="description" rows="4" placeholder="Enter Description" style="border: 1px solid #448A47;"></textarea>
+                                    <textarea class="form-control" name="roomDescription" id="roomDescription" rows="4" placeholder="Enter Description" style="border: 1px solid #448A47;"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-0">
