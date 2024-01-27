@@ -87,13 +87,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 
     // Admins Guests Routes
-    Route::prefix('guests')->name('cleaners.')->group(function () {
-
     Route::prefix('guests')->name('guests.')->group(function () {
         Route::get('/reservation_management', [GuestsController::class, 'guestReservationManagement'])->name('guestReservationManagement');
         Route::get('/profile/{id}', [GuestsController::class, 'guestProfile'])->name('guestProfile');
-
-    });
     });
 });
 
