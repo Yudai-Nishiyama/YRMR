@@ -43,5 +43,25 @@ class ReservationSeeder extends Seeder
             'guest_checkin' =>1,
             'guest_checkout' =>1,
         ]);
+        #only for test
+        Reservation::create([
+            'user_id' =>3,
+            'room_id'=>1,
+            'reservation_number'=>'1234567890',
+            'check_in' => '2024-01-27 13:54:46.000000',
+            'check_out' => '2024-01-28 13:54:46.000000',
+            'guest_checkin' =>1,
+            'guest_checkout' =>1,
+        ]);
+
+        Reservation::create([
+            'user_id' =>3,
+            'room_id'=>1,
+            'reservation_number'=>'1234567890',
+            'check_in' => '2024-01-30 13:54:46.000000',
+            'check_out' => '2024-01-31 13:54:46.000000',
+            'guest_checkin' =>1,
+            'guest_checkout' =>1,
+        ]);
     }
 }

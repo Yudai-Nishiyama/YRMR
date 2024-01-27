@@ -6,9 +6,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CleanerController;
 use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Auth\FacebookController;
+use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Admin\GuestsController;
 use App\Http\Controllers\Admin\CleanersController;
 use App\Http\Controllers\Admin\GuestsController;
 use App\Http\Controllers\Admin\RoomsController;
@@ -36,17 +39,21 @@ Auth::routes();
 //homepage
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
 // Guests Routes
 Route::prefix('guests')->name('guests.')->group(function () {
-    Route::get('/room_availability_search', [HomeController::class, 'searchRoom'])->name('roomAvailabilitySearch');
-    Route::get('/check_reservation', [HomeController::class, 'checkReservation'])->name('checkReservation');
-    Route::get('/reservation', [HomeController::class, 'reservation'])->name('reservation');
-    Route::get('/cancel_reservation', [HomeController::class, 'cancelReservation'])->name('cancelReservation');
-    Route::get('/reservation_completion', [HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
-    Route::get('/cancel_reservation_completion', [HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
+
+    Route::get('/room-availability-search', [HomeController::class, 'searchRoom'])->name('roomAvailabilitySearch');
+    Route::post('/room-searcher', [HomeController::class, 'roomSearcher'])->name('roomSearcher');
+    Route::get('/check-reservation/{id}', [HomeController::class, 'checkReservation'])->name('checkReservation');
+    Route::get('/reservationCalendar/{id}/{date}', [HomeController::class, 'reservationCalendar'])->name('reservationCalendar');
+    Route::get('/reservation/{room}', [HomeController::class, 'reservation'])->name('reservation');
+    Route::get('/cancel-reservation/{id}', [HomeController::class, 'cancelReservation'])->name('cancelReservation');
+    Route::get('/reservation-completion', [HomeController::class, 'reservationCompletion'])->name('reservationCompletion');
+    Route::get('/cancel-reservation-completion', [HomeController::class, 'cancelCompletion'])->name('cancelCompletion');
+    Route::get('/home', [GuestController::class, 'guesthome'])->name('guesthome');
     Route::get('/room', [GuestController::class, 'guestroom'])->name('guestRoom');
-    Route::get('/detail', [GuestController::class, 'roomdetail'])->name('roomDetail');
+    Route::get('/detail/{id}', [GuestController::class, 'roomdetail'])->name('roomDetail');
+    Route::post('/reservation/{room}',[GuestController::class, 'reserveRoom'])->name('reserveRoom');
 });
 
 //Admin Routes
@@ -66,9 +73,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // Admins Cleaners Routes
     Route::prefix('cleaners')->name('cleaners.')->group(function () {
-        Route::get('/cleaning_task', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');//admin.cleaners.~~~~
+        Route::get('/admin_cleaning_page', [CleanersController::class, 'showCleanersPage'])->name('showCleanersPage');//admin.cleaners.~~~~
         Route::get('/cleaning_progress_page', [CleanersController::class, 'showCleaningProgressPage'])->name('showCleaningProgressPage');
-        Route::get('/check_cleaning_progress_report', [CleanersController::class, 'showCheckCleaningProgressReport'])->name('showCheckCleaningProgressReport');
+        Route::post('/cleaning_progress_page/chooseCleaner/{id}', [CleanersController::class, 'chooseCleaner'])->name('chooseCleaner');
+        Route::patch('/cleaning_progress_page/changeCleaner/{id}', [CleanersController::class, 'changeCleaner'])->name('changeCleaner');
+        Route::get('/check_cleaning_progress_report/{id}', [CleanersController::class, 'showCheckCleaningProgressReport'])->name('showCheckCleaningProgressReport');
         Route::get('/modal/cleaner_delete_modal', [CleanersController::class, 'showModalDelete'])->name('showModalDelete');
         Route::get('/cleaner_management_page', [CleanersController::class, 'CleanerManagementPage'])->name('CleanerManagementPage');
         Route::get('/create_cleaner', [CleanersController::class, 'showCreateCleanerPage'])->name('showCreateCleanerPage');
@@ -79,19 +88,31 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 
     // Admins Guests Routes
+    Route::prefix('guests')->name('cleaners.')->group(function () {
+
     Route::prefix('guests')->name('guests.')->group(function () {
         Route::get('/reservation_management', [GuestsController::class, 'guestReservationManagement'])->name('guestReservationManagement');
         Route::get('/profile/{id}', [GuestsController::class, 'guestProfile'])->name('guestProfile');
+
+    });
     });
 });
 
 // Cleaner Routes
 Route::group(['prefix' => 'cleaner', 'as' => 'cleaner.', 'middleware' => 'cleaner'], function(){
-    Route::get('/cleaning_task', [CleanerController::class, 'showCleaningTask'])->name('showTask');//cleaner.showTask
+    Route::get('/cleaning_task/{id}', [CleanerController::class, 'showCleaningTask'])->name('showTask');//cleaner.showTask
     Route::get('/cleaner_page', [CleanerController::class, 'showCleanerPage'])->name('showCleanerPage');//cleaner.showCleanerPage
+    Route::get('/cleaning_task/reservationtask/{id}', [CleanerController::class, 'showReservationTask'])->name('showReservationTask');//cleaner.showReservationTask
+    Route::post('/cleaner_page/post/{id}', [CleanerController::class, 'addCleaning'])->name('addCleaning');//cleaner.addCleaning
+    Route::delete('/cleaner_page/delete/{id}', [CleanerController::class, 'deleteCleaning'])->name('deleteCleaning');//cleaner.deleteCleaning
 });
 
 
 // Calender Routes
-Route::get('/calendar', [CalendarController::class, 'showCalendar'])->name('showCalendar');
+Route::get('/calendar/{id}', [CalendarController::class, 'showCalendar'])->name('showCalendar');
 
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+
+Route::get('/auth/facebook', [FacebookController::class, 'redirectToFacebook'])->name('facebook.login');
+Route::get('/auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback'])->name('facebook.callback');

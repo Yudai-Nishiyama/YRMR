@@ -9,6 +9,16 @@ class Reservation extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+            'user_id',
+            'room_id',
+            'check_in',
+            'check_out',
+            'reservation_number',
+            'guest_checkin',
+            'guest_checkout',
+    ];
+
     protected $table = 'reservations';
 
     // $dates プロパティを追加して、日付フィールドを Carbon インスタンスにキャストする
