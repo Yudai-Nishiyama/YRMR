@@ -20,6 +20,11 @@ class Room extends Model
     {
         return $this->hasMany(Reservation::class);
     }
+
+    public function cleanings()
+    {
+        return $this->hasManyThrough(Cleaning::class, Reservation::class);
+    }
 }
 
 
