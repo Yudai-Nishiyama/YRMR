@@ -81,6 +81,10 @@
     margin-bottom: 50px;
 }
 
+.all-rooms-container a {
+    text-decoration: none;
+}
+
 .all-rooms-card {
     height: 290px;
     width: 330px;
@@ -136,8 +140,8 @@
     color: #2C462B;
 }
 
-.all-rooms-card .room-status.completed,
-.all-rooms-card .date.completed {
+.all-rooms-card .room-status.not-cleaned,
+.all-rooms-card .date.not-cleaned {
     color: #F4BB4B;
 }
 

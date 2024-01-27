@@ -11,6 +11,7 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\CleanersController;
 use App\Http\Controllers\Admin\GuestsController;
+use App\Http\Controllers\Admin\RoomsController;
 
 
 
@@ -54,9 +55,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // Admins Rooms Routes
     Route::prefix('rooms')->name('rooms.')->group(function () {
-        Route::get('/index', [AdminController::class, 'showAllRooms'])->name('showAllRooms');//admin.rooms.showAllRooms
-        Route::get('/create_room', [AdminController::class, 'showCreateRoom'])->name('showCreateRoom');//admin.rooms.showCreateRoom
-        Route::get('/room_search', [AdminController::class, 'showRoomSearch'])->name('showRoomSearch');//admin.rooms.showRoomSearch
+        Route::get('/index', [RoomsController::class, 'index'])->name('index');
+        Route::get('/{id}/details', [RoomsController::class, 'details'])->name('details');
+        Route::get('/create_room', [AdminController::class, 'showCreateRoom'])->name('showCreateRoom');
+        Route::get('/room_search', [AdminController::class, 'showRoomSearch'])->name('showRoomSearch');
+        Route::post('/room_search_result', [RoomsController::class, 'roomSearcher'])->name('roomSearcher');
+        Route::get('check_in/{room}/{reservation}', [RoomsController::class, 'check_in'])->name('check_in');
+        Route::get('check_out/{reservation}/', [RoomsController::class, 'check_out'])->name('check_out');
     });
 
     // Admins Cleaners Routes
