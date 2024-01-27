@@ -13,7 +13,6 @@ use App\Http\Controllers\Auth\FacebookController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Admin\GuestsController;
 use App\Http\Controllers\Admin\CleanersController;
-use App\Http\Controllers\Admin\GuestsController;
 use App\Http\Controllers\Admin\RoomsController;
 
 
@@ -107,12 +106,9 @@ Route::group(['prefix' => 'cleaner', 'as' => 'cleaner.', 'middleware' => 'cleane
     Route::delete('/cleaner_page/delete/{id}', [CleanerController::class, 'deleteCleaning'])->name('deleteCleaning');//cleaner.deleteCleaning
 });
 
-
 // Calender Routes
 Route::get('/calendar/{id}', [CalendarController::class, 'showCalendar'])->name('showCalendar');
-
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
-
 Route::get('/auth/facebook', [FacebookController::class, 'redirectToFacebook'])->name('facebook.login');
 Route::get('/auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback'])->name('facebook.callback');
