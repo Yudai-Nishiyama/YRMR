@@ -93,7 +93,9 @@ class HomeController extends Controller
 
     public function reservation(Room $room)
     {
-        return view('guests.reservation',['room' => $room]);
+        $checkin_date = NULL;
+        $checkout_date = NULL;
+        return view('guests.reservation',['room' => $room, 'checkin_date' => $checkin_date, 'checkout_date'=> $checkout_date]);
     }
 
     public function reservationCalendar($id,$date)
