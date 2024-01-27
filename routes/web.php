@@ -53,6 +53,7 @@ Route::prefix('guests')->name('guests.')->group(function () {
     Route::get('/room', [GuestController::class, 'guestroom'])->name('guestRoom');
     Route::get('/detail/{id}', [GuestController::class, 'roomdetail'])->name('roomDetail');
     Route::post('/reservation/{room}',[GuestController::class, 'reserveRoom'])->name('reserveRoom');
+    Route::get('/searchRoom', [HomeController::class, 'searchRoom'])->name('searchRoom');
 });
 
 //Admin Routes
@@ -68,6 +69,8 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
         Route::post('/room_search_result', [RoomsController::class, 'roomSearcher'])->name('roomSearcher');
         Route::get('check_in/{room}/{reservation}', [RoomsController::class, 'check_in'])->name('check_in');
         Route::get('check_out/{reservation}/', [RoomsController::class, 'check_out'])->name('check_out');
+        Route::match(['get','post'],'/save_room', [AdminController::class, 'saveRoom'])->name('saveRoom');
+        Route::get('/show_all_rooms', [RoomsController::class, 'showAllRooms'])->name('showAllRooms');
     });
 
     // Admins Cleaners Routes
@@ -91,6 +94,7 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
         Route::get('/reservation_management', [GuestsController::class, 'guestReservationManagement'])->name('guestReservationManagement');
         Route::get('/profile/{id}', [GuestsController::class, 'guestProfile'])->name('guestProfile');
     });
+
 });
 
 // Cleaner Routes
