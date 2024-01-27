@@ -52,6 +52,7 @@ Route::prefix('guests')->name('guests.')->group(function () {
     Route::get('/room', [GuestController::class, 'guestroom'])->name('guestRoom');
     Route::get('/detail/{id}', [GuestController::class, 'roomdetail'])->name('roomDetail');
     Route::post('/reservation/{room}',[GuestController::class, 'reserveRoom'])->name('reserveRoom');
+    Route::get('/searchRoom', [HomeController::class, 'searchRoom'])->name('searchRoom');
 });
 
 //Admin Routes
