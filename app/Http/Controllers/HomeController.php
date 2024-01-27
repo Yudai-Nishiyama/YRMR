@@ -44,7 +44,8 @@ class HomeController extends Controller
     }
 
     public function navbar(){
-        return view('admins.navbar');
+        $username = Auth::user()->name;
+        return view('admins.navbar', ['username' => $username]);
     }
 
     public function searchRoom()

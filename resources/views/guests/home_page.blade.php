@@ -22,7 +22,7 @@
             </a>
         </div>
         <div class="images2">
-            <a href="{{ route('guests.checkReservation') }}" style="text-decoration: none;text-align: center;"><img src="{{ asset('images/guest_home_2.png') }}"  alt="hotel_bed" >
+            <a href="{{ route('guests.checkReservation', Auth::user()->id) }}" style="text-decoration: none;text-align: center;"><img src="{{ asset('images/guest_home_2.png') }}"  alt="hotel_bed" >
                 <div class="homeitem" >
                     <i class="fa-regular fa-square-check text-white " style="font-size: 80px;"></i>
                     <p class="text-white" style="font-size: 50px; font-family: 'Bona Nova'; ">Check Reservation</p>

@@ -77,7 +77,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <span class="hi-username d-block mt-2 me-5">Hi username!</span>
+                            <span class="hi-username d-block mt-2 me-5">Hi {{ Auth::user()->username }}!</span>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-bar-logout" href="{{ route('logout') }}"
