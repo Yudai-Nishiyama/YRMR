@@ -16,13 +16,15 @@ class Room extends Model
         return $this->belongsTo(RoomType::class, 'room_type_id');
     }
 
-<<<<<<< HEAD
-=======
     public function reservations()
     {
         return $this->hasMany(Reservation::class);
     }
->>>>>>> 670c76bd9dba901b949c0229d7e77223fb8b4558
+
+    public function cleanings()
+    {
+        return $this->hasManyThrough(Cleaning::class, Reservation::class);
+    }
 }
 
 

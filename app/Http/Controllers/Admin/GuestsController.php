@@ -11,7 +11,7 @@ class GuestsController extends Controller
 {
     public function guestReservationManagement()
     {
-    $reservations = Reservation::with(['user', 'room'])->get();
+    $reservations = Reservation::with(['user', 'room', 'cleaning'])->get();
     return view('admins.guests.guest_reservation_management', compact('reservations'));
 
     }
