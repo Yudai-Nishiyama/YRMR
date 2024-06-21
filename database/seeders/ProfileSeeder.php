@@ -14,7 +14,7 @@ class ProfileSeeder extends Seeder
     public function run(): void
     {
         Profile::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'first_name' => 'Jane',
             'last_name' => 'Doe',
             'phone_number' => '000-1234-5678',
